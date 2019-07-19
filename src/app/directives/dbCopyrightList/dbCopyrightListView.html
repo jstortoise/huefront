@@ -1,0 +1,29 @@
+<div class="db-copyright-list">
+	<table>
+		<thead>
+			<tr>
+				<th>Color</th>
+				<th>Serial number</th>
+				<th>Color name</th>
+				<th>Product name</th>
+				<th>US/Int'l</th>
+				<th>Date granted</th>
+				<th>Status</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in data">
+				<td><div ng-click="colorClick(item)" ng-style="::{'background-color': item.color.color.hex}"></div></td>
+				<td ng-bind="::item.serial_number"></td>
+				<td ng-bind="::item.color.title"></td>
+				<td ng-bind="::item.product"></td>
+				<td>{{::item.us_code}}/{{::item.int_code}}</td>
+				<td ng-bind="::item.issued_at"></td>
+				<td>{{::item.us_status}}/{{::item.int_status}}</td>
+				<td><a ng-click="selectItem(item)">see details</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<hue-db-copyright-list-expanded data="data" item-data="selectedItem" hide-view="hideExpandedView()" page-title="pageTitle" ng-if="isExpandedViewVisible()"></hue-db-copyright-list-expanded>

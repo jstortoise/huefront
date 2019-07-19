@@ -1,0 +1,104 @@
+<update-title title="Daily Insight"></update-title>
+<update-meta name="description" content="Color daily insight blog"></update-meta>
+<update-meta name="keywords" content="Color social media, color blog, color design blog, color insights, color daily insights"></update-meta>
+
+<section id="daily-insight" ng-if="$ctrl.emptyData">
+  <div class="container-fluid  text-left">
+    <div class="row ">
+      <div class="col-lg-12">
+        <h1 class="h1-daily"><strong style="color:black;">DAILY </strong>{{$ctrl.pageData.header}}
+        </h1>
+        <button ng-if="$ctrl.getUser()" class="btn-daily-join btn daily-btn join-btn" ng-click="$ctrl.gotoElement('prefooter')">JOIN</button>
+      </div>
+    </div>
+    <div class="dailyinsights"></div>
+
+    <div class="row " style="margin-bottom:50px;">
+      <div class="col-xs-6 col-sm-6  col-md-6 col-lg-6">
+        <h4 style="padding-top:0; margin-top:0">{{$ctrl.pageData.date}}</h4>
+      </div>
+      <div class="col-xs-6  col-sm-6  col-md-6 col-lg-6 social-icons">
+        <a href="https://www.linkedin.com/company/huedata/" target="_blank"><i class="fa fa-linkedin fa-2x"
+                                                                                aria-hidden="true"></i></a>
+        <a href="https://www.facebook.com/pg/Huedata-1287083448095980/" target="_blank"><i class="fa fa-facebook fa-2x"
+                                                                        aria-hidden="true"></i></a>
+        <a href="https://twitter.com/huedata1" target="_blank"><i class="fa fa-twitter fa-2x"
+                                                                  aria-hidden="true"></i></a>
+        <a href="https://www.instagram.com/huedata/" target="_blank"><i class="fa fa-instagram fa-2x"
+                                                                         aria-hidden="true"></i></a>
+        <a href="https://www.pinterest.com/huedatainc" target="_blank"><i class="fa fa-pinterest fa-2x"
+                                                                         aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="daily-insights-min-h" ng-if="$ctrl.emptyData">
+  <div class="container-fluid " style="border-bottom: solid 2px;
+    border-color: #bb0076;
+    padding-bottom: 50px;">
+    <div class="row">
+
+      <div class="col-lg-5 col-md-5" ng-bind-html="$ctrl.pageData.description">
+
+      </div>
+
+      <div class="col-lg-7 col-md-7 ">
+        <img ng-src="{{$ctrl.pageData.image_url || '../assets/images/insights.jpg'}}" class="img-responsive shadow "
+             style="width:100%" alt="Image">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section ng-init="$ctrl.init()" ng-if="!$ctrl.emptyData">
+  <div class="container-fluid  text-left">
+    <div class="row">
+      <div class="col-lg-6">
+        <h1 style="padding-bottom:0px; margin-top:0px; color:#bb0076"><strong style="color:black;">DAILY </strong>
+        </h1>
+      </div>
+    </div>
+    <div class="dailyinsights"></div>
+
+    <div class="row " style="margin-bottom:50px;">
+      <div class="col-lg-6">
+        <h4 style="padding-top:0px; margin-top:0px"><em>Nothing found. Please try later</em></h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section ng-if="$ctrl.emptyData">
+  <div class="container-fluid  text-left course">
+    <div class="row equal daily-list-min-h">
+      <a style="text-decoration: none; {{item.style}}" class="col-lg-4 col-md-6 col-sm-6 col-xs-12 item"
+         ng-repeat="item in $ctrl.items">
+        <div class="category {{item.hue}} text-center"><p>{{item.hue}}</p></div>
+        <div class="img-responsive background-image" ng-click="$ctrl.onGraphicClick(item)"
+             style="background: {{'url(' + item.image_url +') top center'}};
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    padding-bottom: 56%;
+                    background-color: #e1e1e126;
+                    cursor: pointer;"
+        >
+        </div>
+        <h5>{{item.header}}</h5>
+        <div class="justify">
+          <p class="three_line_height" style="display: block" data-ng-bind-html="item.description" data-ellipsis
+             data-ellipsis-symbol="... "
+             data-ellipsis-append="<a>Read more</a>"
+             data-ellipsis-append-click="$ctrl.toggleTextHeight"
+          ></p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="row" ng-if="!$ctrl.flag">
+    <div class="col-lg-12 text-center">
+      <div class="viewmore"><a ng-click="$ctrl.more()">view more</a></div>
+    </div>
+  </div>
+</section>

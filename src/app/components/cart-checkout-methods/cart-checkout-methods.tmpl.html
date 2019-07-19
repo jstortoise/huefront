@@ -1,0 +1,316 @@
+<update-title title="Checkout"></update-title>
+<update-meta name="description" content="HUEDATA checkout page"></update-meta>
+<update-meta name="keywords" content="Checkout, Checkout page, HUEDATA checkout"></update-meta>
+
+<section ng-init="$ctrl.init()">
+  <div class="container-fluid  text-center title">
+    <div class="row">
+      <div class="col-lg-4 col-md-12 col-lg-offset-4 cart-page-header">
+        <i style="display: inline-block" class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
+        &emsp;<h3 style="display: inline-block">MY CART</h3>
+        <!--<div class="line"></div>-->
+      </div>
+    </div>
+  </div>
+</section>
+<div class="purchase-body-min-h">
+  <section class="subtitle purchase-head-min-h" ng-show="$ctrl.loginFlag !== undefined">
+    <div class="container-fluid  ">
+      <div class="row">
+        <div class="col-lg-offset-1 col-lg-10 col-md-12">
+          <div class="method-1">
+            <h4 style="color: {{$ctrl.methodStyle[0]}}"><span>1. </span>CHECKOUT METHOD</h4>
+            <button ng-click="$ctrl.goToMethod(1)" ng-show="$ctrl.methodNumber !== 1 && !$ctrl.loginFlag"
+                    class="edit-btn">EDIT
+            </button>
+          </div>
+          <div ng-show="$ctrl.maxMethod >= 2" class="method-2">
+            <h4 style="color: {{$ctrl.methodStyle[1]}}"><span>2. </span>BILLING INFORMATION</h4>
+            <button ng-click="$ctrl.goToMethod(2)" ng-show="$ctrl.methodNumber !== 2" class="edit-btn">EDIT</button>
+          </div>
+          <div ng-show="$ctrl.maxMethod >= 3" class="method-3">
+            <h4 style="color: {{$ctrl.methodStyle[2]}}"><span>3. </span>PAYMENT INFORMATION</h4>
+            <button ng-click="$ctrl.goToMethod(3)" ng-show="$ctrl.methodNumber !== 3 && !!$ctrl.purchase.amount"
+                    class="edit-btn">EDIT
+            </button>
+          </div>
+          <div ng-show="$ctrl.maxMethod >= 4" class="method-4">
+            <h4 style="color: {{$ctrl.methodStyle[3]}}"><span>4. </span>ORDER REVIEW</h4>
+            <button ng-click="$ctrl.goToMethod(4)" ng-show="$ctrl.methodNumber !== 4" class="edit-btn">EDIT</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section ng-show="$ctrl.methodNumber === 1 && !$ctrl.loginFlag" class="check-out-method">
+    <div class="container-fluid  text-left">
+      <div class="row equal">
+        <div class="col-lg-offset-2 col-lg-4 col-md-6 login">
+          <h4>HUEDATA MEMBERS</h4>
+          <form>
+            <input ng-focus="$ctrl.error = false" style="{{$ctrl.error ? 'border-color:red;' : ''}}"
+                   ng-model="$ctrl.email" placeholder="EMAIL ADDRESS" name="email" id="email" type="text">
+            <input ng-focus="$ctrl.error = false" style="{{$ctrl.error ? 'border-color:red;' : ''}}"
+                   ng-model="$ctrl.password" placeholder="PASSWORD" name="password" id="password" type="password">
+            <div class="err">
+              <h4 ng-show="$ctrl.error">INVALID LOGIN OR PASSWORD</h4>
+            </div>
+            <div class="reset-password">
+              <a ng-click="$ctrl.passwordRecover()" class="reset-your-password pointer">RESET YOUR PASSWORD</a>
+            </div>
+            <div class="button login-btn">
+              <button ng-click="$ctrl.login()" class="btn">LOGIN</button>
+            </div>
+          </form>
+        </div>
+        <div class="col-lg-4 col-md-6 guest">
+          <h4>CHECKOUT AS GUEST</h4>
+          <div class="login-btn">
+            <button ng-click="$ctrl.continue()" class="btn">CONTINUE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section ng-show="$ctrl.methodNumber === 2" class="billing-information">
+    <div class="container-fluid  text-left">
+      <div class="row">
+        <div class="col-lg-offset-2 col-lg-4 col-md-6 col-sm-6 billing-1">
+          <div class="membr-block">
+            <input ng-model="$ctrl.data.first_name.value" ng-value="$ctrl.data.first_name.value" type="text"
+                   id="first_name" name="first_name"
+                   ng-class="'ng-dirty' && membership.first_name.$invalid ?  'error' :''">
+            <label for="first_name">FIRST NAME <span class="red-text">*</span></label>
+          </div>
+
+          <div class="membr-block">
+            <input ng-model="$ctrl.data.middle_name.value" ng-value="$ctrl.data.middle_name.value"
+                   type="text"
+                   id="middle_name"
+                   name="middle_name"
+                   ng-class="'ng-dirty' && membership.middle_name.$invalid ?  'error' :''">
+            <label for="middle_name">MIDDLE NAME/INITIAL</label>
+          </div>
+
+          <div class="membr-block">
+            <input ng-model="$ctrl.data.last_name.value" ng-value="$ctrl.data.last_name.value" type="text"
+                   id="last_name" name="last_name"
+                   ng-class="'ng-dirty' && membership.last_name.$invalid ?  'error' :''">
+            <label for="last_name">LAST NAME <span class="red-text">*</span></label>
+          </div>
+
+          <div class="membr-block">
+            <input ng-model="$ctrl.data.email.value" ng-value="$ctrl.data.email.value" type="text" id="billingEmail"
+                   name="email"
+                   ng-class="'ng-dirty' && membership.Email.$invalid ?  'error' :''">
+            <label for="billingEmail">EMAIL(WORK-RELATED) <span class="red-text">*</span></label>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 billing-2">
+          <div class="membr-block">
+            <input ng-model="$ctrl.data.address.value" ng-value="$ctrl.data.address.value" type="text"
+                   id="address" name="address"
+                   ng-class="'ng-dirty' && membership.address.$invalid ?  'error' :''">
+            <label for="address">ADDRESS <span class="red-text">*</span></label>
+          </div>
+
+          <div class="membr-block">
+            <input ng-model="$ctrl.data.second_address.value" ng-value="$ctrl.data.second_address.value"
+                   type="text"
+                   id="second_address"
+                   name="second_address"
+                   ng-class="'ng-dirty' && membership.second_address.$invalid ?  'error' :''">
+            <label for="second_address">SECOND ADDRESS</label>
+          </div>
+
+          <div class="membr-block">
+            <input ng-model="$ctrl.data.city.value" ng-value="$ctrl.data.city.value" type="text"
+                   id="city" name="city"
+                   ng-class="'ng-dirty' && membership.city.$invalid ?  'error' :''">
+            <label for="city">CITY <span class="red-text">*</span></label>
+          </div>
+
+          <div class="select-style select-mrg search-selector">
+            <ui-select ng-model="$ctrl.data.state.value" theme="selectize">
+              <ui-select-match placeholder="STATE/PROVINCE *">
+              <span style="{{($ctrl.data.state.value && $select.selected != $ctrl.states[0])? 'color: black' : ''}}"
+                    ng-bind-html="$select.selected || $ctrl.data.state.value"></span>
+              </ui-select-match>
+              <ui-select-choices repeat="state in getStates($select.search) | filter:$select.search">
+                <span ng-bind-html="state"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+
+          <div class="membr-block">
+            <input ng-model="$ctrl.data.zip.value" ng-value="$ctrl.data.zip.value"
+                   type="text"
+                   id="zip"
+                   name="zip"
+                   ng-class="'ng-dirty' && membership.zip.$invalid ?  'error' :''">
+            <label for="zip">ZIP <span class="red-text">*</span></label>
+          </div>
+
+          <div class="select-style select-mrg search-selector">
+            <ui-select ng-model="$ctrl.data.country.value" theme="selectize">
+              <ui-select-match placeholder="PLEASE SELECT COUNTRY *">
+              <span
+                style="{{($ctrl.data.country.value && $select.selected.title != $ctrl.country[0].title)? 'color: black' : ''}}"
+                ng-bind-html="$select.selected.title || $ctrl.data.country.value"></span>
+              </ui-select-match>
+              <ui-select-choices repeat="country in ($ctrl.country | sortFilter:$select.search)">
+                <span ng-bind-html="country.title"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+
+          <div class="membr-block">
+            <input ng-model="$ctrl.data.telephone.value" ng-value="$ctrl.data.telephone.value" type="text"
+                   id="telephone" name="telephone"
+                   ng-class="'ng-dirty' && membership.telephone.$invalid ?  'error' :''">
+            <label for="telephone">TELEPHONE <span class="red-text">*</span></label>
+          </div>
+
+          <div class="button login-btn">
+            <button ng-click="$ctrl.uploadBillingInfo()" class="btn">CONTINUE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section ng-show="$ctrl.methodNumber === 3" class="payment-information">
+    <div class="cart-checkout">
+      <div class="panel panel-default bootstrap-basic">
+        <div class="panel-heading">
+          <h3 class="panel-title">CREDIT CARD</h3>
+          <div id="paypal-button" class="paypal-btn" style="z-index: 1"></div>
+        </div>
+        <form class="panel-body">
+          <div class="row">
+            <div class="form-group col-sm-12">
+              <!--<label class="control-label">Card Number</label>-->
+              <!--  Hosted Fields div container -->
+              <div class="form-control" id="card-number"></div>
+              <span class="helper-text"></span>
+            </div>
+            <div class="form-group col-sm-12">
+              <div class="row payment-item-row">
+                <label class="control-label col-xs-12 payment-item">EXPIRATION DATE <span
+                  class="red-text">*</span></label>
+                <div class="col-xs-4 payment-item">
+                  <!--  Hosted Fields div container -->
+                  <div class="form-control" id="expiration-month"></div>
+                </div>
+                <div class="col-xs-4 payment-item">
+                  <!--  Hosted Fields div container -->
+                  <div class="form-control" id="expiration-year"></div>
+                </div>
+                <div class="col-xs-4 payment-item">
+                  <div class="form-control" id="cvv"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div ng-show="$ctrl.payError" class="error-message afade text-left">
+            {{$ctrl.payError}}
+          </div>
+          <button ng-disabled="$ctrl.payDataFlag" value="submit" id="submit"
+                  class="btn btn-success btn-lg center-block">CONTINUE
+          </button>
+          <button ng-click="$ctrl.stepBack()" class="btn white-btn">GO BACK</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <section ng-show="$ctrl.methodNumber === 4" class="products-cart order-review">
+    <div class="container-fluid  text-center title">
+      <div class="row">
+        <div class="col-lg-offset-1 col-lg-10 col-md-12 products-table ">
+          <table>
+            <tr class="product-row" ng-repeat="item in $ctrl.products">
+              <td class="product-img">
+                <img ng-src="{{item.image_url}}">
+              </td>
+              <td class="product-name">
+                <h4>{{item.header}}</h4>
+                <div ng-show="$ctrl.methodNumber === 4" class="justify margin-zero-p">
+                  <p ng-show="$ctrl.methodNumber === 4" class="four_line_height" style="display: block"
+                     data-ng-bind-html="item.description"
+                     data-ellipsis
+                     data-ellipsis-symbol="... "
+                     data-ellipsis-append="<a>Read more</a>"
+                     data-ellipsis-append-click="$ctrl.toggleTextHeight"
+                  ></p>
+                </div>
+              </td>
+              <td class="product-count">
+                <!--<input type="text" pattern="[0-9]" onchange="editCount(item.id, this)" value="{{item.count}}">-->
+                <h4 style="display: inline-block">{{item.count}}</h4>
+                <!--<div ng-click="$ctrl.editCount(item.id, $index, item.type, -1)" class="icon pointer" style="display: inline-block">-->
+                <!--<i class="fa fa-minus fa-1x pointer"-->
+                <!--aria-hidden="true"></i>-->
+                <!--</div>-->
+                <!--<div ng-click="$ctrl.editCount(item.id, $index, item.type, 1)" class="icon pointer" style="display: inline-block">-->
+                <!--<i class="fa fa-plus fa-1x pointer"-->
+                <!--aria-hidden="true"></i>-->
+                <!--</div>-->
+              </td>
+              <td class="product-prise">
+                <h4>{{(item.price === 0) ? 'Free' : '&#36;' + item.price}}</h4>
+              </td>
+              <td class="price-for-all">
+                <h4>{{(item.price === 0 && item.count > 0) ? 'Free' : '&#36;' + (item.price * item.count)}}</h4>
+              </td>
+            </tr>
+          </table>
+          <div class="err-massage">
+            <h4 ng-show="$ctrl.errFlag">We are unable to process your payment at this time. Please provide an alternate
+              method to payment.</h4>
+          </div>
+        </div>
+        <div class="col-sm-4 col-xs-4 ">
+        </div>
+        <div class="col-sm-offset-4 col-lg-3 col-sm-4 col-xs-8 text-right">
+          <table class="table-prise">
+            <tr>
+              <td>
+                <div ng-show="$ctrl.products.length" class="subtotal subtotal-text tax">
+                  <h4>TAX*</h4>
+                  <span><strong>SALES TAX - HUE-DATA.COM</strong><br>
+                    <strong>Effect of the Internet Tax Freedom Act</strong><br>
+                        Companies selling over the Internet are subject to the
+                    same sales tax collection requirements as any other retailers.
+                    Remote sellers (including Internet retailers and catalog companies) are generally
+                    required to collect taxes where they have a physical selling presence.
+                    If they do not have any such presence, they are not required to collect sales taxes.</span>
+                </div>
+              </td>
+              <td>
+                <div ng-show="$ctrl.products.length" class="subtotal subtotal-prise">
+                  <h4><span>{{'&#36;' + $ctrl.tax}}</span></h4>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div ng-show="$ctrl.products.length" class="total total-text">
+                  <h4>TOTAL:</h4>
+                </div>
+              </td>
+              <td>
+                <div ng-show="$ctrl.products.length" class="total total-prise">
+                  <h4><span>{{($ctrl.all === 0) ? 'Free' : '&#36;' + ($ctrl.all + $ctrl.tax)}}</span></h4>
+                </div>
+              </td>
+            </tr>
+          </table>
+          <div class="checkout-button" ng-show="$ctrl.products.length" ng-click="$ctrl.goCheckout()">
+            <button ng-disabled="$ctrl.placeOrderFlag" ng-click="$ctrl.goToThank()" style="margin-top: 0" class="btn">
+              PLACE ORDER
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

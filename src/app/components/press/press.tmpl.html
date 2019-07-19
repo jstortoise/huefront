@@ -1,0 +1,104 @@
+<update-title title="Request content AND HUEDATA Media Mentions"></update-title>
+<update-meta name="description" content="Press Inquiries about HUEDATA"></update-meta>
+<update-meta name="keywords" content="Color media, Color news, Color of the year, Best Colors for the season, New colors,
+color innovation, color in the news"></update-meta>
+
+<div class="press-page-wrapper">
+  <div class="container-fluid header text-center press-header">
+    <div class="text-header">
+      <h1>Press</h1>
+      <h2>HUEDATA is a member-based Color Intelligence Company</h2>
+
+      <div class="col-lg-12 col-md-12 text-center buttons-group">
+        <div class="clearfix" style="display: inline-block; margin-top: 30px">
+          <div class="button membership white" ng-if="$ctrl.pageData.file">
+            <a class="btn white-btn" target="_self" href="{{$ctrl.pageData.file.image_url}}" download="foo.pdf">Download Brand Assets</a>
+          </div>
+          <div class="button membership m-r-10">
+            <button class="btn" ui-sref="membership({scrollTo: true})" ng-click="$ctrl.scroll()">Learn more</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="from-container" ng-init="$ctrl.init()">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-4 col-md-4">
+          <h3 class="padding-bottom-20">Request content</h3>
+          <p  class="padding-bottom-20">Selected research reports are available to members
+            of the media to support the development of color news stories.</p>
+          <p  class="padding-bottom-20">Please complete to following form for your request. </p>
+          <p>HUEDATA empowers brands with the data and insights to benchmark
+            their color performance relative to competitors, inspire
+            and rationalize color design decisions, and optimize
+            the impact of their color strategy over time.</p>
+        </div>
+        <form name="press">
+          <div class="col-lg-4 col-md-4 press-form form membership-form">
+            <div class="form-item">
+              <input ng-model="$ctrl.data.firstName.value" ng-value="$ctrl.data.firstName.value" type="text" id="firstName" name="firstName"
+                     ng-class="'ng-dirty' && press.firstName.$invalid ?  'error' :''" required>
+              <label for="firstName">FIRST NAME <span class="red-text">*</span></label>
+            </div>
+            <div class="form-item">
+              <input ng-model="$ctrl.data.lastName.value" ng-value="$ctrl.data.lastName.value" type="text" id="lastName" name="lastName"
+                     ng-class="'ng-dirty' && press.lastName.$invalid ?  'error' :''" required>
+              <label for="lastName">LAST NAME <span class="red-text">*</span></label>
+            </div>
+            <div class="form-item">
+              <input ng-model="$ctrl.data.email.value" ng-value="$ctrl.data.email.value" type="text" id="email" name="email"
+                     ng-class="'ng-dirty' && press.email.$invalid ?  'error' :''" required>
+              <label for="email">EMAIL <span class="red-text">*</span></label>
+            </div>
+            <div class="form-item">
+              <input ng-model="$ctrl.data.company.value" ng-value="$ctrl.data.company.value" type="text" id="company" name="company"
+                     ng-class="'ng-dirty' && press.company.$invalid ?  'error' :''" required>
+              <label for="company">COMPANY <span class="red-text">*</span></label>
+            </div>
+            <div class="form-item">
+            <textarea ng-value="$ctrl.data.message.value" name="message" id="message" ng-model="$ctrl.data.message.value"
+                      ng-class="'ng-dirty' && press.message.$invalid ?  'error' :''" required></textarea>
+              <label for="message" style="top: 6%">MESSAGE <span class="red-text">*</span></label>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-4 membership-form">
+            <div>
+              <p>Looking for specific research? Select below:</p>
+              <div class="select-style">
+                <select ng-model="$ctrl.data.research.value" name="research"
+                        ng-class="'ng-dirty' && press.email.$invalid ?  'error' :''" required>
+                  <option value="-">SEARCH RESEARCH REPORT</option>
+                  <option ng-repeat="report in $ctrl.pageData.reports" value="{{report.data.header}}">{{report.data.header}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="button text-right">
+              <button class="btn" ng-click="$ctrl.press()">SUBMIT REQUEST</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="press-page-bottom-list">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <h3>HUEDATA Media Mentions</h3>
+
+          <div class="list-item" ng-repeat="item in $ctrl.pageData.data">
+            <div>
+              <span class="list-category">{{item.data.publication}}</span>
+              <span class="list-date">{{$ctrl.makeDate(item)}}</span>
+            </div>
+              <a href="{{item.data.url}}" class="list-text link-for-list-items" target="_blank">{{item.data.header}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

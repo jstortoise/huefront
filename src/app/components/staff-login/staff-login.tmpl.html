@@ -1,0 +1,46 @@
+<update-title title="Staff Login"></update-title>
+<update-meta name="description" content="HUEDATA Staff Login"></update-meta>
+<update-meta name="keywords" content="HUEDATA staff, staff login, login"></update-meta>
+
+<div class="login-page">
+  <div class="container-fluid text-center">
+    <h3>Staff Login</h3>
+    <div class="line"></div>
+  </div>
+
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="login-container text-center">
+          <div ng-show="$ctrl.error" class="error-message-staff afade text-left">
+            <span>ERROR: </span><a>The username or password you entered is incorrect</a>
+          </div>
+          <a href="" id="ign_in">
+            <div class="google-auth-button">LOGIN WITH GOOGLE</div>
+          </a>
+          <p><b>OR</b></p>
+
+          <form>
+            <input ng-focus="$ctrl.error = false" ng-model="$ctrl.email" placeholder="EMAIL ADDRESS" name="email"
+                   id="email" type="text">
+            <input ng-focus="$ctrl.error = false" ng-model="$ctrl.password" placeholder="PASSWORD" name="password"
+                   id="password" type="password">
+            <div class="remember-checkbox">
+              <p>
+                <input type="checkbox" id="rememberMe" ng-model="$ctrl.isRemembered"/>
+                <label for="rememberMe">Remember Me</label>
+              </p>
+            </div>
+            <div class="button login-btn">
+              <button ng-click="$ctrl.login()" class="btn">STAFF LOGIN</button>
+            </div>
+          </form>
+
+          <div class="additional-links text-left">
+            <a ng-href="#!/recover">Forgot your password</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,64 @@
+hue-trial-expired-message {
+  transition: all 200ms ease-out;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  -ms-transition: all 200ms ease-out;
+
+  &.ng-enter, &.ng-leave.ng-leave-active {
+    opacity: 0;
+  }
+
+  &.ng-leave, &.ng-enter.ng-enter-active {
+    opacity: 1;
+  }
+}
+
+.trial-expired-message {
+  position: fixed;
+  top: 50px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100000;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  .message-box {
+    width: 500px;
+    height: 140px;
+    padding-top: 20px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #fff;
+
+    p {
+      font-size: 16px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .button-container {
+      width: 100%;
+      text-align: center;
+
+      button {
+        background: #fff;
+        display: inline-block;
+        border: 2px solid #000;
+        color: #000;
+        cursor: pointer;
+        font-family: "Gotham SSm A";
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        line-height: 13px;
+        margin: 0 15px;
+        padding: 10px 24px;
+      }
+    }
+  }
+}

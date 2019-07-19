@@ -1,0 +1,201 @@
+<update-title title="Login"></update-title>
+<update-meta name="description" content="HUEDATA login page"></update-meta>
+<update-meta name="keywords" content="HUEDATA, login, login page"></update-meta>
+
+<div class="row">
+	<div class="container-fluid text-center">
+		<h3>My Account</h3>
+		<div class="line"></div>
+	</div>
+</div>
+
+<div class="login-page">
+	<div class="row">
+		<!-- Login Form -->
+		<div class="col cols-6 col-lg-3 col-md-4 col-sm">
+			<div class="login-container">
+				<h4>LOG IN</h4>
+				<form>
+					<div ng-show="$ctrl.error" class="error-message afade text-left">
+						<span>ERROR: </span><a>The username or password you entered is incorrect</a>
+					</div>
+					<div class="form-group">
+						<label for="">EMAIL ADDRESS</label>
+						<input type="text" id="email" name="email" class="form-control" ng-focus="$ctrl.error = false" ng-model="$ctrl.email" placeholder="Email">
+					</div>
+					<div class="form-group">
+						<label for="">PASSWORD</label>
+						<input type="password" id="password" name="password" class="form-control" ng-focus="$ctrl.error = false" ng-model="$ctrl.password" placeholder="Password">
+					</div>
+					<div class="form-group checkbox">
+						<input type="checkbox" id="rememberMe" class="form-control" ng-model="$ctrl.isRemembered">
+						<label for="rememberMe">Remember Me</label>
+					</div>
+					<div class="form-group">
+						<button ng-click="$ctrl.login()" class="btn btn-primary">ENTER</button>
+					</div>
+					<div class="form-group text-center">
+						<span>OR</span>
+					</div>
+					<div class="form-group">
+						<button ng-click="" class="btn btn-secondary">LOGIN WITH FACEBOOK</button>
+					</div>
+				</form>
+
+				<div class="forgot-password">
+					<a ng-href="#!/recover">FORGOT YOUR PASSWORD</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col cols-6 col-lg-3 col-md-4 col-sm">
+			<div class="register-container">
+				<h4>JOIN</h4>
+				<form>
+					<div class="form-group form-error">
+						<p ng-show="$ctrl.reg_error" class="error-text">
+							<i class="fa fa-warning"></i>PLEASE CORRECT THE ERRORS BELOW <i class="fa fa-close"></i>
+						</p>
+						<div class="clear"></div>
+					</div>
+					
+					<div class="form-group radio-group">
+						<div class="radio-control">
+							<input type="radio" id="toasts_mr" name="toasts" ng-model="$ctrl.registry.sex.value" value="MR" checked>
+							<label for="toasts_mr">MR</label>
+						</div>
+
+						<div class="radio-control">
+							<input type="radio" id="toasts_ms" name="toasts" ng-model="$ctrl.registry.sex.value" value="MS">
+							<label for="toasts_ms">MS</label>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="">NAME<span class="required">*</span></label>
+						<div class="input-required">
+							<input type="text" ng-model="$ctrl.registry.first_name.value"  ng-class="($ctrl.registry.first_name.$error && !$ctrl.registry.first_name.value) ? 'form-control error-input' : 'form-control'" placeholder="{{$ctrl.registry.last_name.$error_msg}}">
+							<i class="fa fa-warning error_warning" ng-show="$ctrl.registry.first_name.$error && !$ctrl.registry.first_name.value"></i>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="">SURNAME<span class="required">*</span></label>
+						<div class="input-required">
+							<input type="text" ng-model="$ctrl.registry.last_name.value" ng-class="($ctrl.registry.last_name.$error && !$ctrl.registry.last_name.value) ? 'form-control error-input' : 'form-control'" placeholder="{{$ctrl.registry.last_name.$error_msg}}">
+							<i class="fa fa-warning error_warning" ng-show="$ctrl.registry.last_name.$error && !$ctrl.registry.last_name.value"></i>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="">COUNTRY</label>
+						<ui-select ng-model="$ctrl.registry.country.value" theme="selectize" search-enabled="false">
+							<ui-select-match ng-bind-html="$select.selected.title">
+							</ui-select-match>
+							<ui-select-choices repeat="cntry in $ctrl.countries">
+								<span ng-bind-html="cntry.title"></span>
+							</ui-select-choices>
+						</ui-select>
+					</div>
+					
+					<div class="form-group">
+						<label for="">JOB TITLE</label>
+						<ui-select ng-model="$ctrl.registry.job_function.value" theme="selectize" search-enabled="false">
+							<ui-select-match ng-bind-html="$select.selected.title">
+							</ui-select-match>
+							<ui-select-choices repeat="job in $ctrl.jobs">
+								<span ng-bind-html="job.title"></span>
+							</ui-select-choices>
+						</ui-select>
+					</div>
+					
+					<div class="form-group">
+						<label for="">EMAIL<span class="required">*</span></label>
+						<div class="input-required">
+							<input type="email" ng-model="$ctrl.registry.email.value" ng-class="($ctrl.registry.email.$error && !$ctrl.registry.email.value) ? 'form-control error-input' : 'form-control'" placeholder="{{$ctrl.registry.email.$error_msg}}">
+							<i class="fa fa-warning error_warning" ng-show="$ctrl.registry.email.$error && !$ctrl.registry.email.value"></i>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="">PASSWORD<span class="required">*</span></label>
+						<div class="input-required">
+							<input type="password" ng-model="$ctrl.registry.password.value" ng-class="($ctrl.registry.password.$error && !$ctrl.registry.password.value) ? 'form-control error-input' : 'form-control'" placeholder="{{$ctrl.registry.password.$error_msg}}">
+							<i class="fa fa-warning error_warning" ng-show="$ctrl.registry.password.$error && !$ctrl.registry.password.value"></i>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="">PASSWORD CONFIRMATION<span class="required">*</span></label>
+						<div class="input-required">
+							<input type="password" ng-model="$ctrl.registry.repassword.value" ng-class="($ctrl.registry.repassword.$error && !$ctrl.registry.repassword.value) ? 'form-control error-input' : 'form-control'" placeholder="{{$ctrl.registry.repassword.$error_msg}}">
+							<i class="fa fa-warning error_warning" ng-show="$ctrl.registry.repassword.$error && !$ctrl.registry.repassword.value"></i>
+						</div>
+					</div>
+					
+					<div class="form-group form-error">
+						<p class="error-text" ng-show="$ctrl.registry.read.$error || $ctrl.registry.accept.$error || $ctrl.registry.ticking.$error">
+							<i class="fa fa-warning"></i>YOU MUST READ AND ACCEPT THE CONDITIONS <i class="fa fa-close"></i>
+						</p>
+						<div class="clear"></div>
+					</div>
+
+					<div class="form-group checkbox">
+						<div class="check-required">
+							<input type="checkbox" id="read" class="form-control" ng-model="$ctrl.registry.read.value">
+							<label for="read" ng-class="$ctrl.registry.read.$error ? 'error-text' : ''">
+								I HAVE READ AND ACCEPT THE CONDITIONS
+								<br>
+								<span class="error-condition">READ THE CONDITIONS</span>
+								<i class="fa fa-warning error_warning" ng-show="$ctrl.registry.read.$error"></i>
+							</label>
+						</div>
+					</div>
+
+					<div class="form-group checkbox">
+						<div class="check-required">
+							<input type="checkbox" id="accept" class="form-control" ng-model="$ctrl.registry.accept.value">
+							<label for="accept" ng-class="$ctrl.registry.accept.$error ? 'error-text' : ''">
+								I ACCEPT TO RECEIVE FASHION SURVEYS FROM TAGWALK
+								<i class="fa fa-warning error_warning" ng-show="$ctrl.registry.accept.$error"></i>
+							</label>
+						</div>
+					</div>
+
+					<div class="form-group checkbox">
+						<div class="check-required">
+							<input type="checkbox" id="ticking" class="form-control" ng-model="$ctrl.registry.ticking.value">
+							<label for="ticking" ng-class="$ctrl.registry.ticking.$error ? 'error-text' : ''">
+								BY TICKING THIS BOX,I ACCEPT TO REVEIVE TAGWALK NEWSLETTER
+								<i class="fa fa-warning error_warning" ng-show="$ctrl.registry.ticking.$error"></i>
+							</label>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div
+							vc-recaptcha
+							theme="'light'"
+							key="$ctrl.model.key"
+							on-create="$ctrl.setWidgetId(widgetId)"
+							on-success="$ctrl.setResponse(response)"
+							on-expire="$ctrl.cbExpiration()"
+							class="google-recaptcha"
+						></div>
+					</div>
+					<div class="form-group" style="margin-top: 10px;text-align: center;">
+						<button class="btn btn-primary" ng-click="$ctrl.register()">SIGNUP</button>
+					</div>
+					
+					<div class="form-group text-center">
+						<span>OR</span>
+					</div>
+
+					<div class="form-group">
+						<button class="btn btn-secondary">SINGUP WITH FACEBOOK</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

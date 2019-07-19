@@ -1,0 +1,138 @@
+<update-title title="The Color Naming Index"></update-title>
+<!--<update-meta name="description" content="color index, color decision tools, color analysis tools"></update-meta>-->
+<!--<update-meta name="keywords" content="Color Emotion Connections index, color emotions, color emotion theory,-->
+<!--color and emotion research, color emotion associations, Color Celebrity index, Color Naming index, Color Names Index,-->
+<!--Color Preference Index, Global Colors index, Color in Soccer index, Color Twits Index, color dictionary, Color social media"></update-meta>-->
+
+<h4 class="text-left membership-product">HUEDATA MEMBERSHIP PRODUCT</h4>
+<section id="color-emotion-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <h3 class="color-ind">Color Indices - AVAILABLE FALL 2018</h3>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 buttons-group title-color-index-block">
+                <div class="title-color-index">The Color Naming Index</div>
+                <div class="button membership">
+                    <button class="btn white-btn" ui-sref="productInquiry">PRODUCT INQUIRY</button>
+                </div>
+                <div class="line"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-color-picker-block">
+    <div class="container-fluid">
+        <div class="row">
+            <div ng-controller="AccordionCtrl">
+                <uib-accordion close-others="oneAtATime">
+                    <div uib-accordion-group class="color-index-accordion-title">
+                        <uib-accordion-heading>
+                            {{$ctrl.colorAssociationNames.length}} COLOR ASSOCIATION NAMES <i class="pull-right glyphicon"></i>
+                        </uib-accordion-heading>
+                        <div class="color-index-accordion-item" ng-if="$ctrl.colorAssociationNames">
+                            <ul class="selectPerPage">
+                                <button ng-click="showSelect()" class="selectPerPage__btn">{{pageSize}}</button>
+                                <ul class="selectPerPage__list">
+                                    <li class="selectPerPage__item">
+                                        <label for="num-80" ng-click="showSelect()">80</label>
+                                        <input type="radio" id="num-80" name="pageSize" checked ng-model="pageSize" ng-value="80">
+                                    </li>
+                                    <li class="selectPerPage__item">
+                                        <label for="num-160" ng-click="showSelect()">160</label>
+                                        <input type="radio" id="num-160" name="pageSize" ng-model="pageSize" ng-value="160">
+                                    </li>
+                                    <li class="selectPerPage__item">
+                                        <label for="num-320" ng-click="showSelect()">320</label>
+                                        <input type="radio" id="num-320" name="pageSize" ng-model="pageSize" ng-value="320">
+                                    </li>
+                                    <li class="selectPerPage__item">
+                                        <label for="string-all" ng-click="showSelect()">ALL</label>
+                                        <input type="radio" id="string-all" name="pageSize" ng-model="pageSize" ng-value="'ALL'">
+                                    </li>
+                                </ul>
+                            </ul>
+                            <ul>
+                                <div class="color-index-accordion-item color-index-accordion-item__last-line" >
+                                    <div class='checkboxes-accordion' ng-repeat="color in $ctrl.colorAssociationNames | limitTo:pageSize ">
+                                        <div class="checkbox-accordion-item">
+                                            <label class="title-checkbox-accordion"></label>
+                                            <input type="checkbox" class="option-input checkbox"
+                                                   style="background: rgb({{color.RGB}});"/>
+                                            <span class="checkbox-accordion_text">{{color.colorName}}</span>
+                                            <div class="checkbox-accordion-tooltip">
+                                                <span class="checkbox-accordion-tooltip_text">{{color.colorName}}</span>
+                                                <div class="checkbox-accordion-tooltip_triangle-with-shadow"></div>
+                                            </div>
+                                            <!--<span class="checkbox-accordion_small_text">{{color.RGB}}</span>-->
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="color-index-accordion-item" ng-if="$ctrl.colorAssociationNames == undefined || $ctrl.colorAssociationNames.length == 0">Not found</div>
+                    </div>
+                    <div uib-accordion-group class="color-index-accordion-title">
+                        <uib-accordion-heading>
+                            {{$ctrl.paintColorNames.length}} PAINT COLOR NAMES
+                            <i class="pull-right glyphicon"></i>
+                        </uib-accordion-heading>
+                        <div class="color-index-accordion-items">
+                            <ul>
+                            <div class="color-index-accordion-item color-index-accordion-item__last-line" ng-if="$ctrl.paintColorNames !== 0">
+                                <div class='checkboxes-accordion' ng-repeat="color in $ctrl.paintColorNames ">
+                                    <div class="checkbox-accordion-item">
+                                        <label class="title-checkbox-accordion"></label>
+                                        <input type="checkbox" class="option-input checkbox"
+                                               style="background: rgb({{color.RGB}});"/>
+                                        <span class="checkbox-accordion_text checkbox-accordion_text__paint_name">{{color.colorName}}</span>
+                                        <div class="checkbox-accordion-tooltip">
+                                                <span class="checkbox-accordion-tooltip_text">{{color.colorName}}</span>
+                                                <div class="checkbox-accordion-tooltip_triangle-with-shadow"></div>
+                                        </div>
+                                        <span class="checkbox-accordion_small_text">{{color.RGB}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            </ul>
+                                <div class="color-index-accordion-item" ng-if="$ctrl.paintColorNames == undefined || $ctrl.paintColorNames == 0">Not found</div>
+                        </div>
+                    </div>
+                    <div uib-accordion-group class="color-index-accordion-title">
+                        <uib-accordion-heading>
+                            COLOURLOVERS COLOR NAMES <i class="pull-right glyphicon"></i>
+                        </uib-accordion-heading>
+                        <div class="color-index-accordion-item">
+                            Not found
+                        </div>
+                    </div>
+                    <div ng-if="$ctrl.searchColorName === undefined" uib-accordion-group class="color-index-accordion-title">
+                        <uib-accordion-heading>
+                            COLOR MOSAIC FOR (COLOR NAME) <i class="pull-right glyphicon"></i>
+                        </uib-accordion-heading>
+                        <div class="color-index-accordion-item">
+                        </div>
+                    </div>
+                    <div ng-if="$ctrl.searchColorName" uib-accordion-group class="color-index-accordion-title">
+                        <uib-accordion-heading>
+                            COLOR WORD CLOUD <i class="pull-right glyphicon"></i>
+                        </uib-accordion-heading>
+                        <div class="color-index-accordion-item" ng-if="$ctrl.colorAssociationNames.length !== 0">
+                            <div id="chart"></div>
+                        </div>
+                        <div class="color-index-accordion-item" ng-if="$ctrl.colorAssociationNames == undefined || $ctrl.colorAssociationNames.length == 0">Not found</div>
+                    </div>
+                </uib-accordion>
+            <div class="container">
+                <div class="row">
+                    <div class="button accordion-button">
+                        <a class="btn join-btn" ui-sref='colorIndex'>NEW SEARCH</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

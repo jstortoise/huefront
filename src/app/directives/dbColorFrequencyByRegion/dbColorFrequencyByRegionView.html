@@ -1,0 +1,13 @@
+<div class="db-color-frequency-by-region">
+  <div class="bar-group" ng-repeat="regionItem in data" ng-if="regionItem.colors.length > 0">
+    <div class="bar-title">{{regionItem.region}}</div>
+    <div class="bar-container">
+      <div class="bar-section" ng-repeat="item in regionItem.colors"
+           ng-style="{width: item.percentage + '%', 'background-color': item.color.hex}"
+           ng-attr-title="{{item.percentage.toFixed(2) + '% ' + item.title}}" ng-click="selectBar($event)"
+           hue-tooltipster="tooltipsterConfig">
+        <div class="bottom-line"></div>
+      </div>
+    </div>
+  </div>
+</div>

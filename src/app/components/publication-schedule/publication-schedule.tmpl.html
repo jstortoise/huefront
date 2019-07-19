@@ -1,0 +1,28 @@
+<update-title title="Publication Schedule"></update-title>
+<update-meta name="description" content="HUEDATA publications by quarter"></update-meta>
+<update-meta name="keywords" content="Color forecasting reports, Color Analytics, Color Data, Color insights"></update-meta>
+
+<section>
+  <div class="container-fluid  text-center title" ng-init="$ctrl.init()">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2"><h3>Publication Schedule</h3>
+        <div class="line"></div>
+      </div>
+      <div class="col-lg-2">
+        <div class="button membership">
+          <button ng-if="$ctrl.getUser()" class="btn join-btn" ng-click="$ctrl.gotoElement('prefooter')">JOIN</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <div class="container-fluid  text-center schedule schedule-min-h">
+    <div class="row equal">
+      <div class="col-lg-6 col-md-6" ng-repeat="item in $ctrl.result">
+        <h3 class="pad-t-13"><b style="color:#bb0076">Q{{item.q}}</b> {{item.year}}</h3>
+        <div style="padding-bottom: 13px" ng-bind-html="item.list">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

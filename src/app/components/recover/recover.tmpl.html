@@ -1,0 +1,42 @@
+<update-title title="Recover Password Request"></update-title>
+<update-meta name="description" content="Recover Password Request"></update-meta>
+<update-meta name="keywords" content="Recover password, recover request"></update-meta>
+
+<div class="login-page">
+  <section>
+    <div class="container-fluid text-center title">
+      <div class="row">
+        <div class="col-lg-12">
+          <h3>Recover the Password to Your HUEDATA Account</h3>
+          <div class="line"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="success afade text-center" ng-show="$ctrl.successRequest">
+          <div class="col-lg-12">
+            <b class="black-text">A password recovery link has been sent to Your email</b>
+          </div>
+        </div>
+
+        <div class="login-container text-center">
+          <div ng-hide="$ctrl.successRequest">
+            <div ng-show="$ctrl.error" class="error-message afade text-left">
+              <span>ERROR: </span>{{$ctrl.error}}
+            </div>
+            <input type="text" ng-focus="$ctrl.error = false" ng-model="$ctrl.email" name="email" placeholder="ENTER YOUR EMAIL ADDRESS">
+          </div>
+          <div class="login-btn" style="padding: 30px 0 40px; text-align: center">
+            <button ng-click="$ctrl.onSendLoginClick()" class="btn" style="padding: 15px 50px;">
+              {{$ctrl.successRequest ? 'LOGIN' : 'SEND'}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

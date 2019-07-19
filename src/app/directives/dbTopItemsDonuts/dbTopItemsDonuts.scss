@@ -1,0 +1,56 @@
+.db-top-items-donuts {
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+
+	.item-container {
+		height: 100px;
+		text-align: left;
+		display: inline-block;
+		margin-right: 20px;
+		position: relative;
+		cursor: pointer;
+
+		.item-chart {
+			width: 100px;
+			height: 100%;
+			display: inline-block;
+		}
+
+		.item-value {
+			font-family: 'Oswald';
+			font-size: 24px;
+			text-transform: uppercase;
+			position: absolute;
+			width: 100px;
+			top: 0;
+			left: 0;
+			text-align: center;
+			line-height: 100px;
+
+			.value-unit {
+				font-family: "Gotham SSm A";
+				font-size: 16px;
+			}
+		}
+
+		.item-caption {
+			display: inline-block;
+			font-family: 'Oswald';
+			font-size: 14px;
+			text-transform: uppercase;
+			vertical-align: top;
+			line-height: 100px;
+			width: 150px;
+			height: 100px;
+			overflow: hidden;
+
+
+			span {
+				line-height: normal;
+				vertical-align: middle;
+				display: inline-block;
+			}
+		}
+	}
+}

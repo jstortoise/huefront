@@ -1,0 +1,20 @@
+<div class="dashboard-row dashboard-header" ng-class="{'with-icon': icon}" ng-style="{height: getHeaderHeight()}">
+	<div class="header-icon" ng-click="iconClick()" ng-class="{'cell-clickable': isIconClickable()}" ng-if="icon">
+		<div class="cell-subcontainer" ng-if="icon">
+			<div class="cell-content" ng-switch="iconType">
+				<div class="color-sample" ng-style="{'background-color': icon}" ng-switch-when="color"></div>
+				<hue-svg source="{{icon}}" ng-switch-when="svg"></hue-svg>
+				<img ng-src="{{icon}}" ng-switch-when="img" />
+			</div>
+		</div>
+	</div>
+	<div class="header-title">
+		<div class="cell-subcontainer">
+			<div class="cell-content">
+				<span class="cell-title" ng-bind="title"></span><br /><span class="cell-subtitle"
+					ng-bind="subtitle"></span>
+			</div>
+		</div>
+	</div>
+	<div class="header-page-info"></div>
+</div>

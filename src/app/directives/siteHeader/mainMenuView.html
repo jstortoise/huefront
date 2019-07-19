@@ -1,0 +1,163 @@
+<div class="top-menu menu-main" ng-show="show">
+  <ul class="menu-tabs disable-text-selection">
+    <li ng-class="{active: isTabActive(0)}" ng-click="setTab(0)">
+      <div class="tab-title"><img src="assets/img/icons/menu/huemenu.svg"/> Menu</div>
+    </li>
+    <li ng-class="{active: isTabActive(1)}" ng-click="setTab(1)">
+      <div class="tab-title"><img src="assets/img/icons/menu/open.svg"/> Open</div>
+    </li>
+    <li ng-class="{active: isTabActive(2)}" ng-click="setTab(2)">
+      <div class="tab-title"><img src="assets/img/icons/menu/folder.svg"/> Save</div>
+    </li>
+    <li ng-class="{active: isTabActive(3)}" ng-click="setTab(3)">
+      <div class="tab-title"><img src="assets/img/icons/menu/export.svg"/> Export</div>
+    </li>
+    <li ng-class="{active: isTabActive(4)}" ng-click="setTab(4)">
+      <div class="tab-title"><img src="assets/img/icons/menu/account.svg"/> Account</div>
+    </li>
+    <li ng-class="{active: isTabActive(5)}" ng-click="setTab(5)">
+      <div class="tab-title">Preferences</div>
+    </li>
+  </ul>
+
+  <div class="menu-tab" ng-show="isTabActive(0)">
+    <hue-products-menu></hue-products-menu>
+  </div>
+
+  <div class="menu-tab project-menu tab-open" ng-show="isTabActive(1)">
+    <div ng-if="!isUserDeveloper()">
+      <div class="login-message">Coming soon</div>
+    </div>
+
+    <div ng-if="isUserDeveloper()">
+      <ul class="open-project-list">
+        <li>
+          <a ng-click="openTab.expandProject(10000)">
+            <img src="assets/img/icons/menu/folder.svg" ng-show="!openTab.isProjectExpanded(10000)"/>
+            <img src="assets/img/icons/menu/smallOpenFolder.svg" ng-show="openTab.isProjectExpanded(10000)"/>
+            Images
+          </a>
+          <ul class="open-board-list" ng-show="openTab.isProjectExpanded(10000)">
+            <li ng-repeat="image in openTab.images">
+              <a><img src="assets/img/icons/menu/board.svg"/> {{image.title}}</a>
+              <span class="list-icons">
+								<i class="fa fa-share" title="Open this Image" ng-click="openTab.openImage($index)"></i>
+								<i class="fa fa-times" title="Delete this Image" ng-click="openTab.deleteImage($index)"></i>
+							</span>
+            </li>
+          </ul>
+        </li>
+        <li ng-repeat="projectItem in projects">
+          <a ng-click="openTab.expandProject($index)"><img src="assets/img/icons/menu/folder.svg"
+                                                           ng-show="!openTab.isProjectExpanded($index)"/><img
+            src="assets/img/icons/menu/smallOpenFolder.svg" ng-show="openTab.isProjectExpanded($index)"/>
+            {{projectItem.title}}</a> <span class="list-icons"><i class="fa fa-times" title="Delete this Project"
+                                                                  ng-click="openTab.deleteProject($index)"></i></span>
+          <ul class="open-board-list" ng-show="openTab.isProjectExpanded($index)">
+            <li ng-repeat="boardItem in projectItem.boards">
+              <a><img src="assets/img/icons/menu/board.svg"/> {{boardItem.title}}</a>
+              <span class="list-icons">
+								<i class="fa fa-share" title="Go to this Board"
+                   ng-click="openTab.goToBoard($parent.$index, $index)"></i>
+								<i class="fa fa-times" title="Delete this Board"
+                   ng-click="openTab.deleteBoard($parent.$index, $index)"></i>
+							</span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="menu-tab project-menu tab-save" ng-show="isTabActive(2)">
+    <div ng-if="!isUserDeveloper()">
+      <div class="login-message">Coming soon</div>
+    </div>
+
+    <div ng-if="isUserDeveloper()">
+      <div class="save-tab-container" ng-show="saveTab.isTabMode(0)">
+        <div class="tab-subcontainer">
+          <img class="tab-image" src="assets/img/icons/menu/board.svg"/>
+          <div class="tab-input">
+            <input type="text" placeholder="Name your Board" ng-model="saveTab.boardName"/>
+            <button ng-disabled="projectActionsDisabled" ng-click="saveTab.createBoard()">Add</button>
+          </div>
+        </div>
+        <div class="tab-subcontainer last">
+          <a class="create-project" ng-click="saveTab.setTabMode(1)"><img src="assets/img/icons/menu/board.svg"/> Create
+            new Project</a>
+          <ul class="save-project-list">
+            <li ng-repeat="item in projects" ng-class="{active: saveTab.isProjectSelected($index)}"
+                ng-click="saveTab.selectProject($index)"><a ng-click="saveTab.selectProject($index)"><img
+              src="assets/img/icons/menu/filledFile.svg"/> {{item.title}}</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="save-tab-container" ng-show="saveTab.isTabMode(1)">
+        <div class="tab-subcontainer">
+          <img class="tab-image" src="assets/img/icons/menu/folder.svg"/>
+          <div class="tab-input">
+            <input type="text" placeholder="Name your Project" ng-model="saveTab.projectName"/>
+            <button ng-disabled="projectActionsDisabled" ng-click="saveTab.createProject()">Add</button>
+          </div>
+        </div>
+        <div class="tab-subcontainer last">
+          <a class="create-board" ng-click="saveTab.setTabMode(0)"><img src="assets/img/icons/menu/board.svg"/> Create
+            new Board</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-tab" ng-show="isTabActive(3)">
+    <div ng-if="!isUserDeveloper()">
+      <div class="login-message">Coming soon</div>
+    </div>
+
+    <div class="button-container" ng-if="isUserDeveloper()">
+      <button ng-click="saveAsJpg()">Save as JPG</button>
+      <button ng-click="saveAsPdf()">Save as PDF</button>
+    </div>
+  </div>
+
+  <div class="menu-tab" ng-show="isTabActive(4)">
+    <div class="user-profile-settings" ng-show="userProfileTab.isMode(0)">
+      <label>Full Name</label>
+      <input type="text" ng-model="userProfileTab.fullName"/>
+
+      <label>Profession</label>
+      <input type="text" ng-model="userProfileTab.profession"/>
+
+      <label>Company</label>
+      <input type="text" ng-model="userProfileTab.company"/>
+
+      <label>Position</label>
+      <input type="text" ng-model="userProfileTab.position"/>
+
+      <div class="button-container">
+        <button ng-click="userProfileTab.setMode(1)">Change Password</button>
+        <button ng-click="userProfileTab.saveData()">Save</button>
+      </div>
+
+      <hue-deactivate-account-dialog></hue-deactivate-account-dialog>
+    </div>
+
+    <div class="user-profile-settings" ng-show="userProfileTab.isMode(1)">
+      <label>Password</label>
+      <input type="password" ng-model="userProfileTab.password"/>
+
+      <label>Confirm Password</label>
+      <input type="password" ng-model="userProfileTab.passwordConfirmation"/>
+
+      <div class="button-container">
+        <button ng-click="userProfileTab.setMode(0)">Back</button>
+        <button ng-click="userProfileTab.saveData()">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-tab" ng-show="isTabActive(5)">
+    <hue-filters-configuration-menu></hue-filters-configuration-menu>
+  </div>
+</div>

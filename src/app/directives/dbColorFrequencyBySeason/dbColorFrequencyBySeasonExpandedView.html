@@ -1,0 +1,10 @@
+<div class="db-expanded-view db-color-freqeuncy-by-season-expanded">
+  <div class="button-close" ng-click="toggleView()"></div>
+  <div class="view-title">Color Frequency By Season and Category</div>
+  <div class="chart-container">
+    <div class="chart-cell" ng-repeat="item in data">
+      <div class="chart-title" ng-bind="item.season"></div>
+      <div class="chart" hue-db-color-frequency-by-season-expanded-chart="item.colors"></div>
+    </div>
+  </div>
+</div>

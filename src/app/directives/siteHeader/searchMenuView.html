@@ -1,0 +1,174 @@
+<div class="top-menu menu-search" ng-show="show">
+  <ul class="menu-tabs disable-text-selection">
+    <li ng-repeat="item in tabs" ng-class="{active: isTabActive($index)}" ng-click="setTab($index)"
+        ng-bind="item.title"></li>
+  </ul>
+
+  <!--<div class="search-tab search-message" ng-show="isTabActive(null)">-->
+  <!--<p>-->
+  <!--Each and every one of the 16.8 million colors out there is unique in its own right!<br />-->
+  <!--HUEFASHION is designed to database new color introductions from runways of<br />-->
+  <!--across all major fashion shows around the world, to demonstrate how color is being used in this industry-->
+  <!--</p>-->
+  <!--<p>-->
+  <!--QUESTIONS WE CAN ANSWER<br />-->
+  <!--What were the major colors for Paris SS 2015?<br />-->
+  <!--What is the global color palette for FW 2015-16?<br />-->
+  <!--What are the colors Gucci (or any design house) used in their latest collection?<br />-->
+  <!--...and many more...-->
+  <!--</p>-->
+  <!--<p class="label-start" ng-click="showTrending()">-->
+  <!--Start your search by selecting from one of the categories above or check what is trending <i class="fa fa-caret-right"></i>-->
+  <!--</p>-->
+  <!--</div>-->
+
+  <div class="search-tab search-seasons" ng-show="isTabActive(0)">
+    <div ng-show="isStepActive(0)">
+      <div class="season-item-container">
+        <div class="season-item" ng-repeat="item in seasonsData" ng-click="selectSeason(item)">
+          <hue-svg source="assets/img/icons/seasons/{{item.id}}.svg"></hue-svg>
+          <div class="season-title" ng-bind="item.menu"></div>
+        </div>
+      </div>
+    </div>
+
+    <div ng-show="isStepActive(1)">
+      <div class="search-select-title">Selected season: {{selectedSeason.title}}</div>
+      <div class="search-menu-select-lists">
+        {{selectLists[item]}}
+        <hue-search-menu-select-list
+          list-data="selectLists[item]"
+          list-disabled="selectListsDisabled"
+          on-item-selected="secondaryItemSelected()"
+          ng-repeat="item in secondaryCriteria[0]"
+        >
+
+        </hue-search-menu-select-list>
+      </div>
+    </div>
+  </div>
+
+  <div class="search-tab search-years" ng-show="isTabActive(1)">
+    <div ng-show="isStepActive(0)">
+      <hue-search-menu-year-selector years="yearsData" selected-year="selectedYear"></hue-search-menu-year-selector>
+    </div>
+
+    <div ng-show="isStepActive(1)">
+      <div class="search-select-title">Selected year: {{selectedYear.title}}</div>
+      {{selectedYear.title}}
+      <div class="search-menu-select-lists">
+        <hue-search-menu-select-list list-data="selectLists[item]" list-disabled="selectListsDisabled"
+                                     on-item-selected="secondaryItemSelected()"
+                                     ng-repeat="item in secondaryCriteria[1]"></hue-search-menu-select-list>
+      </div>
+    </div>
+  </div>
+
+  <div class="search-tab search-categories" ng-show="isTabActive(2)">
+    <div ng-show="isStepActive(0)">
+      <div class="category-item-container">
+        <div class="category-item" ng-repeat="item in categoriesData" ng-click="selectCategory(item)">
+          <hue-svg source="assets/img/icons/categories/menu/{{item.id}}.svg"></hue-svg>
+          <div class="category-title" ng-bind="item.title"></div>
+        </div>
+      </div>
+    </div>
+
+    <div ng-show="isStepActive(1)">
+      <div class="search-select-title">Selected category: {{selectedCategory.title}}</div>
+      <div class="search-menu-select-lists">
+        <hue-search-menu-select-list list-data="selectLists[item]" list-disabled="selectListsDisabled"
+                                     on-item-selected="secondaryItemSelected()"
+                                     ng-repeat="item in secondaryCriteria[2]"></hue-search-menu-select-list>
+      </div>
+    </div>
+  </div>
+
+  <div class="search-tab search-regions" ng-show="isTabActive(3)">
+    <div ng-show="isStepActive(0)">
+      <div class="region-item-container">
+        <div class="region-item" ng-repeat="item in regionsData" ng-click="selectRegion(item)">
+          <img ng-src="assets/img/icons/regions/{{item.id}}.svg"/>
+          <div class="region-title"><span ng-bind="item.title"></span></div>
+          <ul class="region-cities">
+            <li ng-repeat="city in item.cities" ng-bind="city"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div ng-show="isStepActive(1)">
+      <div class="search-select-title">Selected region: {{selectedRegion.title}}</div>
+      <div class="search-menu-select-lists">
+        <hue-search-menu-select-list list-data="selectLists[item]" list-disabled="selectListsDisabled"
+                                     on-item-selected="secondaryItemSelected()"
+                                     ng-repeat="item in secondaryCriteria[3]"></hue-search-menu-select-list>
+      </div>
+    </div>
+  </div>
+
+  <div class="search-tab search-cities" ng-show="isTabActive(4)">
+    <div ng-show="isStepActive(0)">
+      <div class="city-item-container">
+        <div class="city-item" ng-repeat="item in citiesData" ng-click="selectCity(item)">
+          <hue-svg ng-source="assets/img/icons/cities/menu/{{item.id}}.svg"></hue-svg>
+          <div class="city-title" ng-bind="item.title"></div>
+        </div>
+      </div>
+    </div>
+
+    <div ng-show="isStepActive(1)">
+      <div class="search-select-title">Selected city: {{selectedCity.title}}</div>
+      <div class="search-menu-select-lists">
+        <hue-search-menu-select-list list-data="selectLists[item]" list-disabled="selectListsDisabled"
+                                     on-item-selected="secondaryItemSelected()"
+                                     ng-repeat="item in secondaryCriteria[4]"></hue-search-menu-select-list>
+      </div>
+    </div>
+  </div>
+
+  <div class="search-tab search-colors" ng-show="isTabActive(5)">
+    <div ng-show="isStepActive(0)">
+      <table class="color-list">
+        <tbody>
+        <tr>
+          <td ng-repeat="item in colorsData" ng-style="{background: item.hex}" ng-attr-title="{{item.title}}"
+              ng-click="selectColor(item)"></td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="search-by-notation">Search by NCS notation: <span><angucomplete localdata="data.colors"
+                                                                                  searchfields="ncs" titlefield="ncs"
+                                                                                  minlength="2"
+                                                                                  selectedobject="selectedColor"></angucomplete></span>
+      </div>
+    </div>
+
+    <div ng-show="isStepActive(1)">
+      <div class="search-select-title">Selected color: {{selectedColor.title}}</div>
+      <div class="search-menu-select-lists">
+        <hue-search-menu-select-list list-data="selectLists[item]" list-disabled="selectListsDisabled"
+                                     on-item-selected="secondaryItemSelected()"
+                                     ng-repeat="item in secondaryCriteria[5]"></hue-search-menu-select-list>
+      </div>
+    </div>
+  </div>
+
+  <div class="search-tab search-alphanumeric" ng-show="isTabActive(6)">
+    <div ng-show="isStepActive(0)">
+      <hue-search-menu-alphanumeric-selector tabs="letterTabs" data="designersData"
+                                             on-item-select="selectDesigner"></hue-search-menu-alphanumeric-selector>
+    </div>
+
+    <div ng-show="isStepActive(1)">
+      <div class="search-select-title">Selected designer: {{selectedDesigner.title}}</div>
+      <div class="search-menu-select-lists">
+        <hue-search-menu-select-list list-data="selectLists[item]" list-disabled="selectListsDisabled"
+                                     on-item-selected="secondaryItemSelected()"
+                                     ng-repeat="item in secondaryCriteria[6]"></hue-search-menu-select-list>
+      </div>
+    </div>
+  </div>
+
+  <hue-search-menu-trending ng-show="isTrendingVisible"></hue-search-menu-trending>
+</div>

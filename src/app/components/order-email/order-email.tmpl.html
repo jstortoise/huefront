@@ -1,0 +1,38 @@
+<update-title title="Thank You for Your Purchase"></update-title>
+<update-meta name="description" content="Thanks page after purchase"></update-meta>
+<update-meta name="keywords" content="Thank you page, download"></update-meta>
+
+
+<section ng-init="$ctrl.init()" style="min-height: 500px; padding-top: 60px;">
+  <div ng-show="$ctrl.success === true">
+    <div class="cart-thank-page cart-thank">
+      <h4 class="thank-title"><strong>THANK YOU FOR YOUR PURCHASE</strong></h4>
+      <h4 class="order-id">YOUR ORDER ID: <span>{{$ctrl.orderId || 'UNKNOWN'}}</span></h4>
+      <div class="thank-text">
+        <span>CLICK HERE TO DOWNLOAD</span>
+      </div>
+    </div>
+    <div class="download-page">
+      <div class="container-fluid text-center">
+        <div class="row download-row">
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 download-item" ng-repeat="item in $ctrl.products">
+            <div>
+              <img class="download-img" ng-src="{{item.image}}">
+            </div>
+            <div ng-show="item.file">
+              <a href="{{item.file}}" download>
+                <button class="btn">DOWNLOAD</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div ng-show="$ctrl.success === false">
+    <div class="cart-thank-page cart-thank">
+      <h4 class="thank-title"><strong>YOUR LINK IS BROKEN, PLEASE CHECK AGAIN AND CONTACT US, IF LINK STILL NOT
+        WORKING</strong></h4>
+    </div>
+  </div>
+</section>

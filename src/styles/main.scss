@@ -1,0 +1,46 @@
+
+//html {
+//	height: 100%;
+//	overflow: hidden;
+//}
+//
+//body {
+//	height: 100%;
+//	font-family: 'Open Sans';
+//	font-size: 14px;
+//}
+
+* {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.body-container {
+	transition: all 200ms ease-out;
+	-webkit-transition: all 200ms ease-out;
+	-moz-transition: all 200ms ease-out;
+	-o-transition: all 200ms ease-out;
+	-ms-transition: all 200ms ease-out;
+
+	&.ng-hide {
+		opacity: 0;
+	}
+}
+
+.disable-text-selection {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.pull-left {
+	float: left;
+}
+
+.pull-right {
+	float: right;
+}

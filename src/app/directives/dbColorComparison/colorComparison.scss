@@ -1,0 +1,39 @@
+.db-color-comparison {
+	margin: 0 4% 25px 6%;
+
+	.bar-group {
+		margin-bottom: 5px;
+
+		.bar-title {
+			font-family: "Gotham Cond SSm A","Gotham Cond SSm B";
+			font-size: 13px;
+			font-style: normal;
+			font-weight: 600;
+			margin: 0 0 5px;
+			text-transform: uppercase;
+		}
+
+		.bar-container {
+			height: 30px;
+			width: 100%;
+			overflow: hidden;
+
+			.bar-section {
+				display: inline-block;
+				height: 30px;
+				border-right: 1px solid #fff;
+
+				&:last-child {
+					border-right: none;
+				}
+
+				.bottom-line {
+					width: 100%;
+					height: 4px;
+					margin-top: 26px;
+					background-color: #000;
+				}
+			}
+		}
+	}
+}

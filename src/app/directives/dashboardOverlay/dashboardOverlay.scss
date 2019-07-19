@@ -1,0 +1,43 @@
+.dashboard-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1500;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 200ms ease-out;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  -ms-transition: all 200ms ease-out;
+
+  &.ng-enter, &.ng-leave.ng-leave-active {
+    opacity: 0;
+  }
+
+  &.ng-leave, &.ng-enter.ng-enter-active {
+    opacity: 1;
+  }
+
+  .overlay-message {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    &.message-loading {
+      width: 366px;
+      height: 126px;
+      background: url(../../../assets/img/loading-data.gif) no-repeat;
+    }
+
+    &.message-error {
+      width: 366px;
+      height: 126px;
+      background: url(../../../assets/img/no-data-error.gif) no-repeat;
+    }
+  }
+}

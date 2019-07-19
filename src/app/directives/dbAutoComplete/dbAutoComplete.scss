@@ -1,0 +1,35 @@
+.autocomplete {
+    width: 400px;
+
+    .brand-search {
+        border: none !important;
+        border-bottom: 1px solid #acacac !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        height: 44px !important;
+        background-position: right 10px bottom 10px;
+    }
+
+    .brand-search:active, .brand-search:focus {
+        border-bottom: 1px solid #000 !important;
+    }
+
+    .choices {
+        cursor: pointer;
+        max-height: 200px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        border: 1px solid;
+        border-color: rgb(200,200,200);
+        color: #777;
+
+        :hover {
+            color: #000;
+        }
+
+        .choice {
+            padding: 5px 10px;
+        }
+    }
+}

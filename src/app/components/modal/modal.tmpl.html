@@ -1,0 +1,16 @@
+<div class="modal-err">
+  <h4>www.hue-data.com says:</h4>
+  <p ng-show="flag != true && flag !== false">Please correct the following problem(s):</p>
+  <ul ng-show="flag != true && flag !== false">
+    <li ng-repeat="str in item">{{str}}</li>
+  </ul>
+  <p ng-show="flag === false">Error! This email is already in Use.</p>
+  <p ng-show="flag === false" style="min-height: 150px">{{item[0]}}</p>
+
+  <p ng-show="flag == true" style="text-align: center; min-height: 150px">
+    {{item[0]}}
+  </p>
+</div>
+<div class="div-but">
+  <button class="btn " style="outline: none;" ng-click="cancel()">OK</button>
+</div>

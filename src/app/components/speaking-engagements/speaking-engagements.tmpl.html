@@ -1,0 +1,109 @@
+<update-title title="Speaking Engagements"></update-title>
+<update-meta name="description" content="HUEDATA speakers and how to invite us to talk on your color event"></update-meta>
+<update-meta name="keywords" content="Anat Lechner, Leslie Harrington, Color lectures, Color Strategy, Color research,
+lectures on Color, Color presentations, color conference speakers, color meeting speakers, color event speakers,
+color conference keynote speaker, design conference speakers, design conference keynote speakers"></update-meta>
+
+<section>
+  <div class="staffs-container container-fluid min-h" ng-init="$ctrl.init()">
+    <div class="row" ng-repeat="group in $ctrl.groups">
+      <div class="col-lg-4 col-md-4 text-center staff-item" ng-repeat="item in group">
+        <div class="img-responsive background-image"
+             style="background: {{'url(' + item.image_url +') top center'}};
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    height: 170px;
+                    width: 170px;
+                    border-radius: 50%;
+                    background-color: #000;
+                    margin: auto"
+        >
+        </div>
+        <div class="speaking_item" style="padding-top: 15px">
+          <div class="speaking_item_header"><a>{{item.first_name}} {{item.last_name}}</a>
+            <span style="color: black"> — {{item.title}}</span>
+          </div>
+          <div class="justify">
+            <p class="three_line_height" style="display: block" data-ng-bind-html="item.bio" data-ellipsis
+               data-ellipsis-symbol="... "
+               data-ellipsis-append="<a>Read more</a>"
+               data-ellipsis-append-click="$ctrl.toggleTextHeight"
+            ></p>
+          </div>
+          <div class="line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="speaking_engagements">
+  <div class="container-fluid  text-center">
+    <h3>{{$ctrl.pageData.title}}</h3>
+    <div class="line"></div>
+  </div>
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3 col-md-3 justify speaking-text" ng-bind-html="$ctrl.pageData.editor">
+      </div>
+      <form name="speaking">
+        <div class="col-lg-6 col-md-6 membership-form">
+          <div class="forms">
+            <div class="membr-block">
+              <input ng-model="$ctrl.data.firstName.value" ng-value="$ctrl.data.firstName.value" type="text" id="firstName" name="firstName"
+                     ng-class="'ng-dirty' && speaking.FirstName.$invalid ?  'error' :''" required>
+              <label for="firstName">FIRST NAME <span class="red-text">*</span></label>
+            </div>
+            <div class="membr-block">
+              <input ng-model="$ctrl.data.email.value" ng-value="$ctrl.data.email.value" type="text" id="email" name="email"
+                     ng-class="'ng-dirty' && speaking.Email.$invalid ?  'error' :''" required>
+              <label for="email">EMAIL <span class="red-text">*</span></label>
+            </div>
+            <div class="membr-block">
+              <input ng-model="$ctrl.data.jobtitle.value" ng-value="$ctrl.data.jobtitle.value" type="text" id="jobtitle" name="jobtitle"
+                     ng-class="'ng-dirty' && speaking.jobtitle.$invalid ?  'error' :''" required>
+              <label for="jobtitle">JOB TITLE <span class="red-text">*</span></label>
+            </div>
+          </div>
+
+          <div class="forms-right">
+            <div class="membr-block">
+              <input ng-model="$ctrl.data.lastName.value" ng-value="$ctrl.data.lastName.value" type="text" id="lastName" name="lastName"
+                     ng-class="'ng-dirty' && speaking.LastName.$invalid ?  'error' :''" required>
+              <label for="lastName">LAST NAME <span class="red-text">*</span></label>
+            </div>
+            <div class="membr-block">
+              <input ng-model="$ctrl.data.company.value" ng-value="$ctrl.data.company.value" type="text" id="company" name="company"
+                     ng-class="'ng-dirty' && speaking.company.$invalid ?  'error' :''" required>
+              <label for="company">COMPANY <span class="red-text">*</span></label>
+            </div>
+            <div class="membr-block">
+              <input ng-model="$ctrl.data.request.value" ng-value="$ctrl.data.request.value" type="text" id="request" name="request"
+                     ng-class="'ng-dirty' && speaking.request.$invalid ?  'error' :''" required>
+              <label for="request">REQUEST A SPECIFIC SPEAKER <span class="red-text">*</span></label>
+            </div>
+          </div>
+
+          <div class="membr-block" style="width:100%; float:left">
+            <textarea rows="20" cols="1" ng-value="$ctrl.data.message.value" name="message" id="message" ng-model="$ctrl.data.message.value"
+                      ng-class="'ng-dirty' && speaking.message.$invalid ?  'error' :''" required></textarea>
+            <label for="message" style="top: 6%">MESSAGE <span class="red-text">*</span></label>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-3">
+          <div class="button membership" style="float:left; margin-right:10px; margin-bottom: 10px">
+            <button class="btn white-btn without-margins" ng-click="$ctrl.send()">
+              SUBMIT
+            </button>
+          </div>
+          <div class="button membership" style="float:left; ">
+            <button ng-if="$ctrl.getUser()" class="btn join-btn" ng-click="$ctrl.gotoElement('prefooter')">JOIN</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

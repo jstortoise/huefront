@@ -1,0 +1,26 @@
+<div class="hue-filters-configuration-menu">
+  <div class="message" ng-show="selectedEntity == null">Select the segment you would like to customize your display
+    preferences.<br/>Only data related to your selection will be shown in your dashboards.
+  </div>
+  <div class="message" ng-show="selectedEntity != null">Please select your search preferences. Only data related to your
+    selection will be shown in your dashboards.
+  </div>
+  <ul class="entities-list">
+    <li ng-repeat="item in entities" ng-class="{active: isEntitySelected($index)}" ng-click="selectEntity($index)"
+        ng-bind="::item.title"></li>
+    <li class="reset-button" ng-click="resetConfig()">Reset</li>
+    <li ng-click="saveConfig()">Save</li>
+  </ul>
+  <div class="options-selection">
+    <ul class="simple-list" ng-if="!selectedEntity.aplhanumericSelector">
+      <li ng-repeat="item in options" ng-click="toggleId(item.id)" ng-class="{active: isIdSelected(item.id)}"
+          ng-bind="::item.title"></li>
+    </ul>
+    <hue-search-menu-alphanumeric-selector tabs="letterTabs" data="options" on-item-select="toggleItem"
+                                           multiselect-ids="selectedEntityIds"
+                                           ng-if="selectedEntity.aplhanumericSelector"></hue-search-menu-alphanumeric-selector>
+    <div class="search-by-name" ng-show="selectedEntity.aplhanumericSelector">search: <span><angucomplete
+      localdata="options" searchfields="title" titlefield="title" minlength="2"
+      selectedobject="selectedOption"></angucomplete></span></div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="db-color-comparison">
+	<div class="bar-group" ng-repeat="bar in data" ng-if="bar.colors.length > 0">
+		<div class="bar-title">{{bar.title}}</div>
+		<div class="bar-container">
+			<div class="bar-section" ng-repeat="item in bar.colors" ng-style="{width: item.percentage + '%', 'background-color': item.color.hex}" ng-attr-title="{{Math.round(item.percentage) + '% ' + item.title}}" ng-click="selectBar($event)" hue-tooltipster="tooltipsterConfig"><div class="bottom-line"></div></div>
+		</div>
+	</div>
+</div>

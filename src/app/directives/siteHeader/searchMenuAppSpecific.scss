@@ -1,0 +1,135 @@
+$menu-icon-size: 130px;
+$menu-icon-image-size: 90px;
+$menu-icon-margin: 0 10px;
+
+.top-menu.menu-search .search-tab {
+  &.search-seasons {
+    .season-item-container {
+      width: 100%;
+      text-align: center;
+
+      .season-item {
+        display: inline-block;
+        text-align: center;
+        cursor: pointer;
+        width: $menu-icon-size;
+        margin: $menu-icon-margin;
+
+        svg {
+          width: 100px;
+          max-width: $menu-icon-image-size;
+          max-height: $menu-icon-image-size;
+          fill: #fff;
+        }
+
+        .season-title {
+          margin-top: 10px;
+          font-size: 0.8em;
+        }
+      }
+    }
+  }
+
+  &.search-categories {
+    .category-item-container {
+      width: 100%;
+      text-align: center;
+
+      .category-item {
+        display: inline-block;
+        text-align: center;
+        cursor: pointer;
+        width: $menu-icon-size;
+        margin: $menu-icon-margin;
+
+        svg {
+          //fill: #fff;
+          max-width: $menu-icon-image-size;
+          max-height: $menu-icon-image-size;
+        }
+
+        .category-title {
+          margin-top: 10px;
+          font-size: 0.8em;
+        }
+      }
+    }
+  }
+
+  &.search-regions {
+    .region-item-container {
+      width: 100%;
+      text-align: center;
+
+      .region-item {
+        display: inline-block;
+        text-align: center;
+        cursor: pointer;
+        width: $menu-icon-size;
+        vertical-align: top;
+        margin: $menu-icon-margin;
+
+        img {
+          max-width: $menu-icon-image-size;
+          max-height: $menu-icon-image-size;
+        }
+
+        .region-title {
+          margin: 10px 5px 0;
+          font-size: 1em;
+          text-transform: uppercase;
+          line-height: 30px;
+
+          span {
+            vertical-align: middle;
+            line-height: 1.25;
+            display: inline-block;
+          }
+        }
+
+        .region-cities {
+          list-style: none;
+          margin: 10px 0 0 0;
+          padding: 0;
+
+          li {
+            margin: 0;
+            padding: 0;
+            font-size: 0.8em;
+          }
+        }
+      }
+    }
+  }
+
+  &.search-cities {
+    .city-item-container {
+      width: 100%;
+      text-align: center;
+
+      .city-item {
+        display: inline-block;
+        text-align: center;
+        cursor: pointer;
+        //width: $menu-icon-size;
+        width: $menu-icon-image-size;
+        margin: $menu-icon-margin;
+
+        svg {
+          //fill: #fff;
+          max-width: $menu-icon-image-size;
+          max-height: $menu-icon-image-size;
+        }
+
+        .city-title {
+          margin-top: 10px;
+          font-size: 0.8em;
+        }
+      }
+    }
+  }
+
+  &.search-message .label-start {
+    color: #6cc9c6;
+  }
+}

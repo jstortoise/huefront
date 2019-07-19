@@ -1,0 +1,11 @@
+.dashboard-row.dashboard-model-row-second {
+	width: 100%;
+	display: table;
+	min-height: 220px;
+
+	.dashboard-cell {
+		display: table-cell;
+		float: none;
+		min-height: 220px;
+	}
+}

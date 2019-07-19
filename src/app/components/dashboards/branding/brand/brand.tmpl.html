@@ -1,0 +1,57 @@
+<div ng-controller="brandBrandingController">
+
+  <div class="dashboard-container" ng-if="showDashboard">
+    <hue-db-header header-title="title" header-icon="iconUrl" icon-type="img" icon-click="toggleLogoDetails()"
+                   page-info="pageInfo"></hue-db-header>
+
+    <div class="dashboard-row row-220">
+      <div class="dashboard-cell cell-left">
+        <div class="module-title">Brand Logo Colors
+          <hue-db-info-icon text-key="top_colors"></hue-db-info-icon>
+        </div>
+        <hue-db-top-colors data="topColorsData"></hue-db-top-colors>
+      </div>
+      <div class="dashboard-cell cell-right">
+        <div class="module-title">Color Family Frequency For Brand's Industry
+          <img src="assets/img/icons/expand.svg"
+               class="icon-expand"
+               ng-click="toggleColorFrequencyExpandedMode()"/>
+          <hue-db-info-icon text-key="color_freq"></hue-db-info-icon>
+        </div>
+        <hue-db-color-frequency data="colorFrequencyData"></hue-db-color-frequency>
+        <hue-db-color-frequency-expanded data="colorFrequencyData"
+                                         toggle-view="toggleColorFrequencyExpandedMode()"
+                                         ng-if="colorFrequencyExpanded">
+        </hue-db-color-frequency-expanded>
+      </div>
+    </div>
+
+    <div class="dashboard-row">
+      <div class="dashboard-cell">
+        <div class="module-title">Brand Logo Colors &amp; Associated Attributes
+          <img src="assets/img/icons/expand.svg"
+               class="icon-expand"
+               ng-click="toggleMapExpandedMode()"/>
+        </div>
+        <hue-db-map data="mapsData"></hue-db-map>
+        <hue-db-map-expanded data="mapsData" toggle-view="toggleMapExpandedMode()"
+                             ev-title="Brand Logo Colors &amp; Associated Attributes"
+                             ng-if="mapExpanded">
+        </hue-db-map-expanded>
+      </div>
+    </div>
+
+    <div class="dashboard-row">
+      <div class="dashboard-cell">
+        <div class="module-title">Brand Colors
+          <hue-db-info-icon text-key="logo_colors"></hue-db-info-icon>
+        </div>
+        <hue-db-logos data="logosData"></hue-db-logos>
+      </div>
+    </div>
+
+    <hue-db-logo-details ng-if="showLogoDetails" on-close="toggleLogoDetails()" logo-id="logoId"></hue-db-logo-details>
+  </div>
+
+</div>
+

@@ -1,0 +1,153 @@
+<update-title title="Legal Color Insights"></update-title>
+<update-meta name="description" content="HUEDATA color legal rights dashboard"></update-meta>
+<update-meta name="keywords" content="Color laws, Color regulations, Color and legal, Color and patents, Color violation"></update-meta>
+
+<h4 class="text-left membership-product">HUEDATA MEMBERSHIP PRODUCT</h4>
+
+<section ng-controller="legalController">
+  <div class="container-fluid  text-center title">
+    <div class="row">
+      <div class="col-lg-4 col-md-12 col-lg-offset-4">
+        <h3>Legal Color Insights</h3>
+        <div class="line"></div>
+      </div>
+      <div class="col-lg-4 col-md-12 text-right buttons-group">
+        <div class="button membership">
+          <button ng-if="$ctrl.getUser()" class="btn join-btn " ng-click="gotoElement('prefooter')">JOIN</button>
+        </div>
+        <div class="button membership">
+          <button ui-sref="productInquiry" class="btn white-btn">PRODUCT INQUIRY</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div>
+    <div class="body-container">
+      <div class="dashboard dashboard-default dashboard-legal">
+
+        <div class="dashboard-controls">
+          <div class="select-style custom-select">
+            <ui-select
+              ng-model="menus.owner"
+              theme="selectize"
+              ng-disabled="disabledControls['owner'] || isLoadingControls"
+              title="Choose a owner"
+              on-select="handleChangeControl('owner')"
+            >
+              <ui-select-match placeholder="OWNER">{{$select.selected.title}}</ui-select-match>
+              <ui-select-choices repeat="owner.id as owner in controlsData.owners | filter: {title: $select.search}">
+                <span ng-bind-html="owner.title | highlight: $select.search"></span>
+              </ui-select-choices>
+            </ui-select>
+
+            <!--<select-->
+            <!--name="owner"-->
+            <!--ng-disabled="disabledControls['owner'] || isLoadingControls"-->
+            <!--ng-model="owner"-->
+            <!--ng-change="handleChangeControl('owner')"-->
+            <!--&gt;-->
+            <!--<option ng-selected="true" label="OWNER" value="">OWNER</option>-->
+            <!--<option class="select-option" ng-repeat="(key, item) in controlsData.owners" value="{{item.id}}">-->
+            <!--{{cropText(item.title)}}-->
+            <!--</option>-->
+            <!--</select>-->
+          </div>
+
+          <div class="select-style custom-select">
+            <ui-select
+              ng-model="menus.year"
+              theme="selectize"
+              ng-disabled="disabledControls['year'] || isLoadingControls"
+              title="Choose a year"
+              on-select="handleChangeControl('year')"
+            >
+              <ui-select-match placeholder="YEAR">{{$select.selected.title}}</ui-select-match>
+              <ui-select-choices repeat="year.id as year in controlsData.years | filter: {title: $select.search}">
+                <span ng-bind-html="year.title | highlight: $select.search"></span>
+              </ui-select-choices>
+            </ui-select>
+
+            <!--<select-->
+            <!--name="year"-->
+            <!--ng-disabled="disabledControls['year'] || isLoadingControls"-->
+            <!--ng-model="year"-->
+            <!--ng-change="handleChangeControl('year')"-->
+            <!--&gt;-->
+            <!--<option ng-selected="true" value="" label="YEAR">YEAR</option>-->
+            <!--<option ng-repeat="(key, item) in controlsData.years" value="{{item.id}}">-->
+            <!--{{item.title}}-->
+            <!--</option>-->
+            <!--</select>-->
+          </div>
+
+
+          <div class="select-style custom-select">
+            <ui-select
+              ng-model="menus.color"
+              theme="selectize"
+              ng-disabled="disabledControls['color'] || isLoadingControls"
+              title="Choose a color"
+              on-select="handleChangeControl('color')"
+            >
+              <ui-select-match placeholder="COLOR">{{$select.selected.title}}</ui-select-match>
+              <ui-select-choices repeat="color.id as color in controlsData.colors | filter: {title: $select.search}">
+                <span ng-bind-html="color.title | highlight: $select.search"></span>
+              </ui-select-choices>
+            </ui-select>
+
+            <!--<select-->
+            <!--name="color"-->
+            <!--ng-disabled="disabledControls['color'] || isLoadingControls"-->
+            <!--ng-model="color"-->
+            <!--ng-change="handleChangeControl('color')"-->
+            <!--&gt;-->
+            <!--<option ng-selected="true" value="" label="COLOR">COLOR</option>-->
+            <!--<option ng-repeat="(key, item) in controlsData.colors" value="{{item.id}}">-->
+            <!--{{item.title}}-->
+            <!--</option>-->
+            <!--</select>-->
+          </div>
+
+          <div class="select-style custom-select">
+            <ui-select
+              ng-model="menus.product"
+              theme="selectize"
+              ng-disabled="disabledControls['product'] || isLoadingControls"
+              title="Choose a product"
+              on-select="handleChangeControl('product')"
+            >
+              <ui-select-match placeholder="PRODUCT">{{$select.selected.title}}</ui-select-match>
+              <ui-select-choices
+                repeat="product.id as product in controlsData.products | filter: {title: $select.search}">
+                <span ng-bind-html="product.title | highlight: $select.search"></span>
+              </ui-select-choices>
+            </ui-select>
+
+            <!--<select-->
+            <!--name="model"-->
+            <!--ng-disabled="disabledControls['product'] || isLoadingControls"-->
+            <!--ng-model="product"-->
+            <!--ng-change="handleChangeControl('product')"-->
+            <!--&gt;-->
+            <!--<option ng-selected="true" label="PRODUCT" value="">PRODUCT</option>-->
+            <!--<option ng-repeat="(key, item) in controlsData.products" value="{{item.id}}">-->
+            <!--{{cropText(item.title)}}-->
+            <!--</option>-->
+            <!--</select>-->
+          </div>
+
+          <button class="btn dashboard-controls-btn" style="margin-top: 0" ng-click="loadGraphics()">LOAD</button>
+        </div>
+
+        <h2 class="dashboard-no-data" ng-if="!showDashboard">Please select options to start</h2>
+
+        <div class="dashboard-content" ui-view>
+          <!--VIEW FOR DASHBOARDS-->
+        </div>
+      </div>
+      <div class="dashboard-overlay" hue-dashboard-overlay ng-if="showDashboardOverlay"></div>
+    </div>
+  </div>
+</section>

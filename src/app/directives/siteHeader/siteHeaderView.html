@@ -1,0 +1,13 @@
+<div class="site-header">
+  <div class="pull-right right-container">
+    <div class="header-control user" ng-if="isUserLoggedIn()">Welcome {{currentUser.full_name}} <span
+      ng-if="showTrialTime">{{daysLeft}} days left </span><i class="fa fa-times" ng-click="logOff()"></i></div>
+    <div class="header-control search disable-text-selection" ng-class="{active: isControlActive('search')}"
+         ng-click="toggleControl('search')"><i class="fa fa-search"></i></div>
+    <div class="header-control menu disable-text-selection" ng-class="{active: isControlActive('menu')}"
+         ng-click="toggleControl('menu')"><i class="fa fa-bars"></i></div>
+  </div>
+</div>
+
+<hue-search-menu show="isControlActive('search')" hide="turnOffControl('search')"></hue-search-menu>
+<hue-main-menu show="isControlActive('menu')" hide="turnOffControl('menu')"></hue-main-menu>

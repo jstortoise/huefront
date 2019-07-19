@@ -1,0 +1,20 @@
+<div class="chart c-for-designer-city">
+  <div ng-class="{ bagel: true}" ng-if="!mode || !mode.extraView">
+    <div chart-type="bagel">
+    </div>
+    <div chart-type="brief"></div>
+  </div>
+  <div class="colors" ng-if="mode.extraView">
+    <label>The palette</label>
+    <div ng-repeat="row in [0,1,2,3,4]">
+      <div class="color-brick" ng-repeat="color in palettes[row]" ng-class="{ empty: color.color.isEmpty }">
+        <span style="background: {{ color.color.color.hex }}"></span>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div chart-type="groups" class="c-chart-linear-h"></div>
+    </div>
+  </div>
+</div>

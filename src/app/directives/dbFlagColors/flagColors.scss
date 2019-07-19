@@ -1,0 +1,70 @@
+.db-flag-colors {
+	width: 100%;
+	margin-top: 40px;
+
+	.colors-contaier {
+		width: 70%;
+		float: left;
+
+		.color-item {
+			display: inline-block;
+			vertical-align: top;
+
+			.item-percentage {
+				display: inline-block;
+				vertical-align: top;
+				padding-right: 10px;
+				height: 40px;
+			}
+
+			.item-bar {
+				margin-right: 10px;
+				height: 60px;
+				border: 1px solid #ccc;
+			}
+		}
+	}
+
+	.flag-container {
+		width: 20%;
+		margin-left: 10%;
+		float: left;
+
+		.flag-bar-container {
+			height: 60px;
+			border: 1px solid #ccc;
+
+			.flag-bar {
+				height: 100%;
+				border-right: 1px solid #ccc;
+				display: inline-block;
+
+				&:last-child {
+					border-right: none;
+				}
+			}
+		}
+	}
+
+	.colors-contaier .item-percentage, .flag-container .item-percentage {
+		width: 100%;
+		line-height: 40px;
+		text-align: center;
+		font-family: "Oswald";
+		font-size: 24px;
+		overflow: hidden;
+
+		.percentage-value {
+			margin: 0 auto;
+			display: inline-block;
+			vertical-align: top;
+			line-height: normal;
+
+			.unit {
+				display: inline-block;
+				vertical-align: bottom;
+				font-size: 14px;
+			}
+		}
+	}
+}

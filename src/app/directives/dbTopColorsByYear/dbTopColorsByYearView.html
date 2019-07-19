@@ -1,0 +1,25 @@
+<div class="db-top-colors-by-year">
+  <div
+    hue-carousel="{responsive: false, width: '90%', items: {visible: carouselVisibleFunction, width: '180px'}, scroll: {items: 1, play: false}, buttonNextId: getButtonId('n'), buttonPrevId: getButtonId('p')}"
+    initialized="dataRendered">
+    <div class="bar-group" ng-repeat="itemGroup in data" on-repeat-last-element="onDataRendered">
+      <div class="group-title" ng-if="$odd" ng-bind="itemGroup.year"></div>
+      <div class="group-color-bars">
+        <div class="bar-container" ng-repeat="item in itemGroup.colors" ng-class="{odd: $parent.$odd}">
+          <div class="bar-subcontainer">
+            <div class="bar-label" ng-bind="$index + 1"></div>
+          </div>
+          <div class="bar-subcontainer last">
+            <div class="bar-section" ng-attr-title="{{item.title}}" ng-style="{'background-color': item.color.hex}"
+                 ng-class="{active: isBarSelected($parent.$index, $index)}"
+                 ng-click="selectBar($event, $parent.$index, $index)"
+                 hue-tooltipster="$parent.$odd ? tooltipsterOddConfig : tooltipsterConfig"></div>
+          </div>
+        </div>
+      </div>
+      <div class="group-title" ng-if="!$odd" ng-bind="itemGroup.year"></div>
+    </div>
+  </div>
+  <div class="carousel-button-left disable-text-selection" id="{{getButtonId('p')}}"></div>
+  <div class="carousel-button-right disable-text-selection" id="{{getButtonId('n')}}"></div>
+</div>

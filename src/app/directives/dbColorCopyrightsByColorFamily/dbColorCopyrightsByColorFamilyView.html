@@ -1,0 +1,7 @@
+<div class="db-color-copyrights-by-color-family">
+	<div class="item-container" ng-repeat="item in data" ng-click="itemClick(item)">
+		<div class="item-chart" hue-donut-chart="{diameter: 70, donutWidth: 10}" percentage="item.percentage" color="item.color.hex"></div>
+		<div class="item-value">{{Math.round(item.percentage)}}<span class="value-unit">%</span></div>
+		<div class="item-caption"><span ng-bind="item.title"></span></div>
+	</div>
+</div>

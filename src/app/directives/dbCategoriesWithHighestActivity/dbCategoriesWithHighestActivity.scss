@@ -1,0 +1,40 @@
+.db-categories-with-highest-activity {
+	height: 135px;
+	margin: 5px 0 25px 0;
+	text-align: center;
+
+	.category-item {
+		width: 350px;
+		height: 135px;
+		display: inline-block;
+		vertical-align: top;
+		margin: 0 30px;
+		padding-bottom: 8px;
+		border-bottom: 4px solid #fff;
+	}
+
+	.products-row {
+		width: 100%;
+		border-bottom: 1px solid #ccc;
+
+		&:last-child {
+			border-bottom: none;
+		}
+
+		.product-item {
+			width: 49%;
+			height: 40px;
+			font-family: "Oswald";
+			font-size: 24px;
+			display: inline-block;
+			vertical-align: top;
+			border-right: 1px solid #ccc;
+			padding: 2px 0;
+			overflow: hidden;
+
+			&:last-child {
+				border-right: none;
+			}
+		}
+	}
+}

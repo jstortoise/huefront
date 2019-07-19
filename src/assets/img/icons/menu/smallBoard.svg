@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_flows "http://ns.adobe.com/Flows/1.0/">
+	<!ENTITY ns_extend "http://ns.adobe.com/Extensibility/1.0/">
+	<!ENTITY ns_ai "http://ns.adobe.com/AdobeIllustrator/10.0/">
+	<!ENTITY ns_graphs "http://ns.adobe.com/Graphs/1.0/">
+]>
+<svg version="1.1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+	 x="0px" y="0px" viewBox="0 0 37.5 25" enable-background="new 0 0 37.5 25" xml:space="preserve">
+<g id="Layer_1">
+</g>
+<g id="Board">
+</g>
+<g id="Layer_7">
+</g>
+<g id="Export">
+</g>
+<g id="Share">
+</g>
+<g id="Information">
+</g>
+<g id="Account">
+	<path fill="#FFFFFF" d="M0.7,1.2v23h36v-5v-1v-11v-1v-5H0.7z M1.7,7.2h11v11h-11V7.2z M13.7,7.2h10v11h-10V7.2z M35.7,23.2h-34v-4
+		h34V23.2z M35.7,18.2h-11v-11h11V18.2z M24.5,6.2h-1h-10h-1H1.7v-4h34v4H24.5z"/>
+</g>
+</svg>

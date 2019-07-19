@@ -1,0 +1,144 @@
+<div ng-controller="seasonFashionController">
+
+  <div class="dashboard-container" ng-if="showDashboard">
+
+    <hue-db-header
+      header-title="title"
+      header-subtitle="subtitle"
+      header-icon="iconUrl"
+      icon-type="svg"
+      page-info="pageInfo">
+    </hue-db-header>
+
+    <div class="dashboard-row row-220">
+      <div class="dashboard-cell cell-left">
+        <div class="module-title">Top 4 Colors For {{title}}
+          <img src="assets/img/icons/expand.svg" class="icon-expand"
+               ng-click="toggleTopColorsExpandedMode()"/>
+          <hue-db-info-icon text-key="top_4_colors"></hue-db-info-icon>
+        </div>
+        <hue-db-top-colors data="topColorsData"></hue-db-top-colors>
+        <hue-db-top-colors-expanded data="topColorsData" toggle-view="toggleTopColorsExpandedMode()"
+                                    ng-if="topColorsExpanded">
+        </hue-db-top-colors-expanded>
+      </div>
+      <div class="dashboard-cell cell-right">
+        <div class="module-title">Color Family Frequency For {{title}}
+          <img src="assets/img/icons/expand.svg"
+               class="icon-expand"
+               ng-click="toggleColorFrequencyExpandedMode()"/>
+          <hue-db-info-icon text-key="color_family_freq"></hue-db-info-icon>
+        </div>
+
+        <hue-db-color-frequency data="colorFrequencyData"></hue-db-color-frequency>
+
+        <hue-db-color-frequency-expanded data="colorFrequencyData"
+                                         toggle-view="toggleColorFrequencyExpandedMode()"
+                                         ng-if="colorFrequencyExpanded">
+        </hue-db-color-frequency-expanded>
+      </div>
+    </div>
+
+    <div class="dashboard-row">
+      <div class="dashboard-cell">
+        <div class="module-title">Color Family Frequency For {{title}} By Region
+          <img src="assets/img/icons/expand.svg"
+               class="icon-expand"
+               ng-click="toggleColorFrequencyByRegionExpandedMode()"/>
+          <hue-db-info-icon text-key="color_family_freq_by_region"></hue-db-info-icon>
+        </div>
+        <hue-db-color-frequency-by-region data="colorFrequencyByRegionData"></hue-db-color-frequency-by-region>
+        <hue-db-color-frequency-by-region-expanded data="colorFrequencyByRegionData"
+                                                   toggle-view="toggleColorFrequencyByRegionExpandedMode()"
+                                                   ng-if="colorFrequencyByRegionExpanded">
+        </hue-db-color-frequency-by-region-expanded>
+      </div>
+    </div>
+
+    <div class="dashboard-row">
+      <div class="dashboard-cell">
+        <div class="module-title">Distribution By Category For {{title}}
+          <hue-db-info-icon text-key="distribution_by_category"></hue-db-info-icon>
+        </div>
+        <hue-db-distribution-by-category data="distributionByCategoryData"></hue-db-distribution-by-category>
+      </div>
+    </div>
+
+    <div class="dashboard-row">
+      <div class="dashboard-cell">
+        <div class="module-title">Top 10 Colors For {{title}} By City
+          <img src="assets/img/icons/expand.svg"
+               class="icon-expand"
+               ng-click="toggleColorFrequencyByCityExpandedMode()"/>
+          <hue-db-info-icon text-key="top_10_colors_by_city"></hue-db-info-icon>
+        </div>
+
+        <hue-db-color-frequency-by-city
+          data="colorFrequencyByCityData">
+        </hue-db-color-frequency-by-city>
+
+        <hue-db-color-frequency-by-city-expanded
+          data="colorFrequencyByCityData"
+          toggle-view="toggleColorFrequencyByCityExpandedMode()"
+          ng-if="colorFrequencyByCityExpanded">
+        </hue-db-color-frequency-by-city-expanded>
+
+      </div>
+    </div>
+
+    <div class="dashboard-row">
+      <div class="dashboard-cell">
+        <div class="module-title">Top 10 Colors For {{title}} By Year
+          <hue-db-info-icon text-key="top_4_colors_by_year"></hue-db-info-icon>
+        </div>
+
+        <hue-db-top-colors-by-year
+          data="topColorsByYearData">
+        </hue-db-top-colors-by-year>
+
+      </div>
+    </div>
+
+    <div class="dashboard-row">
+      <div class="dashboard-cell">
+        <div class="module-title">Color Palette For {{title}}
+          <img src="assets/img/icons/expand.svg" class="icon-expand"
+               ng-click="toggleColorPaletteExpandedMode()"
+          />
+          <hue-db-info-icon text-key="palette_collection"></hue-db-info-icon>
+
+          <hue-db-color-palette-bucket-selector
+            selected-value="colorPaletteBucket"
+            on-change="changeColorPaletteBucket">
+          </hue-db-color-palette-bucket-selector>
+
+        </div>
+        <hue-db-color-palette
+          set-color="setColorAsMain"
+          data="colorPaletteData"
+          is-expanded="colorPaletteExpanded">
+        </hue-db-color-palette>
+      </div>
+    </div>
+
+    <div class="dashboard-row">
+      <div class="dashboard-cell">
+        <div class="module-title">Designer Images For {{title}}
+          <img src="assets/img/icons/expand.svg" class="icon-expand"
+               ng-click="toggleDesignerImagesExpandedMode()"/>
+          <hue-db-info-icon text-key="image_gallery"></hue-db-info-icon>
+        </div>
+        <hue-db-designer-images data="designerImagesData"
+                                menus="menus"
+                                season-id="menus.season"
+                                year-id="menus.year"
+                                category-id="menus.category"
+                                city-id="menus.city"
+                                is-expanded="designerImagesExpanded">
+        </hue-db-designer-images>
+      </div>
+    </div>
+
+  </div>
+
+</div>

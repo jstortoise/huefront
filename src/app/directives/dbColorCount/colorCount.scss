@@ -1,0 +1,34 @@
+.db-color-count {
+	width: 70%;
+	margin: 0 auto;
+	margin-top: 20px;
+	text-align: center;
+	font-family: "Oswald";
+	font-size: 24px;
+
+	.color-count-row {
+		width: 100%;
+		border-bottom: 1px solid #ccc;
+
+		&:last-child {
+			border-bottom: none;
+		}
+
+		.color-count {
+			width: 50%;
+			display: inline-block;
+			border-right: 1px solid #ccc;
+			padding: 2px 0;
+		}
+
+		.color-percentage {
+			width: 50%;
+			display: inline-block;
+			padding: 2px 0;
+
+			.unit {
+				font-size: 14px;
+			}
+		}
+	}
+}

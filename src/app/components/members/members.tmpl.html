@@ -1,0 +1,37 @@
+<update-title title="HUEDATA Members"></update-title>
+<update-meta name="description" content="HUEDATA members"></update-meta>
+<update-meta name="keywords" content="Our members"></update-meta>
+
+<section id="members">
+  <div class="container-fluid  text-center title" ng-init="$ctrl.init()">
+    <div class="row">
+      <div class="col-lg-4 col-md-12 col-lg-offset-4">
+        <h3>HUEDATA Members</h3>
+        <div class="line"></div>
+      </div>
+      <div class="col-lg-4 col-md-12 buttons-group">
+        <div class="button membership">
+          <button ng-if="$ctrl.getUser()" class="btn join-btn" ng-click="$ctrl.gotoElement('prefooter')">JOIN</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid  text-left">
+    <div class="row">
+      <div class="col-lg-3 col-md-12">
+        <input ng-model="$ctrl.filter" ng-change="$ctrl.filterChange()" class="search" placeholder="A-Z" type="text">
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid members-list" style="padding-top:20px">
+    <div class="row members-list-min-h">
+      <div class="col-lg-3 col-md-4 col-sm-4" ng-repeat="group in $ctrl.dataGroups">
+        <ul>
+          <li ng-repeat="item in group">{{item.first_name}} {{item.last_name}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

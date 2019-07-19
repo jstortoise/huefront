@@ -1,0 +1,16 @@
+<div class="chart c-chart-by-city-period-colors">
+  <div>
+    <div class="colors">
+      <div ng-repeat="group in groups">
+        <div>
+          <div class="color-brick" ng-repeat="color in group.colors" ng-class="{ empty: color.isEmpty }">
+            <span style="background: {{ color.color }}"></span>
+          </div>
+        </div>
+        <label>{{ group.title }}</label>
+      </div>
+    </div>
+    <div chart-type="bottom">
+    </div>
+  </div>
+</div>

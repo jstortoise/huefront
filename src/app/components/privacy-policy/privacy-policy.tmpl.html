@@ -1,0 +1,20 @@
+<update-title title="Privacy Policy"></update-title>
+<update-meta name="description" content="HUEDATA Privacy Policy"></update-meta>
+<update-meta name="keywords" content="Privacy Policy"></update-meta>
+
+<section>
+  <div class="container-fluid text-center" ng-init="$ctrl.init()">
+    <div class="row">
+      <div class="col-lg-4 col-md-12 col-lg-offset-4">
+        <h3><b>{{$ctrl.pageData.title}}</b></h3>
+        <div class="line"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div ng-bind-html="$ctrl.pageData.editor" style="text-align: justify">
+
+  </div>
+</section>

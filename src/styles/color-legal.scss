@@ -1,0 +1,33 @@
+.dashboard-row.dashboard-color-row-first {
+	width: 100%;
+	height: 470px;
+
+	.dashboard-cell {
+		&.cell-left, &.cell-right {
+			width: 50%;
+		}
+
+		&.cell-left {
+			padding: 0;
+
+			.db-top-items-donuts .item-caption {
+				width: 100px;
+			}
+		}
+	}
+
+	.top-products-with-copyrights {
+		width: 100%;
+		height: 220px;
+		padding: 0 15px;
+		border-bottom: 1px solid #ccc;
+		float: left;
+	}
+
+	.copyrights-over-time {
+		width: 100%;
+		height: 250px;
+		padding: 0 15px;
+		float: left;
+	}
+}

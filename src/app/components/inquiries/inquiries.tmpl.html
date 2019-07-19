@@ -1,0 +1,184 @@
+<update-title title="{{$ctrl.title}}"></update-title>
+<update-meta name="description" content="{{$ctrl.caption}}"></update-meta>
+<update-meta name="keywords" content="{{$ctrl.keywords}}"></update-meta>
+
+
+<section class="inquiries">
+  <div class="container-fluid  text-center">
+    <h3>{{$ctrl.caption}}</h3>
+    <div class="line"></div>
+  </div>
+  <div class="row">
+    <div class="container-fluid">
+      <div ng-if="$ctrl.inquire1" class="col-lg-4 col-md-4 justify" style="font-size: 17px">
+        <p>HUEDATA color intelligence helps you benchmark your color performance relative to trends and competitors,
+          inspires your color innovation, optimizes color decisions for your customer segment and supports rationalizing
+          your color decisions.</p>
+      </div>
+      <div ng-if="$ctrl.inquire2" class="col-lg-4 col-md-4 " style="font-size: 17px">
+        <p>Typical ways in which Data partners collaborate with HUEDATA include:</p>
+        <ol class="list-huegroup">
+          <li>Seeking help structuring company color data</li>
+          <li>Looking to benchmark company color data against
+            HUEDATA specific color datasets for comparative and
+            competitive insights</li>
+          <li>Participate in invited research</li>
+          <li>Customize color dashboards and infographics using HUEDATA API</li>
+          <li>Co-Promoting unique color datasets
+            on HUEDATA’s growing Color Intelligence Platform</li>
+        </ol>
+      </div>
+
+      <div ng-if="$ctrl.inquire3" class="col-lg-4 col-md-4 justify" style="font-size: 17px">
+        <p>HUEDATA collaborates with Academic Partners (Institutions and Faculty)
+          to develop, accredit, host and deliver educational offerings from
+          various online color courses to customize color training programs
+          and teaching materials leveraging HUEDATA rich color datasets,
+          analytics and insights.</p>
+      </div>
+      <form name="inquiries" class="inq">
+        <div class="col-lg-4 col-md-4 membership-form">
+
+          <div class="membr-block">
+            <input ng-model="$ctrl.data.first_name.value" ng-value="$ctrl.data.first_name.value" type="text" id="first_name" name="first_name"
+                   ng-class="'ng-dirty' && inquiries.first_name.$invalid ?  'error' :''" style="border: 0px" required>
+            <label for="first_name">FIRST NAME <span class="red-text">*</span></label>
+          </div>
+
+          <div class="membr-block">
+            <input ng-model="$ctrl.data.last_name.value" ng-value="$ctrl.data.last_name.value" type="text" id="last_name" name="last_name"
+                   ng-class="'ng-dirty' && inquiries.last_name.$invalid ?  'error' :''" style="border: 0px" required>
+            <label for="last_name">LAST NAME <span class="red-text">*</span></label>
+          </div>
+
+          <div class="membr-block">
+            <input ng-model="$ctrl.data.email.value" ng-value="$ctrl.data.email.value" type="text" id="email" name="email"
+                   ng-class="'ng-dirty' && inquiries.Email.$invalid ?  'error' :''" style="border: 0px" required>
+            <label for="email">EMAIL <span class="red-text">*</span></label>
+          </div>
+
+          <div class="membr-block">
+            <input ng-if="$ctrl.inquire3" ng-model="$ctrl.data.company.value" ng-value="$ctrl.data.company.value" type="text" id="institute"
+                   name="institute"
+                   ng-class="'ng-dirty' && inquiries.institute.$invalid ?  'error' :''" style="border: 0px" required>
+            <label for="institute">ACADEMIC INSTITUTION/COMPANY <span class="red-text">*</span></label>
+          </div>
+
+          <div class="membr-block">
+            <input ng-if="$ctrl.inquire1 || $ctrl.inquire2" ng-model="$ctrl.data.company.value" ng-value="$ctrl.data.company.value"
+                   type="text" id="Company" name="Company"
+                   ng-class="'ng-dirty' && inquiries.institute.$invalid ?  'error' :''" style="border: 0px" required>
+            <label for="Company">ACADEMIC INSTITUTION/COMPANY <span class="red-text">*</span></label>
+          </div>
+
+          <div class="membr-block">
+            <input ng-model="$ctrl.data.job_title.value" ng-value="$ctrl.data.job_title.value" type="text" id="job_title" name="job_title"
+                   ng-class="'ng-dirty' && inquiries.job_title.$invalid ?  'error' :''" style="border: 0px" required>
+            <label for="job_title">JOB TITLE <span class="red-text">*</span></label>
+          </div>
+
+          <div class="select-style select-mrg">
+            <ui-select
+              ng-model="$ctrl.data.job_function.value"
+              theme="selectize"
+              search-enabled="false"
+            >
+              <ui-select-match ng-bind-html="$select.selected.title"></ui-select-match>
+              <ui-select-choices class="without-border" repeat="job in $ctrl.jobs">
+                <span ng-bind-html="job.title"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+
+          <div class="select-style select-mrg">
+            <ui-select
+              ng-model="$ctrl.data.company_size.value"
+              theme="selectize"
+              search-enabled="false"
+            >
+              <ui-select-match ng-bind-html="$select.selected.title"></ui-select-match>
+              <ui-select-choices class="without-border" repeat="companySize in $ctrl.companySizes">
+                <span ng-bind-html="companySize.title"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+
+          <div class="select-style select-mrg">
+            <ui-select
+              ng-model="$ctrl.data.industry.value"
+              theme="selectize"
+              search-enabled="false"
+            >
+              <ui-select-match ng-bind-html="$select.selected.title"></ui-select-match>
+              <ui-select-choices class="without-border" repeat="ind in $ctrl.industries">
+                <span ng-bind-html="ind.title"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+
+          <div class="select-style select-mrg">
+            <ui-select
+              ng-model="$ctrl.data.country.value"
+              theme="selectize"
+              search-enabled="false"
+            >
+              <ui-select-match ng-bind-html="$select.selected.title"></ui-select-match>
+              <ui-select-choices class="without-border" repeat="cntry in $ctrl.countries">
+                <span ng-bind-html="cntry.title"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+
+          <textarea ng-if="$ctrl.inquire2" ng-model="$ctrl.data.description.value" ng-value="$ctrl.data.description.value"
+                    placeholder="TELL US ABOUT YOUR COLOR DATA NEEDS" style="border: 0px"></textarea>
+          <textarea ng-if="$ctrl.inquire3" ng-model="$ctrl.data.description.value" ng-value="$ctrl.data.description.value"
+                    placeholder="TELL US ABOUT YOUR COLOR EDUCATION INTERESTS" style="border: 0px"></textarea>
+
+          <div ng-if="$ctrl.inquire2" class="button">
+            <button ng-click="$ctrl.send('data')" class="btn pull-right">
+              SUBMIT INQUIRY
+            </button>
+          </div>
+          <div ng-if="$ctrl.inquire3" class="button">
+            <button ng-click="$ctrl.send('edu')" class="btn pull-right">
+              SUBMIT INQUIRY
+            </button>
+          </div>
+        </div>
+
+        <div ng-if="$ctrl.inquire1" class="col-lg-4 col-md-4 membership-form">
+          <h4>Join our Email list</h4>
+          <div>
+            <p style="float: none">
+              <input ng-model="$ctrl.data.permissions.daily" type="checkbox" id="dailyInsight"/>
+              <label for="dailyInsight">Daily Insight</label>
+            </p>
+            <p style="float: none">
+              <input ng-model="$ctrl.data.permissions.research" type="checkbox" id="researchReport"/>
+              <label for="researchReport">Research Reports</label>
+            </p>
+            <p style="float: none">
+              <input ng-model="$ctrl.data.permissions.edu" ng-value="$ctrl.educationOfferings"
+                     type="checkbox"
+                     id="educationOfferings"/>
+              <label for="educationOfferings">Education Offerings</label>
+            </p>
+            <p style="float: none">
+              <input ng-model="$ctrl.data.relationship.expert" type="checkbox" id="joinPanel"/>
+              <label for="joinPanel">Join Expert Panel</label>
+            </p>
+          </div>
+
+          <div ng-if="$ctrl.inquire1" class="button">
+            <button ng-click="$ctrl.send('inquire')" class="btn">
+              SUBMIT INQUIRY
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+

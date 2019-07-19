@@ -1,0 +1,25 @@
+<div class="chart c-by-season-colors">
+  <div>
+    <div class="main-season">
+      <div class="colors">
+        <label>{{mainTitle}}</label>
+        <div ng-repeat="row in [0,1,2,3,4,5]">
+          <div class="color-brick" ng-repeat="color in mainSeason[row]" >
+            <span style="background: {{ color.colorHex }}"></span>
+          </div>
+        </div>
+      </div>
+      <div chart-type="groups"></div>
+    </div>
+  </div>
+  <div>
+    <div ng-repeat="(key, palette) in palettes" class="season">
+      <label>{{ key }}</label>
+      <div>
+        <div class="color-brick" ng-repeat="color in palette" ng-if="$index < 21">
+          <span style="background: {{ color.colorHex }}"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

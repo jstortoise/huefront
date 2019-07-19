@@ -1,0 +1,72 @@
+.db-image-gallery {
+	width: 100%;
+	text-align: center;
+
+	.image-group {
+		width: 100%;
+		margin-bottom: 30px;
+		border-bottom: 1px solid #ccc;
+
+		&:last-child {
+			border-bottom: none;
+		}
+
+		.group-title {
+			font-family: "Gotham SSm A";
+			font-size: 14px;
+			margin: 0 15px;
+			text-align: left;
+			text-transform: uppercase;
+		}
+	}
+
+	.image-container {
+		width: 150px;
+		height: 90px;
+		position: relative;
+		display: inline-block;
+		overflow: hidden;
+		margin: 10px;
+		line-height: 90px;
+
+		&.no-image {
+			border: 2px solid #ccc;
+
+			span {
+				font-family: "Gotham XNarrow SSm A";
+				font-size: 14px;
+				font-weight: bold;
+				color: #ccc;
+				text-transform: uppercase;
+			}
+		}
+
+		img {
+			max-width: 150px;
+			max-height: 90px;
+			margin: 0 auto;
+			vertical-align: middle;
+			cursor: pointer;
+		}
+	}
+
+	.show-button-container {
+		width: 100%;
+		text-align: center;
+		margin-bottom: 10px;
+
+		.show-button {
+			display: inline-block;
+			color: #4f4f4f;
+			font-family: 'Oswald';
+			font-size: 12px;
+			text-transform: uppercase;
+			padding: 8px 20px;
+			cursor: pointer;
+
+			&:hover {
+				background-color: #ededed;
+			}
+		}
+	}
+}

@@ -1,0 +1,19 @@
+<div class="chart-top-4-grid c-listed-lines-new afade">
+  <div class="list-item" id="anchor-{{letter}}" ng-repeat="letter in alphabet"
+       ng-show="grouppedData[letter.toLowerCase()].length > 0">
+    <label class="letter-label">{{letter.toUpperCase()}}</label>
+    <div class="data-container clearfix">
+      <div class="column" ng-repeat="column in [0,1,2]">
+        <div class="item-row clearfix" ng-repeat="item in grouppedData[letter.toLowerCase()]"
+             ng-if="$index % 3 == column">
+          <label class="designer-title clearfix">
+            {{item.title}}
+          </label>
+          <div class="color-block" ng-repeat="color in item.data">
+            <span color="" ng-class="{'color-white': color.isWhite }" class="afade" style="background: {{color.name}}"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

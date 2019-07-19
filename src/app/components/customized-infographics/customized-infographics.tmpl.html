@@ -1,0 +1,261 @@
+<update-title title="Customized Color Infographics"></update-title>
+<update-meta name="description" content="HUEDATA members create their own color analysis and inforgroahics"></update-meta>
+<update-meta name="keywords" content="Color Analytics, Color visualization, Color Data, Color insights,
+color theory infographics, infographics color scheme"></update-meta>
+
+<h4 class="text-left membership-product">HUEDATA MEMBERSHIP PRODUCT</h4>
+
+<section ng-controller="CustomInfographicsController as vm">
+  <div class="container-fluid infographics text-center title customized-infographics-top-container">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 col-lg-offset-3">
+        <h3>Color Customized Infographics</h3>
+        <div class="line"></div>
+      </div>
+      <div class="col-lg-3 col-md-12 text-right buttons-group" >
+        <div class="button membership btn-space-left">
+          <button ng-if="$ctrl.getUser()" class="btn join-btn " ng-click="gotoElement('prefooter')">JOIN</button>
+        </div>
+        <div class="button membership">
+          <button class="btn white-btn btn-no-space-right" ui-sref="productInquiry">PRODUCT INQUIRY</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid  text-left title" >
+    <!--<div class="dashboard-overlay" hue-dashboard-overlay ng-if="vm.showDashboardOverlay"></div>-->
+    <div class="customized-infographics-controls">
+      <div style="max-width: none" class="select-style custom-select">
+        <ui-select
+                class="chart-type"
+                ng-model="vm.currentChart"
+                theme="selectize"
+                search-enabled="false"
+        >
+          <ui-select-match ng-bind-html="$select.selected.title" class="to-uppercase"></ui-select-match>
+          <ui-select-choices repeat="item in vm.charts track by item.id">
+            <span class="to-uppercase" ng-bind-html="item.title"></span>
+          </ui-select-choices>
+        </ui-select>
+      </div>
+
+      <div class="select-style custom-select" ng-if="vm.isFilterVisible('designer')">
+        <ui-select
+                id="designers"
+                ng-model="vm.filter.designer"
+                theme="selectize"
+                search-enabled="false"
+        >
+          <ui-select-match ng-bind-html="$select.selected.title || 'ALL DESIGNERS'"></ui-select-match>
+          <ui-select-choices ui-disable-choice="vm.isFilterItems('designers', item.title)" repeat="item in vm.meta.designers track by item.id">
+            <span ng-bind-html="item.title"></span>
+          </ui-select-choices>
+        </ui-select>
+      </div>
+
+      <div class="select-style custom-select" ng-if="vm.isFilterVisible('color')">
+        <ui-select
+                id="color"
+                class="colors"
+                ng-model="vm.filter.color"
+                theme="selectize"
+                search-enabled="false"
+        >
+          <ui-select-match ng-bind-html="$select.selected.title || 'ALL COLORS'"></ui-select-match>
+          <ui-select-choices ui-disable-choice="vm.isFilterItems('colorGroups', item.title)" repeat="item in vm.meta.colorGroups track by item.id">
+            <span ng-bind-html="item.title"></span>
+          </ui-select-choices>
+        </ui-select>
+      </div>
+
+      <div class="select-style custom-select" ng-if="vm.isFilterVisible('category')">
+        <ui-select
+                id="categories"
+                class="categories"
+                ng-model="vm.filter.category"
+                theme="selectize"
+                search-enabled="false"
+        >
+          <ui-select-match ng-bind-html="$select.selected.title || 'ALL CATEGORIES'"></ui-select-match>
+          <ui-select-choices ui-disable-choice="vm.isFilterItems('categories', item.title)" repeat="item in vm.meta.categories track by item.id">
+            <span ng-bind-html="item.title"></span>
+          </ui-select-choices>
+        </ui-select>
+      </div>
+
+      <div class="select-style custom-select" ng-if="vm.isFilterVisible('season')">
+        <ui-select
+                id="seasons"
+                class="seasons"
+                ng-model="vm.filter.season"
+                theme="selectize"
+                search-enabled="false"
+        >
+          <ui-select-match ng-bind-html="$select.selected.title || 'ALL SEASONS'"></ui-select-match>
+          <ui-select-choices ui-disable-choice="vm.isFilterItems('seasons', item.title)" repeat="item in vm.meta.seasons track by item.id">
+            <span ng-bind-html="item.title"></span>
+          </ui-select-choices>
+        </ui-select>
+      </div>
+
+      <div class="select-style custom-select" ng-if="vm.isFilterVisible('year')">
+        <ui-select
+                id="years"
+                class="years"
+                ng-model="vm.filter.year"
+                theme="selectize"
+                search-enabled="false"
+        >
+          <ui-select-match ng-bind-html="$select.selected.title || 'ALL YEARS'"></ui-select-match>
+          <ui-select-choices ui-disable-choice="vm.isFilterItems('years', item.title)" repeat="item in vm.meta.years track by item.id">
+            <span ng-bind-html="item.title"></span>
+          </ui-select-choices>
+        </ui-select>
+      </div>
+
+      <div class="select-style custom-select" ng-if="vm.isFilterVisible('region')">
+        <ui-select
+                id="regions"
+                class="regions"
+                ng-model="vm.filter.region"
+                theme="selectize"
+                search-enabled="false"
+        >
+          <ui-select-match ng-bind-html="$select.selected.title || 'ALL REGIONS'"></ui-select-match>
+          <ui-select-choices ui-disable-choice="vm.isFilterItems('regions', item.title)" repeat="item in vm.meta.regions track by item.id">
+            <span ng-bind-html="item.title"></span>
+          </ui-select-choices>
+        </ui-select>
+      </div>
+
+      <div class="select-style custom-select" ng-if="vm.isFilterVisible('city')">
+        <ui-select
+                id="cities"
+                class="cities"
+                ng-model="vm.filter.city"
+                theme="selectize"
+                search-enabled="false"
+        >
+          <ui-select-match ng-bind-html="$select.selected.title || 'ALL CITIES'"></ui-select-match>
+          <ui-select-choices ui-disable-choice="vm.isFilterItems('cities', item.title)" repeat="item in vm.meta.cities track by item.id">
+            <span ng-bind-html="item.title"></span>
+          </ui-select-choices>
+        </ui-select>
+      </div>
+      <button class="btn customized-infographics-controls-btn" style="margin-top: 0" ng-click="vm.refresh()">LOAD</button>
+      <div style="padding-left: 10px">
+        <button class="btn" style="margin-top: 0" ng-click="vm.exportJpg()">
+          EXPORT
+        </button>
+      </div>
+      <!--<div style="padding-left: 10px" ng-if="vm.isUserAdmin()">-->
+        <!--<button class="btn" style="margin-top: 0" ng-click="vm.reportJpg()">-->
+          <!--REPORT-->
+        <!--</button>-->
+      <!--</div>-->
+
+
+      <!--<div style="display: inline-block">-->
+      <!--</div>-->
+    </div>
+
+    <section class="customized-infographics">
+      <div id="capture">
+        <div class="graphic-titles">
+          <div class="letters-anchors" ng-if="vm.currentChart.group === 'top4Grid' && vm.title">
+            <a ng-click="vm.scrollToLetter('anchor-'+letter)" ng-repeat="letter in vm.alphabet">{{letter}}</a>
+          </div>
+          <h2 ng-bind-html="vm.title">
+          </h2>
+          <h4>{{vm.description}}</h4>
+        </div>
+
+        <hue-chart-by-city-period hue-chart data="vm.model" mode="vm.mode"
+                                  ng-if="vm.currentChart.qNumber === 'CO1a'">
+        </hue-chart-by-city-period>
+
+        <hue-chart-by-city-period-colors hue-chart data="vm.model" mode="{extraView: true}"
+                                         ng-if="vm.currentChart.qNumber === 'CO1b'">
+        </hue-chart-by-city-period-colors>
+
+        <hue-chart-colors-unique-with-levels hue-chart data="vm.model" mode="vm.mode"
+                                             ng-if="vm.currentChart.group === 'colorsUniqueWithLevels'">
+        </hue-chart-colors-unique-with-levels>
+
+        <hue-chart-trends hue-chart data="vm.model" mode="vm.mode"
+                          ng-if="vm.currentChart.group === 'trends'">
+        </hue-chart-trends>
+
+        <hue-chart-by-region-period hue-chart data="vm.model" mode="vm.mode"
+                                    ng-if="vm.currentChart.group === 'colorsByRegionPeriod'">
+        </hue-chart-by-region-period>
+
+        <hue-chart-colors-per-region hue-chart data="vm.model" mode="vm.mode"
+                                     ng-if="vm.currentChart.group === 'colorsPerRegions'">
+        </hue-chart-colors-per-region>
+
+        <hue-chart-unique-with-groups hue-chart data="vm.model" mode="vm.mode"
+                                      ng-if="vm.currentChart.group === 'colorsUniqueGroupsCommon'">
+        </hue-chart-unique-with-groups>
+
+        <hue-chart-by-season-five-years hue-chart data="vm.model" mode="vm.mode"
+                                        ng-if="vm.currentChart.group === 'colorsUniqueByPeriodFiveYears'">
+        </hue-chart-by-season-five-years>
+
+        <hue-chart-by-season-five-years-colors hue-chart data="vm.model" mode="true"
+                                               ng-if="vm.currentChart.group === 'colorsUniqueByPeriodFiveYears2'">
+        </hue-chart-by-season-five-years-colors>
+
+        <hue-chart-colors-unique-with-groups-per-season hue-chart data="vm.model" mode="vm.mode"
+                                                        ng-if="vm.currentChart.group === 'uniqueWithGroupsPerSeason'">
+        </hue-chart-colors-unique-with-groups-per-season>
+
+        <hue-chart-nails hue-chart data="vm.model" mode="vm.mode"
+                         ng-if="vm.currentChart.group === 'colorsByCategoryPeriod'">
+        </hue-chart-nails>
+
+        <hue-chart-grid-nails hue-chart data="vm.model" mode="vm.mode"
+                              ng-if="vm.currentChart.group === 'colorsGridNails'">
+        </hue-chart-grid-nails>
+
+        <hue-chart-grid-nails hue-chart data="vm.model" mode="{extraView: true}"
+                              ng-if="vm.currentChart.group === 'colorsGridNails2'">
+        </hue-chart-grid-nails>
+
+        <hue-chart-cities-by-color-period hue-chart data="vm.model" mode="vm.mode"
+                                          ng-if="vm.currentChart.group === 'citiesByColorPeriod'">
+        </hue-chart-cities-by-color-period>
+
+        <!--Designers <DE**>-->
+        <hue-chart-common-with-groups hue-chart data="vm.model" mode="vm.mode"
+                                      ng-if="vm.currentChart.group === 'colorsGroupsCommon'">
+        </hue-chart-common-with-groups>
+
+        <hue-chart-common-with-groups hue-chart data="vm.model" mode="{extraView: true}"
+                                      ng-if="vm.currentChart.group === 'colorsGroupsCommon2'">
+        </hue-chart-common-with-groups>
+
+        <hue-chart-colors-with-groups-for-two hue-chart data="vm.model" mode="vm.mode"
+                                              ng-if="vm.currentChart.group === 'top4forDesigner'">
+        </hue-chart-colors-with-groups-for-two>
+
+        <hue-chart-colors-with-groups-for-two hue-chart data="vm.model" mode="{extraView: true}"
+                                              ng-if="vm.currentChart.group === 'top4forDesigner2'">
+        </hue-chart-colors-with-groups-for-two>
+
+        <hue-top4-grid hue-chart data="vm.model" mode="vm.mode"
+                       ng-if="vm.currentChart.group === 'top4Grid'">
+        </hue-top4-grid>
+
+        <div class="customized-infographics-footer">
+          <a></a>
+          <h5 style="padding-top: 9px;">HUEDATA is a color intelligence company, providing color analytics and insights across industries,
+            product categories, geographies and time to inspire, inform and validate color decisions. Visit us at: <a href="http://www.hue-data.com">www.hue-data.com</a>
+          </h5>
+          <p style="margin-top: -8px;">&#169 HUEDATA Inc. 2018</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>

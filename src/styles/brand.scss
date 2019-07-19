@@ -1,0 +1,97 @@
+.dashboard-row.dashboard-brand-row-second {
+	width: 100%;
+	display: table;
+	min-height: 440px;
+
+	.dashboard-cell {
+		display: table-cell;
+		float: none;
+	}
+
+	.dashboard-cell.cell-right {
+		padding: 0;
+	}
+
+	.cell-color-frequency {
+		height: 220px;
+		padding: 0 15px;
+		border-bottom: 1px solid #ccc;
+	}
+
+	.cell-color-palette {
+		padding: 0 15px;
+	}
+
+	.db-color-count-by-model {
+		.color-count-row {
+			height: 41px;
+		}
+
+		.color-count {
+			font-size: 15px;
+			text-transform: uppercase;
+			line-height: 36px;
+			vertical-align: top;
+		}
+	}
+}
+
+.colss-8 {
+  width: 12.5%;
+}
+
+.cols-2 {
+  width: 16.66%;
+}
+
+@media (max-width: 900px) {
+  .col-md-1 {
+    width: 25% !important;
+  }
+
+  .col-md-2 {
+    width: 50%;
+  }
+
+  .col-md-3 {
+    width: 75%;
+  }
+
+  .col-md-4 {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .colss-2 {
+    width: 16.66%;
+  }
+}
+
+
+.search-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+
+	.sub-container {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		width: 100%;
+		padding: 20px 0;
+
+		.color-bar {
+			width: 30px;
+			height: 100px;
+			float: left;
+			cursor: pointer;
+		}
+
+		h4 {
+			margin: 0;
+			text-align: center;
+		}
+	}
+}

@@ -1,0 +1,261 @@
+.db-logos {
+	width: 100%;
+	text-align: center;
+
+	.image-group {
+		width: 100%;
+		margin-bottom: 30px;
+		border-bottom: 1px solid #ccc;
+
+		&:last-child {
+			border-bottom: none;
+		}
+
+		.group-title {
+			font-family: "Gotham SSm A";
+			font-size: 14px;
+			margin: 0 15px;
+			text-align: left;
+			text-transform: uppercase;
+		}
+	}
+
+	.image-container {
+		width: 150px;
+		height: 90px;
+		position: relative;
+		display: inline-block;
+		overflow: hidden;
+		margin: 10px;
+		line-height: 90px;
+
+		img {
+			max-width: 150px;
+			max-height: 90px;
+			margin: 0 auto;
+			vertical-align: middle;
+			cursor: pointer;
+		}
+	}
+
+	.show-button-container {
+		width: 100%;
+		text-align: center;
+		margin-bottom: 10px;
+
+		.show-button {
+			display: inline-block;
+			color: #4f4f4f;
+			font-family: 'Oswald';
+			font-size: 12px;
+			text-transform: uppercase;
+			padding: 8px 20px;
+			cursor: pointer;
+
+			&:hover {
+				background-color: #ededed;
+			}
+		}
+	}
+}
+
+hue-db-logo-details {
+	position: fixed;
+	z-index: 3000;
+	transition: all 200ms ease-out;
+	-webkit-transition: all 200ms ease-out;
+	-moz-transition: all 200ms ease-out;
+	-o-transition: all 200ms ease-out;
+	-ms-transition: all 200ms ease-out;
+
+	&.ng-enter, &.ng-leave.ng-leave-active {
+		opacity: 0;
+	}
+
+	&.ng-leave, &.ng-enter.ng-enter-active {
+		opacity: 1;
+	}
+}
+
+.db-logo-details {
+	position: fixed;
+	top: 50px;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1500;
+	background-color: rgba(0, 0, 0, 0.5);
+	text-align: center;
+
+	&:before {
+		content: '';
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+		margin-right: -0.25em;
+	}
+
+	.logo-details-dialog {
+		display: inline-block;
+		vertical-align: middle;
+		margin: auto;
+		background-color: #fff;
+		font-family: "Open Sans";
+		font-size: 16px;
+		text-align: left;
+		height: 500px;
+
+		.logo-container {
+			display: inline-block;
+			background-color: #fff;
+			vertical-align: top;
+			text-align: center;
+			width: 350px;
+			height: 100%;
+
+			a {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				display: block;
+			}
+
+			img {
+				max-width: 300px;
+				max-height: 400px;
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+			}
+		}
+
+		.logo-details {
+			display: inline-block;
+			position: relative;
+			width: 350px;
+			height: 100%;
+			padding: 15px;
+			vertical-align: top;
+
+			.company-name {
+				margin: 15px 0;
+				padding-right: 20px;
+				font-family: Oswald;
+				font-size: 24px;
+				text-transform: uppercase;
+			}
+
+			.subtitle {
+				font-family: Oswald;
+				text-transform: uppercase;
+				margin-top: 30px;
+			}
+
+			.logo-attributes {
+				ul {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					overflow: hidden;
+					max-height: 120px;
+
+					li {
+						display: inline-block;
+						text-transform: uppercase;
+						padding-right: 5px;
+						margin: 0 5px 3px 0;
+						border-right: 1px solid #000;
+						font-size: 12px;
+
+						&.active {
+							color: #000;
+						}
+					}
+				}
+			}
+
+			.logo-colors {
+				.color-item {
+					width: 50%;
+					display: inline-block;
+
+					.color-bar {
+						height: 30px;
+						margin: 5px;
+						border: 1px solid #ccc;
+					}
+				}
+			}
+
+			.show-button {
+				width: 100px;
+				margin: 0 auto;
+				color: #4f4f4f;
+				font-family: 'Oswald';
+				font-size: 11px;
+				text-transform: uppercase;
+				padding: 4px 0;
+				cursor: pointer;
+				text-align: center;
+
+				&:hover {
+					background-color: #ededed;
+				}
+			}
+		}
+
+		.dialog-footer {
+			width: 100%;
+			height: 50px;
+			background: url(../../img/logo.png) center left no-repeat #000;
+			background-size: contain;
+			font-family: Open Sans;
+			font-size: 14px;
+			color: #fff;
+
+			.footer-container {
+				float: right;
+				margin-right: 5px;
+				line-height: 50px;
+			}
+
+			button {
+				display: inline-block;
+				vertical-align: middle;
+				line-height: normal;
+				font-weight: bold;
+				text-transform: uppercase;
+				cursor: pointer;
+				background: none;
+				border: none;
+			}
+
+			input[type=text] {
+				display: inline-block;
+				vertical-align: middle;
+				line-height: normal;
+				width: 180px;
+				cursor: pointer;
+				background: none repeat scroll 0 0 #000;
+				border-color: -moz-use-text-color -moz-use-text-color #fff;
+				border-image: none;
+				border-style: none none solid;
+				border-width: 0 0 1px;
+				text-align: center;
+			}
+		}
+
+		.button-close {
+			width: 20px;
+			height: 20px;
+			background: url(../../img/icons/close-big.svg) no-repeat center;
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			cursor: pointer;
+		}
+	}
+}

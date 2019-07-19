@@ -1,0 +1,10 @@
+<div class="db-categories-with-highest-activity">
+  <hue-db-carousel visible-elements="3" element-spacing="50">
+    <div class="category-item" ng-style="{ 'border-color': item.color.hex }" ng-repeat="item in data">
+      <div class="products-row" ng-repeat="product in item.products">
+        <div class="product-item" ng-bind="::product[0]"></div>
+        <div class="product-item" ng-bind="::product[1]"></div>
+      </div>
+    </div>
+  </hue-db-carousel>
+</div>

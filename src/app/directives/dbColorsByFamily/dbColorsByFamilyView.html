@@ -1,0 +1,5 @@
+<div class="db-colors-by-family">
+	<div class="button-all" ng-click="showAllLines()" ng-style="{height: colorBarItemHeight}">All</div>
+	<ul class="color-bar"><li ng-click="toggleLine($index)" ng-attr-title="::item.title" ng-class="{hidden: !visibleColors[$index]}" ng-style="{'background-color': item.color, height: colorBarItemHeight}" ng-repeat="item in chartData"></li></ul>
+	<div class="graph"></div>
+</div>

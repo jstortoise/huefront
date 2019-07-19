@@ -1,0 +1,103 @@
+<update-title title="{{$ctrl.pageData.header}} | HUEDATA Teaching Material"></update-title>
+<update-meta name="description" content="{{$ctrl.pageData.description}}"></update-meta>
+<update-meta name="keywords" content="HUEDATA teaching material, detailed page, teaching material"></update-meta>
+
+<div class="test-separator"></div>
+<h4 class="membership-product title-text-left">HUEDATA MEMBERSHIP PRODUCT</h4>
+
+<div class="detailed-page-wrapper" ng-init="$ctrl.init()">
+  <section class="top">
+    <div class="container-fluid  text-left title">
+      <div class="row">
+        <div class="col-lg-6 col-md-12">
+          <div class="list-item">
+            <div>
+              <span class="list-category">HUEDATA Education</span>
+              <span class="list-date">{{$ctrl.pageData.date}}</span>
+            </div>
+            <div class="list-text">{{$ctrl.pageData.header}}</div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12 text-right buttons-group">
+          <div class="button membership">
+            <button ng-if="$ctrl.getUser()" class="btn join-btn" ng-click="$ctrl.gotoElement('prefooter')">JOIN</button>
+          </div>
+          <div class="button membership white" ng-if="$ctrl.pageData.excerpts.length > 0">
+            <a class="btn white-btn" ng-click="$ctrl.downloadExcerpt()">DOWNLOAD
+              EXCERPT</a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="border"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container-fluid  text-left">
+
+    </div>
+  </section>
+
+  <section>
+    <div class="container-fluid text-left report detailed-content">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <div class="img-responsive background-image"
+               style="background: {{'url(' + $ctrl.pageData.image_url + ') top center'}};
+                      background-repeat: no-repeat;
+                      background-size: cover;
+                      padding-bottom: 56%;
+                      background-color: #e1e1e126;"
+          >
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <span ng-bind-html="$ctrl.pageData.description"></span>
+          <a class="pointer" ng-if="$ctrl.pageData.file" ng-click="$ctrl.downloadExcerpt()">Download Excerpt</a>
+          <div class="prise">
+            <p><span>Priсe: </span>{{($ctrl.pageData.price === 0) ? 'Free' : '&#36;' + $ctrl.pageData.price}}</p>
+          </div>
+          <button class="btn buy-btn" ng-click="$ctrl.aggProduct()">BUY</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="detailed-bottom-content" ng-if="$ctrl.pageData.analitic.length">
+    <div class="container-fluid">
+      <div class="row top-row">
+        <div class="col-lg-6 col-md-12">
+          <h4>Key Analytics</h4>
+        </div>
+        <div class="col-lg-6 col-md-12">
+          <div class="button membership white text-right">
+            <button class="btn white-btn" ng-click="$ctrl.more()">VIEW ALL FROM THIS REPORT</button>
+          </div>
+        </div>
+      </div>
+      <div class="row slider-images">
+        <a ng-repeat="item in $ctrl.pageData.analitic">
+          <div ng-repeat="i in item">
+            <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+              <div class="img-responsive background-image"
+                   style="background: {{'url(' + i.image_url +') top center'}};
+                          background-repeat: no-repeat;
+                          background-size: cover;
+                          padding-bottom: 56%;
+                          background-color: #e1e1e126;">
+              </div>
+            </div>
+            <div class="col-lg-1 col-md-6 col-sm-12 col-xs-12 slider">
+              <h5>RTW SS18</h5>
+              <div class="short-line"></div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>

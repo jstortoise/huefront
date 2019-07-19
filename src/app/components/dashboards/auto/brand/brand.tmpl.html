@@ -1,0 +1,83 @@
+<div ng-controller="brandAutoController">
+
+  <div class="dashboard-container" ng-if="showDashboard">
+    <hue-db-header header-title="title" header-icon="iconUrl" icon-type="img" page-info="pageInfo"></hue-db-header>
+
+    <div class="dashboard-row row-220">
+      <div class="dashboard-cell cell-left">
+        <div class="module-title">Top 4 Colors For {{title}} <img src="assets/img/icons/expand.svg" class="icon-expand"
+                                                                  ng-click="toggleTopColorsExpandedMode()"/>
+          <hue-db-info-icon text-key="top_colors"></hue-db-info-icon>
+        </div>
+        <hue-db-top-colors data="topColorsData"></hue-db-top-colors>
+        <hue-db-top-colors-expanded data="topColorsData" toggle-view="toggleTopColorsExpandedMode()"
+                                    ng-if="topColorsExpanded"></hue-db-top-colors-expanded>
+      </div>
+      <div class="dashboard-cell cell-right">
+        <div class="module-title">Distribution By Finish For {{title}}
+          <hue-db-info-icon text-key="top_finishes"></hue-db-info-icon>
+        </div>
+        <hue-db-top-finishes data="topFinishesData" chart-color="topIndustriesColor"></hue-db-top-finishes>
+      </div>
+    </div>
+
+    <div class="dashboard-row dashboard-brand-row-second">
+      <div class="dashboard-cell cell-left">
+        <div class="module-title">Number Of Colors By Model For {{title}} <img src="assets/img/icons/expand.svg"
+                                                                               class="icon-expand"
+                                                                               ng-click="toggleColorsCountExpandedMode()"/>
+          <hue-db-info-icon text-key="color_count"></hue-db-info-icon>
+        </div>
+        <hue-db-color-count-by-model data="colorsCountData"
+                                     is-expanded="colorsCountExpanded"></hue-db-color-count-by-model>
+      </div>
+      <div class="dashboard-cell cell-right">
+        <div class="cell-color-frequency">
+          <div class="module-title">
+            Color Family Frequency For {{title}} <img src="assets/img/icons/expand.svg" class="icon-expand"
+                                                      ng-click="toggleColorFrequencyExpandedMode()"/>
+            <hue-db-info-icon text-key="color_freq"></hue-db-info-icon>
+            <hue-db-color-frequency-color-picker data="colorFrequencyData" active-color="activeColorFrequencyColor"
+                                                 ng-show="isColorFrequencyColorPickerVisible()"></hue-db-color-frequency-color-picker>
+          </div>
+          <hue-db-color-frequency data="colorFrequencyData"
+                                  active-color="activeColorFrequencyColor"></hue-db-color-frequency>
+          <hue-db-color-frequency-expanded data="colorFrequencyData" toggle-view="toggleColorFrequencyExpandedMode()"
+                                           ng-if="colorFrequencyExpanded"></hue-db-color-frequency-expanded>
+        </div>
+        <div class="cell-color-palette">
+          <div class="module-title">Color Palette For {{title}} <img src="assets/img/icons/expand.svg"
+                                                                     class="icon-expand"
+                                                                     ng-click="toggleColorPaletteExpandedMode()"/>
+            <hue-db-info-icon text-key="palette"></hue-db-info-icon>
+            <hue-db-color-palette-bucket-selector
+              selected-value="colorPaletteBucket"
+              on-change="changeColorPaletteBucket">
+            </hue-db-color-palette-bucket-selector>
+          </div>
+          <hue-db-color-palette data="colorPaletteData" set-color="setColorAsMain" is-expanded="colorPaletteExpanded"></hue-db-color-palette>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard-row">
+      <div class="dashboard-cell">
+        <div class="module-title">Number Of Colors By Color Family For {{title}} Over Time
+          <hue-db-colors-by-family-range-selector
+            selected-value="colorsByFamilyRange"></hue-db-colors-by-family-range-selector>
+        </div>
+        <hue-db-colors-by-family data="shadesData" year-range="colorsByFamilyRange"></hue-db-colors-by-family>
+      </div>
+    </div>
+
+    <div class="dashboard-row">
+      <div class="dashboard-cell">
+        <div class="module-title">Image Gallery For {{title}} By Color</div>
+        <hue-db-image-gallery data="carColorsData"></hue-db-image-gallery>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+

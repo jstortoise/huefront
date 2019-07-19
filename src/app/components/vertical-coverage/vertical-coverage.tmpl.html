@@ -1,0 +1,93 @@
+<update-title title="HUEDATA verticals"></update-title>
+<update-meta name="description" content="The color industries HUEDATA covers"></update-meta>
+<update-meta name="keywords" content="Color in Industry, Color Design, Color in Fashion, Color in Brands, Color in Auto,
+Color in Beauty, Color Trends, Color Forecasting, Color Analysis"></update-meta>
+
+<section ng-init="$ctrl.init()">
+  <div class="container-fluid  text-center title">
+    <div class="row">
+      <div class="col-lg-4 col-md-12 col-lg-offset-4">
+        <h3>HUEDATA Verticals</h3>
+        <div class="line"></div>
+      </div>
+      <div class="col-lg-4 col-md-12">
+        <div class="button membership">
+          <button ng-if="$ctrl.getUser()" class="btn join-btn" ng-click="$ctrl.gotoElement('prefooter')">JOIN</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section ng-repeat="item in $ctrl.pageData" class="vertical-coverage {{($index + 1)% 2 == 0 ? 'gray' :''}}">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 col-md-6">
+        <div class="category_form"><strong>{{item.category_name.toUpperCase()}}</strong></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container-fluid verticals-min-h" style="padding-top:30px">
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" ng-repeat="editor in item.editor track by $index" ng-bind-html="editor">
+      </div>
+    </div>
+    <div class="row slider-images">
+      <a> <!--style="height: 100px"-->
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 verticals-item">
+          <div class="img-responsive background-image test-img"
+               style="background: {{'url(' + item.image1_url + ') top center'}};
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    padding-bottom: 40%;
+                    background-color: #e1e1e126;">
+          </div>
+          <div class="test-title">
+            <h5>{{item.image1_name}}</h5>
+            <div class="short-line"></div>
+          </div>
+        </div>
+      </a>
+
+      <a>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 verticals-item">
+          <div class="img-responsive background-image test-img"
+               style="background: {{'url(' + item.image2_url + ') top center'}};
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    padding-bottom: 40%;
+                    background-color: #e1e1e126;">
+          </div>
+        <!--</div>-->
+
+        <!--<div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 slider">-->
+          <div class="test-title">
+            <h5>{{item.image2_name}}</h5>
+            <div class="short-line"></div>
+          </div>
+        </div>
+      </a>
+
+      <a>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 verticals-item">
+          <div class="img-responsive background-image test-img"
+               style="background: {{'url(' + item.image3_url + ') top center'}};
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    padding-bottom: 40%;
+                    background-color: #e1e1e126;">
+          </div>
+        <!--</div>-->
+
+        <!--<div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 slider">-->
+          <div class="test-title">
+            <h5>{{item.image3_name}}</h5>
+            <div class="short-line"></div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>

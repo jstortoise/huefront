@@ -1,0 +1,7 @@
+<div class="db-top-items-donuts">
+	<div class="item-container" ng-repeat="item in data" ng-click="itemClick({item: item})">
+		<div class="item-chart" hue-donut-chart="{diameter: 100}" percentage="item.percentage" color="donutColor"></div>
+		<div class="item-value">{{item.percentage.toFixed()}}<span class="value-unit">%</span></div>
+		<div class="item-caption"><span ng-bind="item.title"></span></div>
+	</div>
+</div>

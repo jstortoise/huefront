@@ -1,0 +1,351 @@
+.db-designer-images {
+  position: relative;
+  text-align: center;
+  padding: 38px 33px;
+
+  .button-close {
+    width: 20px;
+    height: 20px;
+    background: url(../../../assets/img/icons/close-big.svg) no-repeat center;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    cursor: pointer;
+  }
+
+  .pagination {
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #fff;
+    }
+    
+    li {
+      float: left;
+      border: 1px solid #e1e1e1;
+      border-left: none;
+
+      a {
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 10px 16px;
+        text-decoration: none;
+      }
+      a:hover {
+        background-color: #bb0075;
+        color: #fff;
+      }
+    }
+
+    li:first-child {
+      a {
+        padding: 10px 25px;
+      }
+      i {
+        margin-left: -10px;
+        margin-right: 10px;
+      }
+    }
+    li:last-child {
+      border-right: none;
+      a {
+        padding: 10px 25px;
+      }
+      i {
+        margin-left: 10px;
+        margin-right: -10px;
+      }
+    }
+
+    li.active {
+      background: #bb0075;
+      a {
+        color: #fff;
+      }
+    }
+    li.disabled {
+      background: #eee;
+      a {
+        color: #ccc;
+        cursor: default;
+      }
+      a:hover {
+        background: #eee;
+        color: #ccc;
+      }
+    }
+  }
+
+  display: flex;
+
+  .image-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    cursor: pointer;
+    margin-top: 10px;
+    padding: 0 10px;
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    .image-title {
+      position: relative;
+      font-family: 'Gotham XNarrow SSm A', 'Gotham XNarrow SSm B';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      color: #000;
+      background: #fff;
+      width: 100%;
+      padding: 10px;
+      bottom: 0;
+      z-index: 10;
+      text-align: center;
+    }
+
+    .image-overlay {
+      position: absolute;
+      top: 0;
+      left: 10px;
+      width: calc(100% - 20px);
+      height: 100%;
+      background-color: rgba(187, 0, 118, 0.75);
+      z-index: 20;
+      color: #bb0076;
+      display: none;
+
+      .overlay-text {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 80%;
+        height: 35%;
+        margin: auto;
+        font-family: 'Gotham XNarrow SSm A', 'Gotham XNarrow SSm B';
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+        color: #fff;
+        border: 3px solid white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    &:hover .image-overlay {
+      display: block;
+    }
+  }
+  .image-container:hover {
+    .image-title {
+      color: #bb0076;
+    }
+  }
+}
+
+hue-db-designer-image-details {
+  position: fixed;
+  z-index: 3000;
+  transition: all 200ms ease-out;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  -ms-transition: all 200ms ease-out;
+
+  &.ng-enter, &.ng-leave.ng-leave-active {
+    opacity: 0;
+  }
+
+  &.ng-leave, &.ng-enter.ng-enter-active {
+    opacity: 1;
+  }
+}
+
+.db-designer-images-details {
+  position: fixed;
+  top: 50px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1500;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+
+  .image-details-dialog {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #fff;
+    font-family: "Open Sans";
+    font-size: 16px;
+    text-align: left;
+    width: 800px;
+    min-width: 600px;
+    min-height: 500px;
+		max-width: 1200px;
+		
+		.row {
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+    .glyphicon {
+      padding: 6px 3px;
+    }
+
+    .glyphicon-chevron-left {
+      z-index: 1;
+      position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			height: 28px;
+			width: 20px;
+      margin: auto;
+      cursor: pointer;
+      background-color: #fff;
+    }
+
+    .glyphicon-chevron-right {
+      z-index: 1;
+      position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			margin: auto;
+			height: 28px;
+			width: 20px;
+      cursor: pointer;
+      background-color: #fff;
+    }
+
+    .oi {
+      z-index: 100;
+      border: 1px solid #efefef;
+      position: relative;
+      top: 320px;
+      float: right;
+      cursor: pointer;
+      background-color: #fff;        
+    }
+
+    .image-container {
+      width: 100%;
+      a {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      img {
+        width: 100%;
+        height: auto;
+      }
+		}
+		
+    .image-details-header {
+      width: 100%;
+      padding: 10px;
+		}
+		
+    .image-details {
+			padding: 0 20px;
+      font-size: 23px;
+      font-family: Oswald;
+      .btn {
+        margin-top: 30px;
+        width: 100%;
+        background: none;
+        color: #000;
+        border: 1px solid #000;
+        font-size: 19px;
+        font-weight: 10;
+			}
+			.social-icon-groups {
+				justify-content: flex-start;
+				span {
+					margin-right: 20px;
+				}
+				i {
+					margin-right: 20px;
+				}
+			}
+    }
+    .dialog-footer {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      height: 40px;
+      width: 160px;
+      background: url(../../../assets/img/logo.png) center left no-repeat #000;
+      background-size: contain;
+      font-family: Open Sans;
+      font-size: 14px;
+      color: #fff;
+
+      .footer-container {
+        float: right;
+        margin-right: 5px;
+        line-height: 50px;
+      }
+
+      button {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: normal;
+        font-weight: bold;
+        text-transform: uppercase;
+        cursor: pointer;
+        background: none;
+        border: none;
+      }
+
+      span {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: normal;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      input[type=text] {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: normal;
+        width: 180px;
+        cursor: pointer;
+        background: none repeat scroll 0 0 #000;
+        border-color: -moz-use-text-color -moz-use-text-color #fff;
+        border-image: none;
+        border-style: none none solid;
+        border-width: 0 0 1px;
+        text-align: center;
+      }
+    }
+
+    .button-close {
+      width: 20px;
+      height: 20px;
+      // background: url(../../../assets/img/icons/close-big.svg) no-repeat center;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      cursor: pointer;
+    }
+  }
+}

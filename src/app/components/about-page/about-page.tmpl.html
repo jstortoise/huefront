@@ -1,0 +1,105 @@
+<update-title title="About Us"></update-title>
+<update-meta name="description" content="Inform, inspire and validate color design decisions"></update-meta>
+<update-meta name="keywords" content="Color, Color Data, Color Insights, Color Trends, Color Forecasting, Color Analysis"></update-meta>
+
+<div class="container-fluid header text-center" ng-init="$ctrl.init()">
+  <div class="text-header">
+    <h1>The World’s Color Intelligence Platform</h1>
+    <img id="show-video-popup" ng-click="$ctrl.showVideoPopup()" class="play-btn" src="../assets/images/play-icon.png"
+         alt="play">
+    <div class="button">
+      <button ng-click="$ctrl.gotoElement('prefooter')" class="btn">STAY CONNECTED</button>
+    </div>
+    <div class="popup full-screen video" id="video-popup">
+      <header>
+        <button ng-click="$ctrl.hideVideoPopup()" type="button" class="btn close-btn">X</button>
+      </header>
+      <main>
+        <iframe src="https://www.youtube.com/embed/A-dZ5GIBnbo"
+                id="companyVimeoVideo"
+                frameborder="0" webkitallowfullscreen mozallowfullscreen
+                allowfullscreen></iframe>
+      </main>
+    </div>
+  </div>
+</div>
+
+<div class="clear"></div>
+
+<section>
+  <div class="container-fluid  text-center">
+    <h3>{{$ctrl.pageData.title}}</h3>
+    <div class="line"></div>
+  </div>
+
+  <div class="container-fluid bg-3">
+    <div class="row about-us-min-h">
+      <div class="col-lg-6 col-md-6">
+        <img ng-src="{{$ctrl.pageData.image_url}}" class="img-responsive shadow img50" alt="Image">
+      </div>
+      <div class="del-padding" ng-bind-html="$ctrl.pageData.editor"></div>
+    </div>
+
+
+    <div class="row text-center equal">
+      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 about-item">
+
+        <div class="offer shadow"><img src="../assets/images/search.png" alt="Image" style="padding-top:30px">
+          <h5>SEARCH</h5>
+          <div class="short-line" ></div>
+          <p class="text-bold text-align-left">Search for any color data point you need!</p>
+          <ol class="list-huegroup">
+            <li>Find what are the new colors showing on the world’s runways;</li>
+            <li>View furniture colors of leading interior designers;</li>
+            <li>Check the colors of logos for the world’s 100,000 global companies</li>
+          </ol>
+          <p class="text-align-left padding-left-3"> … and so much more!</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 about-item">
+
+        <div class="offer shadow"><img src="../assets/images/discover.png" alt="Image" style="padding-top:30px">
+          <h5>DISCOVER</h5>
+          <div class="short-line"></div>
+          <p class="text-bold text-align-left">Discover the value of real time color analytics.</p>
+          <ol class="list-huegroup">
+            <li>What are the RTW color trends this season?  </li>
+            <li>What colors do celebrities wearing this month?</li>
+            <li>Which colors are most twitted about this week?</li>
+          </ol>
+          <p class="text-align-left">Discover how color is used across products, industries geographies, and over time!</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 about-item">
+
+        <div class="offer shadow"><img src="../assets/images/analyze.png" alt="Image" style="padding-top:30px">
+          <h5>ANALYZE</h5>
+          <div class="short-line"></div>
+          <p class="text-bold text-align-left">Analyze the frequency , uniqueness, relevance & timeliness of color.</p>
+          <ol class="list-huegroup">
+            <li>Track global and local color trends</li>
+            <li>Analyze the color portfolio of specific designers over time</li>
+            <li>Identify specific color-emotion associations</li>
+          </ol>
+          <p class="text-align-left padding-left-3"> … in short, focus on analytics that best support your color decision needs.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 about-item">
+
+        <div class="offer shadow"><img src="../assets/images/Leverage.png" alt="Image" style="padding-top:30px">
+          <h5>LEVERAGE</h5>
+          <div class="short-line"></div>
+          <p class="text-bold text-align-left">Let the confidence in analytics and insights amplify  your decisions.</p>
+          <ol class="list-huegroup">
+            <li>Substantiated creative choices</li>
+            <li>Minimize color risks</li>
+            <li>Rationalize color decisions to gain support</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

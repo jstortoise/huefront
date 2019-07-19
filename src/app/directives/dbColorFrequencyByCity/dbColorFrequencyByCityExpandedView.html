@@ -1,0 +1,26 @@
+<div class="db-expanded-view db-color-frequency-by-city-expanded">
+  <div class="button-close" ng-click="toggleView()"></div>
+  <div class="view-title">Color Frequency By City</div>
+  <table class="expanded-view-table">
+    <thead>
+    <tr>
+      <th></th>
+      <th ng-repeat="item in columns track by $index" ng-bind="$index+1"></th>
+    </tr>
+    </thead>
+    <tbody ng-repeat="region in data">
+    <tr ng-repeat="item in region">
+      <th ng-bind="item.city"></th>
+      <td ng-repeat="color in item.colors">
+        <div class="color-bar" ng-attr-title="{{color.title}}" ng-style="{'background-color': color.color.hex}"
+             ng-class="{active: isBarActive($parent.$parent.$index, $parent.$index, $index)}"
+             ng-click="toggleActiveBar($event, $parent.$parent.$index, $parent.$index, $index)"
+             hue-tooltipster="tooltipsterConfig"><span>{{color.percentage.toFixed(2) + '%'}}</span></div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="{{columns.length + 1}}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

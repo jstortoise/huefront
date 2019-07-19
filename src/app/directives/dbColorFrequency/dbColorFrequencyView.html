@@ -1,0 +1,70 @@
+﻿<div class="db-color-frequency disable-text-selection" ng-class="getClass()">
+
+  <div class="bar-group group-most-used">
+    <div class="bar-title">
+      <span ng-click="setExpandedGroupClass('expand-group-most-used')">Most used</span>
+      <div class="icon-close" ng-click="setExpandedGroupClass(null)"></div>
+    </div>
+    <div class="bar-container">
+      <div class="searched-color" ng-style="{'background-color': searchedColor}" ng-if="showSearchedColor()"></div>
+      <div class="bar-section" ng-repeat="item in data.mostPopular" ng-if="item.percentage > 0"
+           ng-style="{width: item.percentage + '%', 'background-color': item.color.hex}"
+           ng-attr-title="{{item.percentage.toFixed(2) + '% ' + item.title}}" ng-click="selectBar($event)"
+           hue-tooltipster="tooltipsterConfig">
+        <div class="bottom-line"></div>
+      </div>
+    </div>
+    <div class="bar-subtitle">{{data.percentages[0]}}</div>
+  </div>
+
+  <div class="bar-group group-moderately-used">
+    <div class="bar-title">
+      <span ng-click="setExpandedGroupClass('expand-group-moderately-used')">Moderately used</span>
+      <div class="icon-close" ng-click="setExpandedGroupClass(null)"></div>
+    </div>
+    <div class="bar-container">
+      <div class="searched-color" ng-style="{'background-color': searchedColor}" ng-if="showSearchedColor()"></div>
+      <div class="bar-section" ng-repeat="item in data.moderate" ng-if="item.percentage > 0"
+           ng-style="{width: item.percentage + '%', 'background-color': item.color.hex}"
+           ng-attr-title="{{item.percentage.toFixed(2) + '% ' + item.title}}" ng-click="selectBar($event)"
+           hue-tooltipster="tooltipsterConfig">
+        <div class="bottom-line"></div>
+      </div>
+    </div>
+    <div class="bar-subtitle">{{data.percentages[1]}}</div>
+  </div>
+
+  <div class="bar-group group-least-used">
+    <div class="bar-title">
+      <span ng-click="setExpandedGroupClass('expand-group-least-used')">Least used</span>
+      <div class="icon-close" ng-click="setExpandedGroupClass(null)"></div>
+    </div>
+    <div class="bar-container">
+      <div class="searched-color" ng-style="{'background-color': searchedColor}" ng-if="showSearchedColor()"></div>
+      <div class="bar-section" ng-repeat="item in data.infrequent" ng-if="item.percentage > 0"
+           ng-style="{width: item.percentage + '%', 'background-color': item.color.hex}"
+           ng-attr-title="{{item.percentage.toFixed(2) + '% ' + item.title}}" ng-click="selectBar($event)"
+           hue-tooltipster="tooltipsterConfig">
+        <div class="bottom-line"></div>
+      </div>
+    </div>
+    <div class="bar-subtitle">{{data.percentages[2]}}</div>
+  </div>
+
+  <div class="bar-group group-not-used">
+    <div class="bar-title">
+      <span ng-click="setExpandedGroupClass('expand-group-not-used')">Not used</span>
+      <div class="icon-close" ng-click="setExpandedGroupClass(null)"></div>
+    </div>
+    <div class="bar-container">
+      <div class="searched-color" ng-style="{'background-color': searchedColor}" ng-if="showSearchedColor()"></div>
+      <div class="bar-section" ng-repeat="item in data.not_used" ng-if="item.percentage > 0"
+           ng-style="{width: item.percentage + '%', 'background-color': item.color.hex}"
+           ng-attr-title="{{item.percentage.toFixed(2) + '% ' + item.title}}" ng-click="selectBar($event)"
+           hue-tooltipster="tooltipsterConfig">
+        <div class="bottom-line"></div>
+      </div>
+    </div>
+    <div class="bar-subtitle">{{data.percentages[3]}}</div>
+  </div>
+</div>

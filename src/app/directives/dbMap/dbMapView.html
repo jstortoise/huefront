@@ -1,0 +1,9 @@
+<div class="db-map">
+	<div class="map-container" ng-repeat="map in maps">
+		<hue-svg class="map-image" source="assets/img/worldmap.svg" on-load="mapLoaded($index)" ng-if="!hideMap"></hue-svg>
+		<div class="color-line" ng-style="{'border-bottom-color': map.color}" ng-bind="map.title"></div>
+		<ul class="map-attributes">
+			<li ng-repeat="item in map.attributes | limitTo:15" ng-class="{active: $first}" ng-bind="item.title"></li>
+		</ul>
+	</div>
+</div>

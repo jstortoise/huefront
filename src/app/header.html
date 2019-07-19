@@ -1,0 +1,121 @@
+<!--<div ng-class="{'hide': $ctrl.hideHeader()}" class="container-fluid" id="top-menu">-->
+
+  <!--<ul>-->
+    <!--<li><a class="lighter-grey-color" ui-sref="cart-page">My Cart</a></li>-->
+    <!--<li ng-show="$ctrl.userIsLoggedIn()"><a class="pointer lighter-grey-color" ng-click="$ctrl.goProfile()">My profile</a></li>-->
+    <!--<li>-->
+      <!--<a class="pointer" ng-show="!$ctrl.userIsLoggedIn()" ui-sref="membership({scrollTo: true})">BECOME A MEMBER</a>-->
+      <!--<a class="lighter-grey-color" ng-show="$ctrl.userIsLoggedIn()">HI {{$ctrl.user.full_name}}</a>-->
+    <!--</li>-->
+
+    <!--<li class="left-header">The World's Color Intelligence Platform</li>-->
+  <!--</ul>-->
+<!--</div>-->
+
+<nav ng-class="{'hide': $ctrl.hideHeader()}" class="navbar navbar-inverse">
+  <div class="container-fluid">
+
+    <!--data-toggle="collapse" data-target="#myNavbar"-->
+
+    <div class="collapse navbar-collapse flexible-menu" data-toggle="collapse" id="myNavbar">
+      <div class="navbar-header">
+          <a href="/">
+          <img class="pointer" ng-click="$ctrl.goToLanding()" src="../assets/images/logo.png" id="logo" alt="logo">
+          </a>
+        <button type="button" ng-click="$ctrl.open()" class="navbar-toggle collapsed"
+
+                aria-expanded="false">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <ul class="nav navbar-nav">
+
+        <li class="dropdown"
+            ng-mouseleave="$ctrl.selectedTab=false"
+            ng-mouseover="$ctrl.selectedTab=true"
+            ui-sref-active="active"
+            ng-class="$ctrl.getActiveMainNav(mainNav.name) && !$ctrl.selectedTab || $ctrl.selectedSubTab[mainNav.name] ? 'active' : ''"
+            ng-repeat="mainNav in $ctrl.navigations">
+
+          <a ng-if="!mainNav.state" class="dropdown-toggle">
+            {{mainNav.name}}
+          </a>
+          <a ng-click="$ctrl.toggleMenu()" ng-if="mainNav.state" ui-sref={{mainNav.state}}
+             class="dropdown-toggle"
+             data-toggle="dropdown">
+            {{mainNav.name}}
+          </a>
+          <ul class="dropdown-menu" ng-if="mainNav.subNavs && mainNav.subNavs.length > 0"
+              ng-mouseleave="$ctrl.selectedSubTab[mainNav.name]=false"
+              ng-mouseover="$ctrl.selectedSubTab[mainNav.name]=true">
+            <li ng-click="$ctrl.toggleMenu(subNav.name)"
+                ng-repeat="subNav in mainNav.subNavs">
+              <a ng-show="!subNav.onlyAdmin || $ctrl.user.is_admin" ui-sref={{subNav.state}}>{{subNav.name}}</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+
+
+
+      <ul class="nav navbar-nav main-nav navbar-right login" ng-class="{true: 'menu-client-logged', false: 'menu-client'}[$ctrl.userIsLoggedIn()]">
+        <!--<ul ng-show="$ctrl.userIsLoggedIn()" class="menu-client-logged">-->
+        <!--</ul>-->
+        <!--<li ng-show="$ctrl.userIsLoggedIn()"><a class="pointer lighter-grey-color" ng-click="$ctrl.goProfile()">My profile</a></li>-->
+          <li ng-show="$ctrl.user.is_admin">
+              <a class="menu-client_item_test" ng-href="https://gentle-bastion-76293.herokuapp.com/abouts"
+                 style="padding-right: 50px!important;">
+                  ADMIN</a>
+          </li>
+          <li class="dropdown"
+              ng-show="$ctrl.userIsLoggedIn()"
+              ng-mouseleave="$ctrl.selectedTab=false"
+              ng-mouseover="$ctrl.selectedTab=true"
+              ui-sref-active="active"
+              ng-class="$ctrl.getActiveMainNav(mainNav.name) && !$ctrl.selectedTab || $ctrl.selectedSubTab[mainNav.name] ? 'active' : ''"
+              ng-repeat="mainNav in $ctrl.navigation_profile">
+
+              <a ng-if="!mainNav.state" class="dropdown-toggle menu-client_item_test full-name-menu-link" style="font-size: 16px;">
+                  {{mainNav.name}} {{$ctrl.user.first_name}}
+              </a>
+              <a ng-click="$ctrl.toggleMenu()" ng-if="mainNav.state" ui-sref={{mainNav.state}}
+                 class="dropdown-toggle menu-client_item_test"
+                 data-toggle="dropdown">
+                  {{mainNav.name}}
+              </a>
+              <ul class="dropdown-menu" ng-if="mainNav.subNavs && mainNav.subNavs.length > 0"
+                  ng-mouseleave="$ctrl.selectedSubTab[mainNav.name]=false"
+                  ng-mouseover="$ctrl.selectedSubTab[mainNav.name]=true">
+                  <li ng-click="$ctrl.toggleMenu(subNav.name)"
+                      ng-repeat="subNav in mainNav.subNavs">
+                      <a class="menu-client_item_test" ng-show="!subNav.onlyAdmin || $ctrl.user.is_admin" ui-sref={{subNav.state}}>{{subNav.name}}</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+              <a class="pointer" style="padding: 4px 0 0 47px!important;" ng-show="!$ctrl.userIsLoggedIn()" ui-sref="membership({scrollTo: true})">BECOME A MEMBER</a>
+              <!--<a class="lighter-grey-color" ng-show="$ctrl.userIsLoggedIn()">HI {{$ctrl.user.full_name}}</a>-->
+          </li>
+          <li>
+              <a ng-show="!$ctrl.userIsLoggedIn()" ng-click="$ctrl.toggleMenu()" ui-sref="login" style="padding: 0 0 0px 47px!important;">
+                  Member Login
+                  <img src="../assets/images/login-icon.png" id="login" alt="login" style="padding-left: 6px;margin-top: -5px;width: 27px;">
+              </a>
+              <a class="menu-client_item_test" ng-show="$ctrl.userIsLoggedIn()" ng-click="$ctrl.logOut(); $ctrl.toggleMenu()" style="min-width: 60px;font-size: 16px;">
+                  Logout
+                  <!--<img src="../assets/images/login-icon.png" id="login" alt="login" style="padding-left: 2px; margin-top:-4px;">-->
+              </a>
+          </li>
+          <li ng-show="$ctrl.userIsLoggedIn()">
+              <a class="lighter-grey-color" ui-sref="cart-page" style="padding-top: 6px!important;height: 40px;padding-right: 12px!important;">
+                  <!--<i style="display: inline-block" class="fa fa-shopping-cart fa-2x cart-img-header" aria-hidden="true"></i>-->
+                  <img src="../assets/images/cart_TH.png"  alt="cart" style="margin-top: 2px;width: 24px;">
+              </a>
+          </li>
+      </ul>
+    </div>
+  </div>
+</nav>

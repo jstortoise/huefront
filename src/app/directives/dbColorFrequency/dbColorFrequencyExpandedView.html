@@ -1,0 +1,31 @@
+<div class="db-expanded-view db-color-frequency-expanded">
+  <div class="button-close" ng-click="toggleView()"></div>
+  <div class="view-title">Color Frequency
+    <hue-db-color-frequency-color-picker data="colorPickerData" active-color="activeColor"
+                                         ng-show="showColorPicker"></hue-db-color-frequency-color-picker>
+  </div>
+  <div class="color-bar-container">
+    <div class="bar-section" ng-repeat="item in data" ng-style="{width: barWidths[$index]}" ng-class="{odd: $odd}">
+      <div class="color-bar" ng-style="{'background-color': item.color.hex}" ng-if="item.percentage_abs > 3">
+        <div class="bottom-line"></div>
+      </div>
+      <div class="color-bar" ng-style="{'background-color': item.color.hex}"
+           ng-attr-title="{{item.percentage_abs + '%'}}" hue-tooltipster="tooltipsterConfig"
+           ng-if="item.percentage_abs <= 3">
+        <div class="bottom-line"></div>
+      </div>
+      <section ng-if="item.percentage_abs > 3">
+        <div class="details-line"></div>
+        <div class="color-value">{{item.percentage_abs}}<span class="value-unit">%</span></div>
+      </section>
+    </div>
+  </div>
+  <div class="color-details-container">
+    <div class="color-details" ng-repeat="item in data">
+      <div class="color-bar" ng-style="{'background-color': item.color.hex}"></div>
+      <div class="color-title" ng-bind="item.title"></div>
+      <div>RGB: {{item.color.rgb}}</div>
+      <div>NCS: {{item.color.ncs}}</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="db-logos">
+	<div class="image-group" ng-repeat="group in data track by $index">
+		<div class="group-title" ng-bind="groupNames[$index]"></div>
+		<div class="image-container" ng-repeat="item in group track by $index">
+			<img ng-src="{{item.url}}" ng-click="logoClick($parent.$index, $index)"/>
+		</div>
+
+		<div class="show-button-container" ng-show="isShowMoreVisible($index)">
+			<div class="show-button" ng-click="showMoreClick($index)">Show More</div>
+		</div>
+		<div class="show-button-container" ng-show="isShowLessVisible($index)">
+			<div class="show-button" ng-click="showLessClick($index)">Show Less</div>
+		</div>
+	</div>
+</div>
+
+<hue-db-logo-details ng-if="showLogoDetails" on-close="toggleLogoDetails()" logo-id="logoDetailsId"></hue-db-logo-details>

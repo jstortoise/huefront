@@ -1,0 +1,243 @@
+.db-top-colors {
+  width: 100%;
+  height: 145px;
+  text-align: center;
+
+  .color-bar {
+    width: 26px;
+    height: 100%;
+    vertical-align: top;
+    display: inline-block;
+    border: 1px solid #ccc;
+
+    .bar-section {
+      width: 100%;
+      border-bottom: 1px solid #fff;
+      -webkit-transition: all 200ms ease-out;
+      -moz-transition: all 200ms ease-out;
+      -o-transition: all 200ms ease-out;
+      -ms-transition: all 200ms ease-out;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    &.expanded .bar-section {
+      border: none;
+    }
+  }
+
+  .color-info-container {
+    display: inline-block;
+    text-align: left;
+    height: 100%;
+
+    .color-info {
+      height: 24px;
+      margin-left: 10px;
+      margin-bottom: 16px;
+      cursor: pointer;
+      position: relative;
+      width: 250px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .color-value {
+        display: inline-block;
+        vertical-align: middle;
+        font-family: "Gotham SSm A";
+        font-size: 20px;
+        line-height: 1;
+        position: absolute;
+        width: 50px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        height: 24px;
+
+        .color-value-unit {
+          font-size: 14px;
+        }
+      }
+
+      .color-title {
+        border-top: 5px solid #000;
+        font-family: "Gotham SSm A";
+        font-weight: bold;
+        padding: 4px 0 0;
+        text-transform: uppercase;
+        font-size: 15px;
+        line-height: 1;
+        position: absolute;
+        left: 50px;
+        width: 200px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        height: 24px;
+      }
+
+      &:first-child {
+        .color-value, .color-title {
+          bottom: auto;
+          margin: 0;
+        }
+      }
+
+      &:last-child {
+        .color-value, .color-title {
+          top: auto;
+          margin: 0;
+        }
+      }
+
+      &:hover {
+        opacity: 0.5;
+      }
+
+      &.active {
+        opacity: 1 !important;
+      }
+    }
+
+    &.color-selected .color-info {
+      opacity: 0.5;
+    }
+  }
+}
+
+.db-top-colors-expanded {
+  .top-colors-container {
+    width: 90%;
+    height: 80%;
+    margin: 40px auto;
+
+    .color-section {
+      width: 100%;
+      height: 25%;
+      position: relative;
+
+      .section-container {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        right: 0;
+        bottom: 0;
+
+        &.even {
+          left: 0;
+          right: 50%;
+
+          .color-bar {
+            left: initial;
+            right: -15px;
+          }
+
+          .details-line {
+            left: initial;
+            right: 15px;
+          }
+
+          .color-details {
+            left: initial;
+            right: 135px;
+          }
+
+          .color-shades {
+            left: initial;
+            right: 360px;
+
+            .color-shade {
+              text-align: right;
+            }
+          }
+        }
+
+        .color-bar {
+          position: absolute;
+          width: 30px;
+          height: 100%;
+          left: -15px;
+          border-bottom: 2px solid #fff;
+        }
+
+        .details-line {
+          position: absolute;
+          width: 100px;
+          height: 2px;
+          top: 0;
+          bottom: 0;
+          left: 15px;
+          margin: auto;
+          background-color: #ccc;
+        }
+
+        .color-details {
+          position: absolute;
+          width: 200px;
+          height: 4px;
+          top: 0;
+          bottom: 0;
+          left: 135px;
+          margin: auto;
+
+          .details-top-container {
+            width: 100%;
+            height: 50px;
+            position: absolute;
+            top: -58px;
+          }
+
+          .details-bottom-container {
+            width: 100%;
+            position: absolute;
+            top: 8px;
+          }
+
+          .color-value {
+            width: 100%;
+            font-family: "Gotham SSm A";
+            font-size: 24px;
+
+            .value-unit {
+              font-size: 14px;
+            }
+          }
+
+          .color-title {
+            width: 100%;
+            font-weight: bold;
+            font-size: 16px;
+          }
+        }
+
+        .color-shades {
+          position: absolute;
+          width: 150px;
+          top: 0;
+          left: 360px;
+          margin: auto;
+
+          .color-shade {
+            width: 100%;
+            text-align: left;
+            margin-bottom: 2px;
+
+            .shade-title {
+              font-weight: bold;
+              font-size: 14px;
+              border-bottom: 4px solid #fff;
+            }
+
+            .shade-details {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

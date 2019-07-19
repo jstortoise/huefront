@@ -1,0 +1,22 @@
+<div class="chart-container">
+  <ng-transclude ng-show="showTitle"></ng-transclude>
+  <div class="color-title" ng-show="!showTitle"><span>{{selectedColorTitle}}<br/>{{selectedColorNcs}}</span></div>
+  <div class="pie-chart" hue-pie-chart="{diameter: 160}" data="pieData" selected-index="selectedIndex"
+       on-color-click="colorClickHandler" on-collapse-click="collapseClickHandler"
+       on-animation-complete="animationCompleteHandler"></div>
+  <div class="designers-label-container">
+    <span class="designers-count" ng-bind="data.designerCount"></span>
+    <span class="designers-label">Designers</span>
+  </div>
+</div>
+<div class="color-legend" ng-class="{'item-selected': isItemSelected()}">
+  <div class="carousel-button-up" id="{{getButtonId('p')}}"></div>
+  <div
+    hue-carousel="{items: 4, scroll: {items: 1, play: false}, direction: 'down', width: '45px', buttonNextId: getButtonId('n'), buttonPrevId: getButtonId('p')}"
+    initialized="initialized">
+    <div class="color-legend-item" ng-repeat="color in data.colors" ng-style="{'border-color': color.color.hex}"
+         ng-class="{active: isItemSelected($index)}" ng-click="selectItem($index)">{{color.percentage.toFixed()}}<span
+      class="legend-item-unit">%</span></div>
+  </div>
+  <div class="carousel-button-down" id="{{getButtonId('n')}}"></div>
+</div>

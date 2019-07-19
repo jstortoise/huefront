@@ -1,0 +1,85 @@
+<update-title title="Color Teaching Materials"></update-title>
+<update-meta name="description" content="Color teaching materials repository of color templates, color tools and color tests"></update-meta>
+<update-meta name="keywords" content="color teaching ppt, color teaching aids, teaching color, teaching about color,
+teaching color concepts, color wheel template for teaching, color teaching activities, color blind texts"></update-meta>
+
+<section>
+  <div class="container-fluid  text-center title" ng-init="$ctrl.init()">
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-3"><h3>Color Teaching Materials</h3>
+        <div class="line"></div>
+      </div>
+      <div class="col-lg-3 buttons-group">
+        <div class="button membership">
+          <button class="btn" ui-sref="educationInquire">BECOME AN EDUCATION PARTNER</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container-fluid  text-center">
+    <div class="row search-fields">
+      <div class="col-lg-2 col-lg-offset-3 search-fields2">
+        <div class="select-style">
+          <select ng-model="$ctrl.topicModel" ng-change="$ctrl.select()">
+            <option>TOPIC</option>
+            <option ng-repeat="item in $ctrl.topic">{{item}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-lg-2">
+        <div class="select-style">
+          <select ng-model="$ctrl.providerModel" ng-change="$ctrl.select()">
+            <option>PROVIDER</option>
+            <option ng-repeat="item in $ctrl.provider">{{item}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-lg-2">
+        <div class="select-style">
+          <select ng-model="$ctrl.typeModel" ng-change="$ctrl.select()">
+            <option>TYPE</option>
+            <option ng-repeat="item in $ctrl.type">{{item}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="min-h">
+  <div class="container-fluid  text-left course teaching-materials-min-h" style="margin-bottom: 0px;">
+    <div class="row equal">
+      <div style="{{item.style}}" class="col-lg-4 col-md-6 col-sm-6 col-xs-12 item"  ng-repeat="item in $ctrl.items">
+        <a style="text-decoration: none" ng-href="#!/color-teaching-materials/{{item.id}}">
+          <div class="img-responsive background-image"
+               style="background: {{'url(' + item.image_url +') top center'}};
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #e1e1e126;
+                    padding-bottom: 56%;"
+          >
+          </div>
+        </a>
+        <h5>{{item.header}}</h5>
+        <div class="justify">
+          <p class="four_line_height" style="display: block" data-ng-bind-html="item.description" data-ellipsis
+             data-ellipsis-symbol="... "
+             data-ellipsis-append="<a>Read more</a>"
+             data-ellipsis-append-click="$ctrl.toggleTextHeight"
+          ></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" ng-show="!$ctrl.flag">
+    <div class="col-lg-12 text-center">
+      <div class="viewmore"><a ng-click="$ctrl.showMore()">view more</a></div>
+    </div>
+  </div>
+</section>

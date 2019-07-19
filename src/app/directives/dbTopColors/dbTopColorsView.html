@@ -1,0 +1,13 @@
+<div class="db-top-colors">
+  <div class="color-bar" ng-class="{expanded: isColorSelected()}">
+    <div class="bar-section" ng-repeat="item in data"
+         ng-style="{height: getBarHeight($index), 'background-color': item.color.hex}"></div>
+  </div>
+  <div class="color-info-container" ng-class="{'color-selected': isColorSelected()}">
+    <div class="color-info" ng-repeat="item in data" ng-click="toggleColor($index)"
+         ng-class="{active: isColorSelected($index)}">
+      <div class="color-value">{{item.percentage.toFixed()}}<span class="color-value-unit">%</span></div>
+      <div class="color-title" ng-style="{'border-color': item.color.hex}">{{item.title}}</div>
+    </div>
+  </div>
+</div>

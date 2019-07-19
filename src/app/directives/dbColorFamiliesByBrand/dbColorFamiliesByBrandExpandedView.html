@@ -1,0 +1,12 @@
+<div class="db-expanded-view db-color-families-by-brand-expanded">
+	<div class="button-close" ng-click="toggleView()"></div>
+	<div class="view-title">Top 4 Color Families By Brand</div>
+	<div class="bars">
+		<div class="bar-group" ng-repeat="modelItem in data">
+			<div class="title-container"><div class="bar-title" ng-bind="::modelItem.title"></div></div>
+			<div class="bar-container">
+				<div class="bar-section" ng-repeat="item in modelItem.colors" ng-style="{width: item.percentage + '%', 'background-color': item.color.hex}" ng-attr-title="{{item.percentage.toFixed(2) + '% ' + item.title}}" ng-click="selectBar($event)" hue-tooltipster="tooltipsterConfig"></div>
+			</div>
+		</div>
+	</div>
+</div>

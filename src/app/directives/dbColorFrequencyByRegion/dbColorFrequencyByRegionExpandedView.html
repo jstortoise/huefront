@@ -1,0 +1,29 @@
+<div class="db-expanded-view db-color-frequency-expanded by-region">
+  <div class="button-close" ng-click="toggleView()"></div>
+  <div class="view-title">Color Frequency By Region</div>
+  <div class="region-tabs">
+    <div class="tab-line"></div>
+    <div class="region-tab" ng-repeat="item in data" ng-if="item.colors.length > 0" ng-bind="item.region"
+         ng-class="{active: isTabActive($index)}" ng-click="setTab($index)"></div>
+  </div>
+  <div ng-repeat="region in data" ng-show="isTabActive($index)">
+    <div class="color-bar-container">
+      <div class="bar-section" ng-repeat="item in region.colors" ng-style="{width: item.percentage + '%'}"
+           ng-class="{odd: $odd}">
+        <div class="color-bar" ng-style="{'background-color': item.color.hex}">
+          <div class="bar-separator" ng-if="!$last"></div>
+        </div>
+        <div class="details-line"></div>
+        <div class="color-value">{{item.percentage.toFixed(2)}}<span class="value-unit">%</span></div>
+      </div>
+    </div>
+    <div class="color-details-container">
+      <div class="color-details" ng-repeat="item in region.colors">
+        <div class="color-bar" ng-style="{'background-color': item.color.hex}"></div>
+        <div class="color-title" ng-bind="item.title"></div>
+        <div>RGB: {{item.color.rgb}}</div>
+        <div>NCS: {{item.color.ncs}}</div>
+      </div>
+    </div>
+  </div>
+</div>

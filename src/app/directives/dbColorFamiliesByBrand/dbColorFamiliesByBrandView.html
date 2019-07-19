@@ -1,0 +1,8 @@
+<div class="db-color-families-by-brand">
+	<div class="bar-group" ng-repeat="modelItem in data | limitTo:8">
+		<div class="title-container"><div class="bar-title" ng-bind="::modelItem.title"></div></div>
+		<div class="bar-container">
+			<div class="bar-section" ng-repeat="item in modelItem.colors" ng-style="{width: item.percentage + '%', 'background-color': item.color.hex}" ng-attr-title="{{item.percentage.toFixed(2) + '% ' + item.title}}" ng-click="selectBar($event)" hue-tooltipster="tooltipsterConfig"></div>
+		</div>
+	</div>
+</div>

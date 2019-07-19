@@ -1,0 +1,20 @@
+<div class="db-color-frequency-by-city">
+  <div
+    hue-carousel="{responsive: true, width: '90%', items: {width: '265px', visible: 3, start: 1}, scroll: {items: 1, play: false}, buttonNextId: getButtonId('n'), buttonPrevId: getButtonId('p')}"
+    initialized="dataRendered">
+    <div class="color-frequency-pie-chart-container"
+         ng-repeat="item in data"
+         on-repeat-last-element="onDataRendered">
+
+      <hue-color-frequency-pie-chart data="item" initialized="dataRenderedPie">
+        <div class="city-title" ng-click="goToCity($index)">
+          <img ng-src="assets/img/icons/cities/{{item.cityId}}.svg"/><br/>
+          <span ng-bind="cityNames[$index]"></span>
+        </div>
+      </hue-color-frequency-pie-chart>
+
+    </div>
+  </div>
+  <div class="carousel-button-left disable-text-selection" id="{{getButtonId('p')}}"></div>
+  <div class="carousel-button-right disable-text-selection" id="{{getButtonId('n')}}"></div>
+</div>

@@ -1,0 +1,83 @@
+<div ng-controller="attributeBrandingController">
+
+  <div class="dashboard-container dashboard-branding-attribute" ng-if="showDashboard">
+
+    <hue-db-header header-title="title" header-subtitle="subtitle" page-info="pageInfo"></hue-db-header>
+
+    <div class="dashboard-row dashboard-attribute">
+      <div class="dashboard-cell cell-left">
+        <div class="module-title">Attribute Top 4 Colors <img src="assets/img/icons/expand.svg" class="icon-expand"
+                                                              ng-click="toggleTopColorsExpandedMode()"/>
+          <hue-db-info-icon text-key="top_colors"></hue-db-info-icon>
+        </div>
+        <hue-db-top-colors data="topColorsData"></hue-db-top-colors>
+        <hue-db-top-colors-expanded data="topColorsData" toggle-view="toggleTopColorsExpandedMode()"
+                                    ng-if="topColorsExpanded"></hue-db-top-colors-expanded>
+      </div>
+      <div class="dashboard-cell cell-right">
+        <div class="cell-top-industries">
+          <div class="module-title">Top 3 Industry For {{title}}
+            <hue-db-info-icon text-key="top_industries"></hue-db-info-icon>
+          </div>
+          <hue-db-top-industries data="topIndustriesData" chart-color="topIndustriesColor"></hue-db-top-industries>
+        </div>
+        <div class="cell-popular-combinations">
+          <div class="module-title">
+            Color Combination Frequency For {{title}} <img src="assets/img/icons/expand.svg" class="icon-expand"
+                                                           ng-click="toggleColorFrequencyExpandedMode()"/>
+            <hue-db-info-icon text-key="color_freq"></hue-db-info-icon>
+            <hue-db-color-frequency-color-picker data="colorFrequencyData" active-color="activeColorFrequencyColor"
+                                                 ng-show="isColorFrequencyColorPickerVisible()"></hue-db-color-frequency-color-picker>
+          </div>
+          <hue-db-color-frequency data="colorFrequencyData"
+                                  active-color="activeColorFrequencyColor"></hue-db-color-frequency>
+          <hue-db-color-frequency-expanded data="colorFrequencyData" toggle-view="toggleColorFrequencyExpandedMode()"
+                                           ng-if="colorFrequencyExpanded"></hue-db-color-frequency-expanded>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard-row">
+      <div class="dashboard-cell">
+        <div class="module-title">Color-Attribute Association Globally <img src="assets/img/icons/expand.svg"
+                                                                            class="icon-expand"
+                                                                            ng-click="toggleMapExpandedMode()"/></div>
+        <hue-db-map data="mapsData"></hue-db-map>
+        <hue-db-map-expanded data="mapsData" toggle-view="toggleMapExpandedMode()"
+                             ev-title="Color-Attribute Association Globally" ng-if="mapExpanded"></hue-db-map-expanded>
+      </div>
+    </div>
+
+    <div class="dashboard-row color-palette-row">
+      <div class="dashboard-cell cell-left">
+        <div class="module-title">Number Of Colors In Logos
+          <hue-db-info-icon text-key="color_count"></hue-db-info-icon>
+        </div>
+        <hue-db-color-count data="colorCountData"></hue-db-color-count>
+      </div>
+      <div class="dashboard-cell cell-right">
+        <div class="module-title">Attribute Color Palette <img src="assets/img/icons/expand.svg" class="icon-expand"
+                                                               ng-click="toggleColorPaletteExpandedMode()"/>
+          <hue-db-info-icon text-key="palette"></hue-db-info-icon>
+          <hue-db-color-palette-bucket-selector
+            selected-value="colorPaletteBucket"
+            on-change="changeColorPaletteBucket">
+          </hue-db-color-palette-bucket-selector>
+        </div>
+        <hue-db-color-palette data="colorPaletteData" set-color="setColorAsMain" is-expanded="colorPaletteExpanded"></hue-db-color-palette>
+      </div>
+    </div>
+
+    <div class="dashboard-row">
+      <div class="dashboard-cell">
+        <div class="module-title">Brand Colors
+          <hue-db-info-icon text-key="logo_colors"></hue-db-info-icon>
+        </div>
+        <hue-db-logos data="logosData"></hue-db-logos>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+

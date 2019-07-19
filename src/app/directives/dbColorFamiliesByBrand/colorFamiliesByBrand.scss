@@ -1,0 +1,111 @@
+.db-color-families-by-brand {
+	.bar-group {
+		position: relative;
+		min-height: 30px;
+		margin-bottom: 5px;
+
+		.title-container {
+			line-height: 30px;
+			padding-right: 6px;
+			width: 100px;
+			text-align: right;
+
+			.bar-title {
+				display: inline-block;
+				vertical-align: middle;
+				font-family: "Gotham Cond SSm A","Gotham Cond SSm B";
+				font-size: 13px;
+				font-style: normal;
+				font-weight: 600;
+				text-transform: uppercase;
+				text-align: right;
+				line-height: 1;
+			}
+		}
+
+		.bar-container {
+			position: absolute;
+			top: 0;
+			left: 100px;
+			right: 0;
+			height: 30px;
+			border: 1px solid #ccc;
+
+			.bar-section {
+				display: inline-block;
+				height: 100%;
+				border-right: 1px solid #fff;
+
+				&:last-child {
+					border-right: none;
+				}
+
+				.bottom-line {
+					width: 100%;
+					height: 4px;
+					margin-top: 26px;
+					background-color: #000;
+				}
+			}
+		}
+	}
+}
+
+.db-color-families-by-brand-expanded {
+  z-index: 100;
+	.bars {
+		width: 80%;
+		margin: 30px auto 0 auto;
+	}
+
+	.bar-group {
+		position: relative;
+		min-height: 30px;
+		margin-bottom: 5px;
+
+		.title-container {
+			line-height: 30px;
+			padding-right: 6px;
+			width: 150px;
+			text-align: right;
+
+			.bar-title {
+				display: inline-block;
+				vertical-align: middle;
+				font-family: "Gotham Cond SSm A","Gotham Cond SSm B";
+				font-size: 14px;
+				font-style: normal;
+				font-weight: 600;
+				text-transform: uppercase;
+				text-align: right;
+				line-height: 1;
+			}
+		}
+
+		.bar-container {
+			position: absolute;
+			top: 0;
+			left: 150px;
+			right: 0;
+			height: 30px;
+			border: 1px solid #ccc;
+
+			.bar-section {
+				display: inline-block;
+				height: 100%;
+				border-right: 1px solid #fff;
+
+				&:last-child {
+					border-right: none;
+				}
+
+				.bottom-line {
+					width: 100%;
+					height: 4px;
+					margin-top: 26px;
+					background-color: #000;
+				}
+			}
+		}
+	}
+}

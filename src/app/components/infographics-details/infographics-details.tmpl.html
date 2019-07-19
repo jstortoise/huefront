@@ -1,0 +1,55 @@
+<update-title title="{{$ctrl.pageData.header}} | HUEDATA Infographic"></update-title>
+<update-meta name="description" content="{{$ctrl.pageData.description}}"></update-meta>
+<update-meta name="keywords" content="HUEDATA infographic, detailed page, infographic"></update-meta>
+
+<h4 class="text-left membership-product">HUEDATA MEMBERSHIP PRODUCT</h4>
+
+<div class="detailed-page-wrapper" ng-init="$ctrl.init()">
+  <section class="top">
+    <div class="container-fluid  text-left title">
+      <div class="row">
+        <div class="col-lg-6 col-md-12">
+          <div class="list-item">
+            <div>
+              <span class="list-category">HUEDATA Infographics</span>
+              <span class="list-date">{{$ctrl.pageData.date}}</span>
+            </div>
+            <div class="list-text">{{$ctrl.pageData.header}}</div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12 text-right buttons-group">
+          <div class="button membership">
+            <button  ng-if="$ctrl.getUser()" class="btn join-btn" ng-click="$ctrl.gotoElement('prefooter')">JOIN</button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="border"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container-fluid  text-left">
+
+    </div>
+  </section>
+
+  <section>
+    <div class="container-fluid text-left report detailed-content">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <div class="category {{$ctrl.pageData.hue}} text-center" style="text-transform: uppercase"><p>HUE{{$ctrl.pageData.hue}}</p>
+          </div>
+          <img class="img-responsive" src="{{$ctrl.pageData.image_url}}">
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <span ng-bind-html="$ctrl.pageData.description"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

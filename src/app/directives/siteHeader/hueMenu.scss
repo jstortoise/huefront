@@ -1,0 +1,31 @@
+.hue-products-menu {
+  width: ((350px * 3) + 100px);
+  margin: 0 auto;
+
+  .menu-title {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .menu-products {
+    padding: 0 0 0 100px;
+    list-style: none;
+
+    li {
+      display: inline-block;
+      width: 33.33%;
+      height: 50px;
+      margin-bottom: 30px;
+
+      img {
+        height: 50px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .product-spacer {
+    margin: 20px auto 40px auto;
+    text-align: center;
+  }
+}

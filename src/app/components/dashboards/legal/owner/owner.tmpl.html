@@ -1,0 +1,22 @@
+<div ng-controller="ownerLegalController">
+  <div class="dashboard-container" ng-if="showDashboard">
+    <hue-db-header header-title="title" page-info="pageInfo" header-icon="iconUrl" icon-type="img"></hue-db-header>
+
+    <div class="dashboard-row">
+      <div class="dashboard-cell">
+        <div class="module-title">Color Copyrights Count For {{title}} By Color Family</div>
+        <hue-db-color-copyrights-by-color-family data="copyrightsCountData"></hue-db-color-copyrights-by-color-family>
+      </div>
+    </div>
+
+    <div class="dashboard-row">
+      <div class="dashboard-cell">
+        <div class="module-title">Copyright List By Color For {{title}}</div>
+        <hue-db-copyright-list data="copyrightsListData" set-color="setColorAsMain" page-title="title"></hue-db-copyright-list>
+        <hue-db-copyright-list-pagination change-page="switchPage" current-page="copyrightsListPage"
+                                          total-pages="copyrightsListTotalPages"></hue-db-copyright-list-pagination>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,388 @@
+.db-color-frequency {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  
+  &.with-searched-color .bar-group .bar-container {
+    height: 45px;
+  }
+
+  .bar-group {
+    float: left;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: all 200ms ease-out;
+    -webkit-transition: all 200ms ease-out;
+    -moz-transition: all 200ms ease-out;
+    -o-transition: all 200ms ease-out;
+    -ms-transition: all 200ms ease-out;
+
+    &.group-most-used {
+      width: 55%;
+
+      .bar-container {
+        border-left: 1px solid #ccc;
+      }
+    }
+
+    &.group-moderately-used {
+      width: 20%;
+
+      .bar-title {
+        padding-left: 5px;
+      }
+    }
+
+    &.group-least-used {
+      width: 15%;
+
+      .bar-title {
+        padding-left: 5px;
+        border-right: none;
+      }
+
+      .bar-container {
+        border-right: 1px solid #ccc;
+
+        .searched-color {
+          border-right: none;
+        }
+
+        .bar-section {
+          border-right: none;
+        }
+      }
+    }
+
+    &.group-not-used {
+      width: 7%;
+      margin-left: 3%;
+
+      .bar-title {
+        border-right: none;
+      }
+
+      .bar-container {
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+
+        .searched-color {
+          border-right: none;
+        }
+
+        .bar-section {
+          border-right: none;
+        }
+      }
+    }
+
+    .bar-title {
+      font-family: "Gotham SSm A", "Gotham Cond SSm A", "Gotham Cond SSm B";
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 600;
+      margin: 0 0 5px;
+      padding-top: 5px;
+      text-transform: uppercase;
+      border-top: 1px solid #000;
+      border-right: 1px solid #000;
+
+      span {
+        cursor: pointer;
+      }
+
+      .icon-close {
+        width: 11px;
+        height: 10px;
+        background: url(../../../assets/img/icons/close.png) no-repeat;
+        display: none;
+        margin: 3px 5px 0 0;
+        float: right;
+        cursor: pointer;
+      }
+    }
+
+    .bar-subtitle {
+      padding-top: 2px;
+      font-family: 'Gotham SSm A', 'Gotham Cond SSm A', 'Gotham Cond SSm B';
+      font-style: normal;
+      width: 75px;
+      font-size: 15px;
+      text-transform: uppercase;
+      clear: both;
+      float: left;
+
+      .value {
+        text-align: center;
+        margin: 10px 0 0 0;
+        color: #333333;
+        font-size: 18px;
+        font-family: 'Oswald', 'Knockout 28 A', 'Knockout 28 B';
+      }
+    }
+
+    .bar-container {
+      height: 30px;
+
+      .searched-color {
+        width: 100%;
+        height: 15px;
+        border-top: 1px solid #ccc;
+        border-right: 1px solid #fff;
+      }
+
+      .bar-section {
+        display: inline-block;
+        position: relative;
+        height: 30px;
+        border-top: 1px solid #ccc;
+        border-right: 1px solid #fff;
+
+        .bottom-line {
+          width: 100%;
+          height: 4px;
+          background-color: #000;
+          position: absolute;
+          bottom: 0;
+        }
+      }
+    }
+  }
+
+  &.expand-group-most-used {
+    .bar-group.group-most-used {
+      width: 100%;
+
+      .icon-close {
+        display: block;
+      }
+
+      .bar-container {
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+
+        .bar-section:last-child {
+          border-right: none;
+        }
+      }
+    }
+
+    .bar-group.group-moderately-used, .bar-group.group-least-used, .bar-group.group-not-used {
+      width: 0%;
+      margin-left: 0%;
+    }
+  }
+
+  &.expand-group-moderately-used {
+    .bar-group.group-moderately-used {
+      width: 100%;
+
+      .icon-close {
+        display: block;
+      }
+
+      .bar-container {
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+
+        .bar-section:last-child {
+          border-right: none;
+        }
+      }
+    }
+
+    .bar-group.group-most-used, .bar-group.group-least-used, .bar-group.group-not-used {
+      width: 0%;
+      margin-left: 0%;
+    }
+  }
+
+  &.expand-group-least-used {
+    .bar-group.group-least-used {
+      width: 100%;
+
+      .icon-close {
+        display: block;
+      }
+
+      .bar-container {
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+      }
+    }
+
+    .bar-group.group-most-used, .bar-group.group-moderately-used, .bar-group.group-not-used {
+      width: 0%;
+      margin-left: 0%;
+    }
+  }
+
+  &.expand-group-not-used {
+    .bar-group.group-not-used {
+      width: 100%;
+      margin-left: 0%;
+
+      .icon-close {
+        display: block;
+      }
+    }
+
+    .bar-group.group-most-used, .bar-group.group-moderately-used, .bar-group.group-least-used {
+      width: 0%;
+    }
+  }
+}
+
+.db-color-frequency-expanded {
+  .color-bar-container {
+    width: 90%;
+    height: 125px;
+    margin: 55px auto 110px auto;
+
+    .bar-section {
+      display: inline-block;
+      vertical-align: top;
+      position: relative;
+      border-top: 1px solid #ccc;
+
+      &.odd {
+        .details-line {
+          height: 20px;
+        }
+      }
+
+      &:first-child .color-bar {
+        border-left: 1px solid #ccc;
+      }
+
+      &:last-child .color-bar {
+        border-right: 1px solid #ccc;
+      }
+
+      .color-bar {
+        width: 100%;
+        height: 35px;
+        border-right: 2px solid #fff;
+        position: relative;
+
+        .bottom-line {
+          width: 100%;
+          height: 4px;
+          background-color: #000;
+          position: absolute;
+          bottom: 0;
+        }
+      }
+
+      .details-line {
+        width: 2px;
+        height: 60px;
+        margin: 0 auto;
+        background-color: #000;
+      }
+
+      .color-value {
+        width: 65px;
+        margin: 0 auto;
+        font-family: "Oswald";
+        font-size: 20px;
+        text-align: center;
+        position: absolute;
+        left: 50%;
+        margin-left: -34px;
+
+        .value-unit {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .color-details-container {
+    width: 90%;
+    margin: 0 auto;
+
+    .color-details {
+      display: inline-block;
+      width: 16%;
+      height: 110px;
+      margin-right: 0.66%;
+      margin-bottom: 15px;
+
+      .color-bar {
+        width: 100%;
+        height: 25px;
+        margin-bottom: 5px;
+      }
+
+      .color-title {
+        width: 100%;
+        font-weight: bold;
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  &.by-region {
+    .region-tabs {
+      position: relative;
+      width: 850px;
+      margin: 55px auto;
+      text-align: center;
+
+      .tab-line {
+        position: absolute;
+        top: 15px;
+        width: 100%;
+        height: 1px;
+        background-color: #000;
+      }
+
+      .region-tab {
+        position: relative;
+        width: 150px;
+        height: 30px;
+        display: inline-block;
+        border: 1px solid #000;
+        font-family: 'Gotham SSm A';
+        font-size: 12px;
+        background-color: #fff;
+        margin: 0 15px;
+        padding-top: 5px;
+        text-transform: uppercase;
+        cursor: pointer;
+
+        &:hover, &.active {
+          color: #fff;
+          background-color: #000;
+        }
+      }
+    }
+  }
+}
+
+.db-color-frequency-color-picker {
+  margin: 0 0 0 20px;
+  padding: 0;
+  list-style: none;
+  display: inline-block;
+
+  li {
+    display: inline-block;
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0 10px 0 0;
+    border-top: 3px solid #ccc;
+    color: #bababa;
+    line-height: 1;
+    font-size: 10px;
+    cursor: pointer;
+
+    &.active {
+      color: #727272;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+<div class="db-expanded-view db-map-expanded">
+	<div class="button-close" ng-click="toggleView()"></div>
+	<div class="view-title" ng-bind="evTitle">Map</div>
+	<div class="maps">
+		<div class="map-container" ng-repeat="map in maps">
+			<hue-svg class="map-image" source="assets/img/worldmap.svg" ng-if="!hideMap" on-load="mapLoaded($index)"></hue-svg>
+			<div class="color-line" ng-style="{'border-bottom-color': map.color}" ng-bind="map.title"></div>
+			<ul class="map-attributes">
+				<li ng-repeat="item in map.attributes" ng-class="{active: $first}" ng-bind="item.title"></li>
+			</ul>
+		</div>
+	</div>
+</div>

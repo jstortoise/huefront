@@ -1,0 +1,9 @@
+<div class="autocomplete">
+	<input type="text" class="search brand-search" ng-model="enteredtext" ng-keyup="filterItems()"
+		placeholder="{{placeholder}}" />
+	<div class="choices" ng-show="isVisible.suggestions">
+		<div class="choice" ng-repeat="choice in filteredChoices" ng-click="selectItem(choice)">
+			{{choice.title}}
+		</div>
+	</div>
+</div>

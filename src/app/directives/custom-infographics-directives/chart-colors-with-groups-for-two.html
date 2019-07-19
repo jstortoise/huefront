@@ -1,0 +1,33 @@
+<div class="chart c-for-designer">
+  <div>
+    <div chart-block="">
+      <h3 ng-if="!mode.extraView">SS16</h3>
+      <div chart-type="bagel" class="c-for-designer-bagel" ng-if="!mode.extraView"></div>
+      <div class="colors" ng-if="mode.extraView">
+        <label>{{ year1 }} palette</label>
+        <div ng-repeat="row in [0,1,2,3,4]">
+          <div class="color-brick" ng-repeat="color in palettes1[row]" ng-class="{ empty: color.color.isEmpty }">
+            <span style="background: {{ color.color.color.hex }}"></span>
+          </div>
+        </div>
+      </div>
+      <div chart-type="groups" class="c-for-designer-v"></div>
+    </div>
+  </div>
+  <!--<div class="sep"></div>-->
+  <div>
+    <div chart-block="">
+      <h3 ng-if="!mode.extraView">SS17</h3>
+      <div chart-type="bagel" class="c-for-designer-bagel" ng-if="!mode.extraView"></div>
+      <div class="colors" ng-if="mode.extraView">
+        <label>{{ year2 }} palette</label>
+        <div ng-repeat="row in [0,1,2,3,4]">
+          <div class="color-brick" ng-repeat="color in palettes2[row]" ng-class="{ empty: color.color.isEmpty }">
+            <span style="background: {{ color.color.color.hex }}"></span>
+          </div>
+        </div>
+      </div>
+      <div chart-type="groups" class="c-for-designer-v"></div>
+    </div>
+  </div>
+</div>

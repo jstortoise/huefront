@@ -1,0 +1,40 @@
+<div class="db-branding-content" id="{{'dbdi-'+$id}}">
+	<div style="width: 100%;">
+		<div class="row">
+			<div class="col colss-8 col-sm colss-2 col-md-1" ng-repeat="item in companies">
+				<div class="image-container" ng-click="imageClickHandler($index)">
+					<img src="{{item.url}}" />
+				</div>
+				<div class="image-title">
+					{{item.company_title}}
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="pagination">
+				<ul>
+					<li ng-class="" class="disabled"><a href="javascript:void(0)" ng-click=""><i class="glyphicon glyphicon-arrow-left"></i>BACK</a></li>
+					<li ng-if="page_num1 > 1 && page_num1 == page_count1 - 1">
+						<a href="javascript:void(0)" ng-click="setPage1(page_num1 - 2)">{{page_num1 - 1}}</a>
+					</li>
+					<li ng-if="page_num1 > 0">
+						<a href="javascript:void(0)" ng-click="setPage1(page_num1 - 1)">{{page_num1}}</a>
+					</li>
+					<li class="active">
+						<a href="javascript:void(0)">{{page_num1 + 1}}</a>
+					</li>
+					<li ng-if="page_num1 < page_count1 - 1">
+						<a href="javascript:void(0)" ng-click="setPage1(page_num1 + 1)">{{page_num1 + 2}}</a>
+					</li>
+					<li ng-if="page_num1 ==0 && page_num1 < page_count1 - 2">
+						<a href="javascript:void(0)" ng-click="setPage1(page_num1 + 2)">{{page_num1 + 3}}</a>
+					</li>
+					<li ng-class="" class="disabled"><a href="javascript:void(0)" ng-click="">NEXT<i class="glyphicon glyphicon-arrow-right"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<brandingcontentdetail ng-if="showImageDetails" on-close="toggleImageDetails()" titledetail="title" chartdetail="chart" logodata="imageDetailsData" closefunction="toggleImageDetails">
+</brandingcontentdetail>

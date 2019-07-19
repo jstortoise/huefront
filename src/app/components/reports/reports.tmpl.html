@@ -1,0 +1,91 @@
+<update-title title="Color Reports"></update-title>
+<update-meta name="description" content="color reports on trends in fashion colors, color use in product, color use in brands and color use in environments"></update-meta>
+<update-meta name="keywords" content="Color forecasting report, Color Research Report, Color Trend report,
+fall color reports, spring color reports, winter color reports, fashion color reports"></update-meta>
+
+<h4 class="text-left membership-product">HUEDATA MEMBERSHIP PRODUCT</h4>
+
+<section>
+  <div class="container-fluid  text-center title" ng-init="$ctrl.init()">
+    <div class="row">
+      <div class="col-lg-4 col-md-12 col-lg-offset-4">
+        <h3>Color Reports</h3>
+        <div class="line"></div>
+      </div>
+      <div class="col-lg-4 col-md-12 text-right buttons-group">
+        <div class="button membership">
+          <button ng-if="$ctrl.getUser()" class="btn join-btn" ng-click="$ctrl.gotoElement('prefooter')">JOIN</button>
+        </div>
+        <div class="button membership">
+          <button class="btn white-btn" ui-sref="productInquiry">PRODUCT INQUIRY</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container-fluid  text-left">
+    <div class="row search-fields">
+      <div class="col-lg-2 col-lg-offset-3 ">
+        <div class="select-style">
+          <select ng-model="$ctrl.hueModel" ng-change="$ctrl.select(this)">
+            <option>VERTICALS</option>
+            <option ng-repeat="item in $ctrl.hue">{{item}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-lg-2 ">
+        <div class="select-style">
+          <select ng-model="$ctrl.reportModel" ng-change="$ctrl.select()" ng-disabled="$ctrl.dis">
+            <option>ALL</option>
+            <option ng-repeat="item in $ctrl.report">{{item}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="select-style">
+          <select ng-model="$ctrl.yearModel" ng-change="$ctrl.select()">
+            <option>YEAR</option>
+            <option ng-repeat="item in $ctrl.year">{{item}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="min-h">
+  <div class="container-fluid  text-left report reports-min-h">
+    <div class="row equal">
+      <div style="text-decoration: none; {{item.style}}" class="col-lg-4 col-md-6 col-sm-6 col-xs-12 item" ng-repeat="item in $ctrl.items">
+        <div class="category {{item.hue}} text-center"><p>{{item.hue}}</p></div>
+        <a style="text-decoration: none" ng-href="#!/color-reports/{{item.id}}">
+          <div class="img-responsive background-image"
+               style="background: {{'url(' + item.image_url +') top center'}};
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #e1e1e126;
+                    padding-bottom: 56%;"
+          >
+          </div>
+        </a>
+        <h5>{{item.header}}</h5>
+        <div class="justify">
+          <p class="three_line_height" style="display: block" data-ng-bind-html="item.description" data-ellipsis
+             data-ellipsis-symbol="... "
+             data-ellipsis-append="<a>Read more</a>"
+             data-ellipsis-append-click="$ctrl.toggleTextHeight"
+          ></p>
+        </div>
+        <span>{{item.date}}</span><a ng-href="#!/color-reports/{{item.id}}">Learn more</a>
+      </div>
+    </div>
+  </div>
+  <div class="row" ng-if="!$ctrl.flag">
+    <div class="col-lg-12 text-center">
+      <div class="viewmore"><a ng-click="$ctrl.more()">view more</a></div>
+    </div>
+  </div>
+</section>
+

@@ -1,0 +1,68 @@
+<div ng-controller="colorBrandingController">
+
+  <div class="dashboard-container dashboard-branding-color" ng-if="showDashboard">
+
+    <hue-db-header header-title="title" header-icon="colorHex" icon-type="color" page-info="pageInfo"></hue-db-header>
+
+    <div class="dashboard-row dashboard-color">
+      <div class="dashboard-cell cell-left">
+        <div class="module-title">Top 4 Shades
+          <img src="assets/img/icons/expand.svg" class="icon-expand"
+               ng-click="toggleTopColorsExpandedMode()"/>
+          <hue-db-info-icon text-key="top_colors"></hue-db-info-icon>
+        </div>
+        <hue-db-top-colors data="topColorsData"></hue-db-top-colors>
+        <hue-db-top-colors-expanded data="topColorsData" toggle-view="toggleTopColorsExpandedMode()"
+                                    ng-if="topColorsExpanded">
+
+        </hue-db-top-colors-expanded>
+      </div>
+      <div class="dashboard-cell cell-right">
+        <div class="cell-top-industries">
+          <div class="module-title">Top 3 Industries For {{title}}
+            <hue-db-info-icon text-key="top_industries"></hue-db-info-icon>
+          </div>
+          <hue-db-top-industries data="topIndustriesData" chart-color="colorHex"></hue-db-top-industries>
+        </div>
+        <div class="cell-popular-combinations">
+          <div class="module-title">Color Combination Frequency For {{title}}
+            <img src="assets/img/icons/expand.svg"
+                 class="icon-expand"
+                 ng-click="toggleColorFrequencyExpandedMode()"/>
+            <hue-db-info-icon text-key="color_freq"></hue-db-info-icon>
+          </div>
+          <hue-db-color-frequency data="colorFrequencyData" searched-color="colorHex"></hue-db-color-frequency>
+          <hue-db-color-frequency-expanded data="colorFrequencyData" toggle-view="toggleColorFrequencyExpandedMode()"
+                                           ng-if="colorFrequencyExpanded">
+          </hue-db-color-frequency-expanded>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard-row">
+      <div class="dashboard-cell">
+        <div class="module-title">Attributes Associated With {{title}} Globally
+          <img src="assets/img/icons/expand.svg"
+               class="icon-expand"
+               ng-click="toggleMapExpandedMode()"/>
+        </div>
+        <hue-db-map data="mapsData"></hue-db-map>
+        <hue-db-map-expanded data="mapsData" toggle-view="toggleMapExpandedMode()"
+                             ev-title="Attributes Associated With {{title}} Globally"
+                             ng-if="mapExpanded">
+        </hue-db-map-expanded>
+      </div>
+    </div>
+
+    <div class="dashboard-row">
+      <div class="dashboard-cell">
+        <div class="module-title">Logos For {{title}}
+          <hue-db-info-icon text-key="logo_colors"></hue-db-info-icon>
+        </div>
+        <hue-db-logos data="logosData" color-dashboard="true"></hue-db-logos>
+      </div>
+    </div>
+  </div>
+
+</div>
+

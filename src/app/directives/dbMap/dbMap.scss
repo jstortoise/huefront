@@ -1,0 +1,111 @@
+.db-map {
+	width: 95%;
+	margin: 20px auto 50px auto;
+	text-align: center;
+
+	.map-container {
+		width: 23%;
+		margin: 0 1%;
+		cursor: pointer;
+		display: inline-block;
+		vertical-align: top;
+		text-align: left;
+
+		.map-image {
+			width: 100%;
+		}
+
+		.color-line {
+			width: 100%;
+			font-family: "Gotham SSm A";
+			font-weight: bold;
+			border-bottom: 4px solid #ccc;
+			margin: 10px 0;
+			padding-bottom: 5px;
+		}
+
+		.map-attributes {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			max-height: 70px;
+			overflow: hidden;
+
+			li {
+				display: inline-block;
+				color: #808080;
+				font-family: 'Oswald';
+				font-size: 14px;
+				text-transform: uppercase;
+				padding-right: 10px;
+				margin: 0 10px 5px 0;
+				border-right: 2px solid #808080;
+
+				&.active {
+					color: #000;
+				}
+			}
+		}
+	}
+}
+
+.db-map-expanded {
+	width: 100%;
+
+	.maps {
+		margin-top: 40px;
+		text-align: center;
+	}
+
+	.map-container {
+		width: 23%;
+		margin: 0 1%;
+		cursor: pointer;
+		display: inline-block;
+		vertical-align: top;
+		text-align: left;
+
+		.map-image {
+			width: 100%;
+
+			path {
+				transition: all 200ms ease-out;
+				-webkit-transition: all 200ms ease-out;
+				-moz-transition: all 200ms ease-out;
+				-o-transition: all 200ms ease-out;
+				-ms-transition: all 200ms ease-out;
+			}
+		}
+
+		.color-line {
+			width: 100%;
+			font-family: "Gotham SSm A";
+			font-weight: bold;
+			border-bottom: 4px solid #ccc;
+			margin: 10px 0;
+			padding-bottom: 5px;
+		}
+
+		.map-attributes {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+
+			li {
+				display: inline-block;
+				color: #808080;
+				font-family: 'Oswald';
+				font-size: 14px;
+				text-transform: uppercase;
+				padding-right: 10px;
+				margin: 0 10px 5px 0;
+				border-right: 2px solid #808080;
+				cursor: pointer;
+
+				&.active {
+					color: #000;
+				}
+			}
+		}
+	}
+}

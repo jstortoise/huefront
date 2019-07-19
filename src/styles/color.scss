@@ -1,0 +1,10 @@
+.dashboard-row.dashboard-color-palette-row {
+	width: 100%;
+	display: table;
+
+	.dashboard-cell {
+		display: table-cell;
+		float: none;
+		padding-bottom: 30px;
+	}
+}

@@ -1,0 +1,123 @@
+<update-title title="My Cart"></update-title>
+<update-meta name="description" content="HUEDATA cart page"></update-meta>
+<update-meta name="keywords" content="Cart, HUEDATA cart, cart page"></update-meta>
+
+<section ng-init="$ctrl.init()">
+  <div class="container-fluid  text-center title">
+    <div class="row">
+      <div class="col-lg-4 col-md-12 col-lg-offset-4 cart-page-header">
+        <i style="display: inline-block" class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
+        &emsp;<h3 style="display: inline-block">MY CART</h3>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="products-cart products-table-min-h">
+  <div class="container-fluid  text-center title">
+    <div class="row equal">
+      <div ng-show="!$ctrl.products.length" class="col-lg-12 col-md-12 col-xs-12 empty-cart">
+        <h3>Your cart is empty</h3>
+        <div class="go-to-reports pointer">
+          <button ng-click="$ctrl.goWayBack()" class="btn white-btn">Back{{$ctrl.wayBackName}}</button>
+        </div>
+      </div>
+      <div ng-show="$ctrl.products.length" class="col-lg-12 col-md-12 products-table width-100">
+        <table>
+          <tr class="product-row" ng-repeat="item in $ctrl.products">
+            <td class="product-img">
+              <div class="img-box">
+                <div class="category {{item.hue}} text-center"><p>{{item.hue}}</p></div>
+                <img ng-src="{{item.image_url}}">
+              </div>
+            </td>
+            <td class="product-name">
+              <h4>{{item.header}}</h4>
+              <div class="justify margin-zero-p">
+                <p class="four_line_height" style="display: block" data-ng-bind-html="item.description"
+                   data-ellipsis
+                   data-ellipsis-symbol="... "
+                   data-ellipsis-append="<a>Read more</a>"
+                   data-ellipsis-append-click="$ctrl.toggleTextHeight"
+                ></p>
+              </div>
+            </td>
+            <td class="product-count">
+              <h4 style="display: inline-block">{{item.count}}</h4>
+              <div ng-click="$ctrl.editCount(item.id, $index, item.type, -1)" class="icon pointer"
+                   style="display: inline-block">
+                <i class="fa fa-minus fa-1x pointer"
+                   aria-hidden="true"></i>
+              </div>
+            </td>
+            <td class="product-prise">
+              <h4>{{(item.price === 0) ? 'Free' : '&#36;' + item.price}}</h4>
+            </td>
+            <td class="price-for-all">
+              <h4>{{(item.price === 0 && item.count > 0) ? 'Free' : '&#36;' + (item.price * item.count)}}</h4>
+            </td>
+            <!--<td class="basket-icon">-->
+            <!--<i ng-click="$ctrl.removeProduct(item.id, item.type, $index)" class="fa fa-trash-o fa-3x pointer" aria-hidden="true"></i>-->
+            <!--</td>-->
+          </tr>
+        </table>
+      </div>
+      <div class="col-sm-4 col-xs-4 go-back">
+        <div ng-show="$ctrl.products.length" ng-click="$ctrl.goWayBack()" class="go-to-reports pointer">
+          <button ng-click="$ctrl.goWayBack()" class="btn white-btn">BACK</button>
+        </div>
+      </div>
+      <div style="text-align: right" class="col-sm-offset-4 col-sm-4 col-xs-8">
+        <div>
+          <table class="table-prise">
+            <tr>
+              <td>
+                <div ng-show="$ctrl.products.length" class="subtotal subtotal-text">
+                  <h4>SUBTOTAL:</h4>
+                </div>
+              </td>
+              <td>
+                <div ng-show="$ctrl.products.length" class="subtotal subtotal-prise">
+                  <h4><span>{{($ctrl.all === 0) ? 'Free' : '&#36;' + $ctrl.all}}</span></h4>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div ng-show="$ctrl.products.length" class="subtotal subtotal-text tax">
+                  <h4 class="pointer">TAX*</h4>
+                  <span><strong>SALES TAX - HUE-DATA.COM</strong><br>
+                    <strong>Effect of the Internet Tax Freedom Act</strong><br>
+                        Companies selling over the Internet are subject to the
+                    same sales tax collection requirements as any other retailers.
+                    Remote sellers (including Internet retailers and catalog companies) are generally
+                    required to collect taxes where they have a physical selling presence.
+                    If they do not have any such presence, they are not required to collect sales taxes.</span>
+                </div>
+              </td>
+              <td>
+                <div ng-show="$ctrl.products.length" class="subtotal subtotal-prise">
+                  <h4><span>{{'&#36;' + $ctrl.tax}}</span></h4>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div ng-show="$ctrl.products.length" class="total total-text">
+                  <h4>TOTAL:</h4>
+                </div>
+              </td>
+              <td>
+                <div ng-show="$ctrl.products.length" class="total total-prise">
+                  <h4><span>{{($ctrl.all === 0) ? 'Free' : '&#36;' + ($ctrl.all + $ctrl.tax)}}</span></h4>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="checkout-button" ng-show="$ctrl.products.length" ng-click="$ctrl.goCheckout()">
+          <button style="margin-top: 0" class="btn">CHECKOUT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

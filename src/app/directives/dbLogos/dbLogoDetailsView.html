@@ -1,0 +1,40 @@
+<div class="db-logo-details">
+	<div class="logo-details-dialog">
+		<div class="logo-container">
+			<a ng-href="{{url}}" title="Open full size image"><img ng-src="{{url}}" /></a>
+		</div>
+		<div class="logo-details">
+			<div class="button-close" ng-click="closeClickHandler()"></div>
+			<div class="company-name" ng-bind="title"></div>
+			<div>Industry: {{industry}}</div>
+			<div>Country: {{country}}</div>
+			<div>SYMB: {{symbol}}</div>
+
+			<div class="subtitle">Brand Colors</div>
+			<div class="logo-colors">
+				<div class="color-item" ng-repeat="item in colors | limitTo:maxColors">
+					<div class="color-bar" ng-style="{'background-color': item.hex}"></div>
+				</div>
+			</div>
+			<div class="show-button" ng-click="showMoreClick()" ng-show="showMoreVisible">Show More</div>
+			<div class="show-button" ng-click="showLessClick()" ng-show="showLessVisible">Show Less</div>
+
+			<div class="logo-attributes" ng-show="showAttributes">
+				<div class="subtitle">Dominate Associated Attributes</div>
+				<ul>
+					<li ng-repeat="item in attributes" ng-bind="item"></li>
+				</ul>
+			</div>
+			
+		</div>
+		<div class="dialog-footer">
+			<div class="footer-container" ng-show="!saveInputVisible">
+				<button ng-click="showSaveInput()">Save</button>
+			</div>
+			<div class="footer-container" ng-show="saveInputVisible">
+				<input type="text" ng-model="imageName" />
+				<button ng-click="saveImage()">OK</button>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,18 @@
+<div class="db-distribution-by-category">
+  <div class="category-item" ng-repeat="item in data">
+    <div class="top-container">
+      <div class="category-chart" hue-color-frequency-by-category-chart="{diameter: 160, strokeWidth: 1}"
+           percentage="item.percentage" color="chartColor" stroke-color="chartStrokeColor"></div>
+      <div class="category-icon">
+        <hue-svg source="assets/img/icons/categories/{{item.id}}.svg"></hue-svg>
+      </div>
+      <div class="category-caption"><span class="category-percentage" ng-bind="item.percentage.toFixed()"></span><span
+        class="category-percentage-unit">%</span><br/>{{item.title}}
+      </div>
+    </div>
+    <div class="designers-label-container">
+      <span class="designers-count" ng-bind="item.designerCount"></span>
+      <span class="designers-label">Designers</span>
+    </div>
+  </div>
+</div>

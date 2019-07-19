@@ -1,0 +1,115 @@
+.top-menu {
+  background: none repeat scroll 0 0 #000;
+  color: #fff;
+  left: 0;
+  padding: 30px 50px 200px 50px;
+  position: fixed;
+  top: 50px;
+  width: 100%;
+  min-height: 70%;
+  z-index: 100000;
+  transition: all 200ms ease-out;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  -ms-transition: all 200ms ease-out;
+  transform-origin: 50% 0%;
+  -webkit-transform-origin: 50% 0%;
+  -moz-transform-origin: 50% 0%;
+  -o-transform-origin: 50% 0%;
+  -ms-transform-origin: 50% 0%;
+
+  &.ng-hide {
+    transform: scale(1, 0);
+    -webkit-transform: scale(1, 0);
+    -moz-transform: scale(1, 0);
+    -o-transform: scale(1, 0);
+    -ms-transform: scale(1, 0);
+  }
+
+  .menu-tabs {
+    border-bottom: 1px solid #fff;
+    height: 39px;
+    position: relative;
+    width: 100%;
+    list-style: none;
+    display: block;
+    margin: 0 0 30px 0;
+    padding: 0;
+    text-align: center;
+
+    li {
+      font-weight: bold;
+      cursor: pointer;
+      padding: 0 35px 32px;
+      text-transform: uppercase;
+      display: inline-block;
+    }
+
+    .active {
+      background: url("../../../assets/img/lineMidArrowDown-white.png") no-repeat scroll center bottom transparent;
+    }
+  }
+
+  button {
+    padding: 8px 20px 8px 20px;
+    background: #000;
+    border: 2px solid white;
+    font-family: "Gotham SSm A";
+    font-style: normal;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    &:hover {
+      color: #000;
+      background: #fff;
+    }
+  }
+}
+
+.top-menu.menu-main {
+  .menu-tabs {
+    li {
+      vertical-align: top;
+      margin-top: -25px;
+      padding: 0 35px 6px;
+
+      .tab-title {
+        vertical-align: middle;
+        margin-bottom: 20px;
+        height: 50px;
+        line-height: 50px;
+
+        img {
+          vertical-align: middle;
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+  }
+
+  .menu-tab {
+    width: 100%;
+    margin-top: 50px;
+
+    .login-message {
+      margin-bottom: 20px;
+      text-transform: none;
+      font-style: normal;
+      font-family: "Gotham SSm A";
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .button-container {
+      width: 100%;
+      text-align: center;
+
+      button {
+        margin-right: 20px;
+      }
+    }
+  }
+}

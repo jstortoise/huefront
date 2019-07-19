@@ -1,0 +1,20 @@
+<div class="db-flag-colors">
+	<div class="colors-contaier">
+		<div class="color-item" ng-style="{width: itemWidth }" ng-repeat="item in data | limitTo:flagIndex">
+			<div class="item-bar" ng-style="{'background-color': 'rgb(' + item.color.rgb + ')'}"></div>
+			<div class="item-percentage">
+				<div class="percentage-value">{{item.percentage}}<span class="unit">%</span></div>
+			</div>
+		</div>
+	</div>
+	<div class="flag-container">
+		<div class="flag">
+			<div class="flag-bar-container">
+				<div class="flag-bar" ng-style="{width: itemWidth, 'background-color': 'rgb(' + item.color.rgb + ')'}" ng-repeat="item in data | limitTo:flagIndex"></div>
+			</div>
+			<div class="item-percentage">
+				<div class="percentage-value">{{data[flagIndex].percentage}}<span class="unit">%</span></div>
+			</div>
+		</div>
+	</div>
+</div>

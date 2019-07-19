@@ -1,0 +1,25 @@
+{
+  "name": "fountain-inject",
+  "version": "0.0.1",
+  "dependencies": {
+    "jquery":"^3.4.1",
+    "jquery-ui":"^1.12.1",
+    "angular": "^1.6.2",
+    "angular-ui-router": "1.0.0-beta.3",
+    "angular-cookies": "1.6.2",
+    "angular-sanitize": "1.6.2",
+    "angular-ui-select": "^0.19.8",
+    "angular-bootstrap": "^2.5.0",
+    "angular-recaptcha":"4.2.0",
+    "moment": "^2.20.1",
+    "angular-local-storage": "^0.7.1",
+    "ng-file-upload": "^12.2.13",
+    "angular-update-meta": "^2.0.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.6.2"
+  },
+  "resolutions": {
+    "angular": "^1.6.2"
+  }
+}

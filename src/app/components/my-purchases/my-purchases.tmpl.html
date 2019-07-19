@@ -1,0 +1,48 @@
+<update-title title="My Purchases"></update-title>
+<update-meta name="description" content="My purchases"></update-meta>
+<update-meta name="keywords" content="My purchases, purchases, bought items, HUEDATA purchases"></update-meta>
+
+<div class="my-purchase">
+  <section class="my-purchase-header">
+    <div class="container-fluid  text-center title">
+      <div class="row">
+        <div class="col-lg-4 col-md-12 col-lg-offset-4 my-purchase-title">
+          <!--<i style="display: inline-block" class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>-->
+          <h3 style="display: inline-block">MY PURCHASES</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="my-purchase-items">
+    <div class="container-fluid  text-left">
+      <div class="row equal">
+        <div style="{{item.style}}" class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item text-dn"
+             ng-repeat="item in $ctrl.data">
+          <a style="text-decoration: none" ng-href="#!/{{item.type}}/{{item.item.id}}">
+            <div class="category {{item.item.hue}} text-center"><p>{{item.item.hue}}</p></div>
+            <div class="img-responsive background-image"
+                 style="background: {{'url(' + item.images[0].image_url +') top center'}};
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #e1e1e126;
+                    padding-bottom: 56%;"
+            >
+            </div>
+          </a>
+          <div class="purchase-name">
+            <h5>{{item.item.header}}</h5>
+          </div>
+          <div class="price">
+            <p><span>Price:</span> {{item.item.price === 0 ? 'Free' : '$' + item.item.price}}</p>
+          </div>
+          <div class="date-purchase">
+            <p>Date of purchase: {{item.purchaseDate}}</p>
+          </div>
+          <div class="download-btn">
+            <a href="{{item.files[0].image_url}}" download><button class="btn">DOWNLOAD</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

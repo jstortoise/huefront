@@ -1,0 +1,125 @@
+.db-top-products-copyrights {
+	.graph-legend {
+		position: relative;
+		height: 20px;
+
+		.legend-container {
+			position: absolute;
+			right: 0;
+			height: 20px;
+
+			.legend-item {
+				display: inline-block;
+				font-family: 'Oswald';
+				font-size: 14px;
+				text-transform: uppercase;
+				line-height: 20px;
+				margin-left: 15px;
+
+				.color-box {
+					width: 30px;
+					height: 20px;
+					border: 1px solid #ccc;
+					margin-left: 5px;
+					float: right;
+				}
+			}
+		}
+	}
+
+	.chart-conatiner {
+		margin-top: 10px;
+
+		.chart-item {
+			position: relative;
+			height: 35px;
+			padding-left: 105px;
+
+			.item-title {
+				font-family: 'Oswald';
+				font-size: 12px;
+				text-transform: uppercase;
+				width: 100px;
+				height: 24px;
+				position: absolute;
+				text-align: right;
+				top: 0;
+				left: 0;
+				line-height: 1;
+				overflow: hidden;
+			}
+
+			.item-bars {
+				width: 100%;
+				height: 24px;
+				position: relative;
+
+				.item-bar {
+					width: 0%;
+					height: 14px;
+					position: absolute;
+					cursor: pointer;
+					border: 1px solid #ccc;
+					transition: all 200ms ease-out;
+					-webkit-transition: all 200ms ease-out;
+					-moz-transition: all 200ms ease-out;
+					-o-transition: all 200ms ease-out;
+					-ms-transition: all 200ms ease-out;
+
+					&.bar-usa {
+						top: 10px;
+					}
+
+					&.bar-int {
+						top: 0;
+					}
+
+					&.bar-total {
+						background-color: #fff;
+						top: 5px;
+					}
+				}
+			}
+		}
+	}
+
+	.chart-axis-x {
+		margin-left: 105px;
+		border-top: 2px solid #ccc;
+
+		.axis-item {
+			float: left;
+			width: 0px;
+			position: relative;
+
+			&:nth-child(1) {
+				left: 16.66%;
+			}
+
+			&:nth-child(2) {
+				left: 33.33%;
+			}
+
+			&:nth-child(3) {
+				left: 50.00%;
+			}
+
+			&:nth-child(4) {
+				left: 66.66%;
+			}
+
+			&:nth-child(5) {
+				left: 83.33%;
+			}
+
+			span {
+				font-family: 'Oswald';
+				font-size: 12px;
+				display: block;
+				width: 100px;
+				margin-left: -50px;
+				text-align: center;
+			}
+		}
+	}
+}

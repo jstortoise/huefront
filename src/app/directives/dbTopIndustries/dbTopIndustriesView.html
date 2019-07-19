@@ -1,0 +1,7 @@
+<div class="db-top-industries">
+	<div class="industry-item" ng-repeat="item in data" ng-click="industryClick(item.id)">
+		<div class="industry-chart" hue-top-industries-chart="{diameter: 100}" percentage="item.percentage" color="chartColor"></div>
+		<div class="industry-value">{{item.percentage.toFixed()}}<span class="value-unit">%</span></div>
+		<div class="industry-caption"><span ng-bind="item.title"></span></div>
+	</div>
+</div>

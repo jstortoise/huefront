@@ -1,0 +1,53 @@
+.db-top-industries {
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+
+	.industry-item {
+		height: 100px;
+		text-align: left;
+		display: inline-block;
+		margin-right: 20px;
+		position: relative;
+		cursor: pointer;
+
+		.industry-chart {
+			width: 100px;
+			height: 100%;
+			display: inline-block;
+		}
+
+		.industry-value {
+			font-family: 'Oswald';
+			font-size: 24px;
+			text-transform: uppercase;
+			position: absolute;
+			width: 100px;
+			top: 0;
+			left: 0;
+			text-align: center;
+			line-height: 100px;
+
+			.value-unit {
+				font-family: "Gotham SSm A";
+				font-size: 16px;
+			}
+		}
+
+		.industry-caption {
+			display: inline-block;
+			font-family: 'Oswald';
+			font-size: 14px;
+			text-transform: uppercase;
+			vertical-align: top;
+			line-height: 100px;
+			width: 150px;
+
+			span {
+				line-height: normal;
+				vertical-align: middle;
+				display: inline-block;
+			}
+		}
+	}
+}

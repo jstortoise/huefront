@@ -1,0 +1,44 @@
+.dashboard-branding-country {
+  .dashboard-row.dashboard-country {
+    height: 425px;
+
+    .dashboard-cell.cell-right {
+      padding: 0;
+    }
+
+    .dashboard-cell {
+      padding: 0;
+    }
+
+    .cell-top-industries {
+      width: 100%;
+      height: 200px;
+      border-bottom: 1px solid #ccc;
+      float: left;
+      padding: 0 15px;
+    }
+
+    .cell-popular-combinations {
+      width: 100%;
+      height: 210px;
+      float: left;
+      padding: 0 15px;
+    }
+
+    .cell-top-colors, .cell-top-industries {
+      width: 100%;
+      height: 215px;
+      border-bottom: 1px solid #ccc;
+      float: left;
+      padding: 0 15px;
+    }
+
+    .cell-flag-colors, .cell-popular-combinations {
+      width: 100%;
+      height: 210px;
+      float: left;
+      padding: 0 15px;
+    }
+  }
+}
+

@@ -1,0 +1,145 @@
+<update-title title="Fashion Color Trends"></update-title>
+<update-meta name="description" content="HUEDATA color in fashion trends dashboard"></update-meta>
+<update-meta name="keywords" content="Color trends in fashion, current color trends fashion, fashion trend colors, fashion color trends"></update-meta>
+
+<section ng-controller="fashionController">
+  <div class="container-fluid  text-center title">
+    <div class="row">
+      <div class="col-lg-4 col-md-12 col-lg-offset-4">
+        <h3>Fashion Color Trends</h3>
+        <div class="line"></div>
+      </div>
+      <div class="col-lg-4 col-md-12 text-right buttons-group">
+        <div class="button membership">
+          <button  ng-if="$ctrl.getUser()" class="btn join-btn " ng-click="gotoElement('prefooter')">JOIN</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div>
+    <div class="body-container">
+      <div class="dashboard dashboard-default">
+
+        <div class="dashboard-controls">
+          <div class="select-style custom-select">
+            <ui-select
+              ng-model="menus.season"
+              theme="selectize"
+              ng-disabled="disabledControls['season'] || isLoadingControls"
+              title="Choose a season"
+              on-select="handleChangeControl('season')"
+            >
+              <ui-select-match placeholder="SEASON">{{$select.selected.title}}</ui-select-match>
+              <ui-select-choices repeat="season.id as season in controlsData.seasons | filter: {title: $select.search}">
+                <span ng-bind-html="season.title | highlight: $select.search"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+
+          <div class="select-style custom-select">
+            <ui-select
+              ng-model="menus.year"
+              theme="selectize"
+              ng-disabled="disabledControls['year'] || isLoadingControls"
+              title="Choose a year"
+              on-select="handleChangeControl('year')"
+            >
+              <ui-select-match placeholder="YEAR">{{$select.selected.title}}</ui-select-match>
+              <ui-select-choices repeat="year.id as year in controlsData.years | filter: {title: $select.search}">
+                <span ng-bind-html="year.title | highlight: $select.search"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+
+          <div class="select-style custom-select">
+            <ui-select
+              ng-model="menus.category"
+              theme="selectize"
+              ng-disabled="disabledControls['category'] || isLoadingControls"
+              title="Choose a region"
+              on-select="handleChangeControl('category')"
+            >
+              <ui-select-match placeholder="CATEGORY">{{$select.selected.title}}</ui-select-match>
+              <ui-select-choices
+                repeat="category.id as category in controlsData.categories | filter: {title: $select.search}">
+                <span ng-bind-html="category.title | highlight: $select.search"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+
+          <div class="select-style custom-select">
+            <ui-select
+              ng-model="menus.region"
+              theme="selectize"
+              ng-disabled="disabledControls['region'] || isLoadingControls"
+              title="Choose a region"
+              on-select="handleChangeControl('region')"
+            >
+              <ui-select-match placeholder="REGION">{{$select.selected.title}}</ui-select-match>
+
+              <ui-select-choices repeat="region.id as region in controlsData.regions | filter: {title: $select.search}">
+                <span ng-bind-html="region.title | highlight: $select.search"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+
+          <div class="select-style custom-select">
+            <ui-select
+              ng-model="menus.city"
+              theme="selectize"
+              ng-disabled="disabledControls['city'] || isLoadingControls"
+              title="Choose a city"
+              on-select="handleChangeControl('city')"
+            >
+              <ui-select-match placeholder="CITY">{{$select.selected.title}}</ui-select-match>
+              <ui-select-choices repeat="city.id as city in controlsData.cities | filter: {title: $select.search}">
+                <span ng-bind-html="city.title | highlight: $select.search"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+
+          <div class="select-style custom-select">
+            <ui-select
+              ng-model="menus.color"
+              theme="selectize"
+              ng-disabled="disabledControls['color'] || isLoadingControls"
+              title="Choose a color"
+              on-select="handleChangeControl('color')"
+            >
+              <ui-select-match placeholder="COLOR">{{$select.selected.title}}</ui-select-match>
+              <ui-select-choices repeat="color.id as color in controlsData.colors | filter: {title: $select.search}">
+                <span ng-bind-html="color.title | highlight: $select.search"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+          <div class="select-style custom-select">
+
+            <ui-select
+              ng-model="menus.designer"
+              theme="selectize"
+              ng-disabled="disabledControls['designer'] || isLoadingControls"
+              title="Choose a designer"
+              on-select="handleChangeControl('designer')"
+            >
+              <ui-select-match placeholder="DESIGNER">{{$select.selected.title}}</ui-select-match>
+              <ui-select-choices
+                repeat="designer.id as designer in controlsData.designers | filter: {title: $select.search}">
+                <span ng-bind-html="designer.title | highlight: $select.search"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+          <button class="btn dashboard-controls-btn" style="margin-top: 0" ng-click="loadGraphics()">LOAD</button>
+        </div>
+
+        <h2 class="dashboard-no-data" ng-if="!showDashboard">Please select options to start</h2>
+
+        <div class="dashboard-content" ui-view>
+          <!--VIEW FOR DASHBOARDS-->
+        </div>
+      </div>
+      <div class="dashboard-overlay" hue-dashboard-overlay ng-if="showDashboardOverlay"></div>
+    </div>
+  </div>
+</section>

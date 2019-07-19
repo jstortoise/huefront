@@ -1,0 +1,49 @@
+<div ng-controller="colorLegalController">
+  <div class="dashboard-container" ng-if="showDashboard">
+    <hue-db-header
+      header-title="title"
+      page-info="pageInfo"
+      header-icon="colorHex"
+      icon-type="color">
+    </hue-db-header>
+
+    <div class="dashboard-row dashboard-color-row-first">
+      <div class="dashboard-cell cell-left">
+        <div class="dashboard-cell top-products-with-copyrights">
+          <div class="module-title">Top 3 Products Categories With Copyrights For {{title}}</div>
+          <hue-db-top-items-donuts donut-color="colorHex" data="topProductsData"></hue-db-top-items-donuts>
+        </div>
+        <div class="dashboard-cell copyrights-over-time">
+          <div class="module-title">Copyrights For {{title}} Over Time
+            <hue-db-copyrights-over-time-range-selectorz
+              selected-value="copyrightsOverTimeRange"></hue-db-copyrights-over-time-range-selectorz>
+          </div>
+          <hue-db-copyrights-over-time data="copyrightsOverTimeData"
+                                       year-range="copyrightsOverTimeRange"></hue-db-copyrights-over-time>
+        </div>
+      </div>
+      <div class="dashboard-cell cell-right">
+        <div class="module-title">Copyright Count For Top 10 Products For {{title}}</div>
+        <hue-db-top-products-copyrights-view data="topProductsCopyrightsData"
+                                             chart-color="colorHex"></hue-db-top-products-copyrights-view>
+      </div>
+    </div>
+
+    <div class="dashboard-row">
+      <div class="dashboard-cell">
+        <div class="module-title">Top 10 Copyright Owners For {{title}}</div>
+        <hue-db-single-line-chart data="topOwnersData" line-color="colorHex"></hue-db-single-line-chart>
+      </div>
+    </div>
+
+    <div class="dashboard-row">
+      <div class="dashboard-cell">
+        <div class="module-title">Copyright List For {{title}}</div>
+        <hue-db-copyright-list data="copyrightsListData" set-color="setColorAsMain" page-title="title"></hue-db-copyright-list>
+        <hue-db-copyright-list-pagination change-page="switchPage" current-page="copyrightsListPage"
+                                          total-pages="copyrightsListTotalPages"></hue-db-copyright-list-pagination>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,59 @@
+<update-title title="Members Analytics"></update-title>
+<update-meta name="description" content="HUEDATA members private area"></update-meta>
+<update-meta name="keywords" content=""></update-meta>
+
+<h4 class="text-left membership-product">HUEDATA MEMBERSHIP PRODUCT</h4>
+<section ng-init="$ctrl.init()">
+
+  <div class="container-fluid  text-center title">
+    <div class="row">
+
+      <div class="col-lg-4 col-lg-offset-4">
+
+        <h3>Members Analytics</h3>
+        <div class="line"></div>
+      </div>
+      <div class="col-lg-4 col-md-12 buttons-group">
+        <div class="button membership">
+          <button ng-if="$ctrl.getUser()" class="btn join-btn" ng-click="$ctrl.gotoElement('prefooter')">JOIN</button>
+        </div>
+        <div class="button membership">
+          <button class="btn white-btn" ui-sref="productInquiry">PRODUCT INQUIRY</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<section>
+  <div class="container-fluid  text-left">
+    <div class="row">
+      <div class="col-lg-3 col-md-12">
+        <input class="search" placeholder="A-Z" type="text" ng-model="$ctrl.searchModel" ng-change="$ctrl.search()">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="analytics-section min-h analytics-min-h">
+  <div class="group">
+    <div class="item" ng-repeat="item in $ctrl.items" style="padding: 0">
+      <div class="img-container">
+        <div class="img" style="background: {{'url(' + item.logo_url +') center center'}};
+                    background-repeat: no-repeat;
+                    background-size: contain;"
+        >
+        </div>
+      </div>
+      <h6 class="analytic-title">{{item.member_name}}</h6>
+    </div>
+  </div>
+
+  <div class="row" ng-show="$ctrl.pageData.length > $ctrl.items.length">
+    <div class="col-lg-12 text-center">
+      <div class="viewmore"><a ng-click="$ctrl.more()">view more</a></div>
+    </div>
+  </div>
+</section>

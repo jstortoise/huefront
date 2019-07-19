@@ -1,0 +1,86 @@
+.db-color-frequency-by-region {
+  margin: 0 0 30px;
+
+  .bar-group {
+    margin-bottom: 5px;
+
+    .bar-title {
+      font-family: "Gotham SSm A", "Gotham Cond SSm A", "Gotham Cond SSm B";
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 600;
+      margin: 0 0 5px;
+      text-transform: uppercase;
+    }
+
+    .bar-container {
+      .bar-section {
+        display: inline-block;
+        height: 30px;
+        border-right: 1px solid #fff;
+
+        &:last-child {
+          border-right: none;
+        }
+
+        .bottom-line {
+          width: 100%;
+          height: 4px;
+          margin-top: 26px;
+          background-color: #000;
+        }
+      }
+    }
+  }
+}
+
+.db-color-frequency-expanded.by-region {
+  .region-tabs {
+    position: relative;
+    width: 850px;
+    margin: 55px auto;
+    text-align: center;
+
+    .tab-line {
+      position: absolute;
+      top: 15px;
+      width: 100%;
+      height: 1px;
+      background-color: #000;
+    }
+
+    .region-tab {
+      position: relative;
+      width: 150px;
+      height: 30px;
+      display: inline-block;
+      border: 1px solid #000;
+      font-family: 'Gotham SSm A';
+      font-size: 12px;
+      background-color: #fff;
+      margin: 0 15px;
+      padding-top: 5px;
+      text-transform: uppercase;
+      cursor: pointer;
+
+      &:hover, &.active {
+        color: #fff;
+        background-color: #000;
+      }
+    }
+  }
+
+  .color-bar-container .bar-section .color-bar {
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+
+    .bar-separator {
+      background-color: #fff;
+      width: 2px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+    }
+  }
+}

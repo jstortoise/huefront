@@ -1,0 +1,22 @@
+<div class="db-top-products-copyrights">
+	<div class="graph-legend">
+		<div class="legend-container">
+			<div class="legend-item">USA<div class="color-box" ng-style="{'background-color': colorUsa}"></div></div>
+			<div class="legend-item">Int<div class="color-box" ng-style="{'background-color': colorInt}"></div></div>
+			<div class="legend-item">Total<div class="color-box"></div></div>
+		</div>
+	</div>
+	<div class="chart-conatiner">
+		<div class="chart-item" ng-repeat="item in data">
+			<div class="item-title" ng-bind="::item.title"></div>
+			<div class="item-bars">
+				<div class="item-bar bar-total" ng-attr-title="{{ item.total_copyrights + ' Total' }}" ng-style="{width: percentageData[$index].total}" hue-tooltipster="tooltipsterConfig"></div>
+				<div class="item-bar bar-usa" ng-attr-title="{{ item.us_copyrights + ' US' }}" ng-style="{width: percentageData[$index].us, 'background-color': colorUsa}" hue-tooltipster="tooltipsterConfig"></div>
+				<div class="item-bar bar-int" ng-attr-title="{{ item.int_copyrights + ' INT' }}" ng-style="{width: percentageData[$index].int, 'background-color': colorInt}" hue-tooltipster="tooltipsterConfig"></div>
+			</div>
+		</div>
+	</div>
+	<div class="chart-axis-x">
+		<div class="axis-item" ng-repeat="item in axisData"><span ng-bind="::item"></span></div>
+	</div>
+</div>

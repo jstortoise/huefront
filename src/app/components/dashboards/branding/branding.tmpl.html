@@ -1,0 +1,92 @@
+<update-title title="Brand Color Insights"></update-title>
+<update-meta name="description" content="HUEDATA color in logo trends dashboard"></update-meta>
+<update-meta name="keywords" content="Color of Logos, Logo Colors, Color insights of logos, Color of companies logo,
+Company logo colors, logo colors meaning, logo colors combination, new logo colors, logo design color trends,
+logo color palette, logo color trends 2018"></update-meta>
+
+<section ng-controller="brandingController">
+	<div ng-if="isLoadingControls">
+		<div class="container-fluid  text-center title">
+			<div class="row">
+				<div class="col-lg-4 col-md-12 col-lg-offset-4">
+					<h3>Brand Colors</h3>
+					<div class="line"></div>
+				</div>
+				<div class="col-lg-4 col-md-12 text-right buttons-group">
+					<div class="button membership">
+						<button ng-if="$ctrl.getUser()" class="btn join-btn "
+							ng-click="gotoElement('prefooter')">JOIN</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="search-container">
+			<div class="sub-container">
+				<div class="color-bar" style="background:{{item.hex}}" minlength="1" ng-click="handleChangeControl('color', item)" selecttype="type.color" ng-repeat="item in controlsData.colors"></div>
+				<div class="clear"></div>
+			</div>
+
+			<div class="sub-container">
+				<h4>CLICK ON ANY COLOR TO START YOUR SEARCH</h4>
+			</div>
+
+			<div class="sub-container">
+				<h4>OR</h4>
+			</div>
+
+			<div class="sub-container">
+				<autocomplete enteredtext="menus.brand" selected="selected" placeholder="brand_place_holder" selecthandle="handleChangeControl" selecttype="type.brand"></autocomplete>
+			</div>
+
+			<div class="sub-container">
+				<autocomplete enteredtext="menus.industry" selected="selected" placeholder="industry_place_holder" selecthandle="handleChangeControl" selecttype="type.industry"></autocomplete>
+			</div>
+
+			<div class="sub-container">
+				<autocomplete enteredtext="menus.attribute" selected="selected" placeholder="attribute_place_holder" selecthandle="handleChangeControl" selecttype="type.attribute"></autocomplete>
+			</div>
+		</div>
+	</div>
+
+	<div ng-if="!isLoadingControls">
+		<div class="row">
+			<label style="float: left; font-size: 20px;margin-left: 18px">{{header_title}}</label>
+			<label style="float: right; font-size: 20px;margin-right: 18px; cursor: pointer;" ng-click="setback()"><i class="fa fa-reply"> Back to search </i></label>
+		</div>
+		<div ng-controller="brandingController">
+			<div class="dashboard-container">
+				<label class="title" ng-show="!isSet(3)">{{logo_title}}</label>
+				<label class="title" ng-show="isSet(3)">&nbsp;</label>
+
+				<ul class="nav nav-tabs">
+					<li ng-class="{active:isSet(1)}">
+						<a data-toggle="tab" href ng-click="setTab(1)">COMPANY LOGOS</a>
+					</li>
+					<li ng-class="{active:isSet(2)}">
+						<a data-toggle="tab" href ng-click="setTab(2)">COLOR DATA</a>
+					</li>
+					<li ng-class="{active:isSet(3)}">
+						<a data-toggle="tab" href ng-click="setTab(3)">STORYBOARD</a>
+					</li>
+				</ul>
+
+				<div class="tab-content border">
+					<!-- COMPANY LOGOS -->
+					<div class="tab-pane fade in active" ng-show="isSet(1)">
+						<brandingcontent companies="logo"  title="title1" chart="control">
+						</brandingcontent>
+					</div>
+					<!-- COLOR DATA -->
+					<div class="tab-pane fade in active" ng-show="isSet(2)">
+						<brandingcolordata>
+						</brandingcolordata>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- <brandingcontentdetails ng-if="showImageDetails" on-close="toggleImageDetails()" data="imageDetailsData">
+</brandingcontentdetails> -->

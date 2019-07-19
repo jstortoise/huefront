@@ -1,0 +1,25 @@
+<div id="s_color_picker_id">
+    <div class="wrapper-color-picker">
+        <canvas id="color_picker" width="200" height="200" ng-click="changeColor()"></canvas>
+    </div>
+    <div class="slidecontainer">
+        <input class="slider" type="range" id="rg" min="1" max="100" step="1" ng-change="colorPickerSliderGray()" ng-model="colorPickerGray">
+        <span class="slider-title-opacity">OPACITY</span>
+        <input class="slider slider-opacity-color" type="range" id="range_opacity" min="0" max="1" step="0.1" ng-change="colorPickerSliderOpacity()" ng-model="colorPickerOpacity">
+        <label id="value_span"></label>
+    </div>
+    <div class="rgb-display">
+        <div class="rgb-display_item">
+            <span class="rgb-display-title">R</span>
+            <input id="colorInputR" ng-model="colorPicker_R" ng-value="colorRGB_R" type="text" ng-change='colorPickerRGB()' class="rgb-display-input" style="width: 45px">
+        </div>
+        <div class="rgb-display_item">
+            <span class="rgb-display-title">G</span>
+            <input id="colorInputG" ng-model="colorPicker_G" ng-value="colorRGB_G" type="text" ng-change='colorPickerRGB()' class="rgb-display-input" style="width: 45px">
+        </div>
+        <div class="rgb-display_item">
+            <span class="rgb-display-title">B</span>
+            <input id="colorInputB" ng-model="colorPicker_B" ng-value="colorRGB_B" type="text" ng-change='colorPickerRGB()' class="rgb-display-input" style="width: 45px">
+        </div>
+    </div>
+</div>

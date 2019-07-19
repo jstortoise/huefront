@@ -1,0 +1,56 @@
+@import 'variables.scss';
+
+.db-expanded-view {
+	position: fixed;
+	top: 85px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #fff;
+	font-family: "Open Sans";
+	font-size: 14px;
+  z-index: 100;
+
+	.button-close {
+		width: 20px;
+		height: 20px;
+		background: url(../assets/img/icons/close-big.svg) no-repeat center;
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		cursor: pointer;
+	}
+
+	.view-title {
+		display: block;
+		font-family: "Gotham SSm A","Gotham SSm B";
+		font-size: 12px;
+		font-style: normal;
+		font-weight: 700;
+		letter-spacing: 2px;
+		margin: 40px 5% 0 5%;
+		text-transform: uppercase;
+	}
+}
+
+hue-db-color-frequency-by-city-expanded,
+hue-db-color-frequency-by-season-expanded,
+hue-db-top-colors-expanded,
+hue-db-color-frequency-expanded,
+hue-db-color-frequency-by-region-expanded {
+	position: fixed;
+	z-index: 3000;
+	transition: all 200ms ease-out;
+	-webkit-transition: all 200ms ease-out;
+	-moz-transition: all 200ms ease-out;
+	-o-transition: all 200ms ease-out;
+	-ms-transition: all 200ms ease-out;
+
+	&.ng-enter, &.ng-leave.ng-leave-active {
+		opacity: 0;
+	}
+
+	&.ng-leave, &.ng-enter.ng-enter-active {
+		opacity: 1;
+	}
+}

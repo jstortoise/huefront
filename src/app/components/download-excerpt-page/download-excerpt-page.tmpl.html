@@ -1,0 +1,146 @@
+<update-title title="Download Excerpt"></update-title>
+<update-meta name="description" content="Download excerpt form"></update-meta>
+<update-meta name="keywords" content="download excerpt"></update-meta>
+
+<section class="inquiries">
+  <div class="container-fluid  text-center">
+    <h3>DOWNLOAD EXCERPT</h3>
+    <div class="line"></div>
+  </div>
+  <div class="row">
+    <div class="container-fluid">
+      <form name="inquiries" class="inq">
+        <div class="col-lg-offset-1 col-lg-5 col-md-6 membership-form">
+
+          <div class="membr-block">
+            <input ng-model="$ctrl.data.first_name.value" ng-value="$ctrl.data.first_name.value" type="text" id="first_name" name="first_name"
+                   ng-class="'ng-dirty' && inquiries.first_name.$invalid ?  'error' :''" style="border: 0px" required>
+            <label for="first_name">FIRST NAME <span class="red-text">*</span></label>
+          </div>
+
+          <div class="membr-block">
+            <input ng-model="$ctrl.data.last_name.value" ng-value="$ctrl.data.last_name.value" type="text" id="last_name" name="last_name"
+                   ng-class="'ng-dirty' && inquiries.last_name.$invalid ?  'error' :''" style="border: 0px" required>
+            <label for="last_name">LAST NAME <span class="red-text">*</span></label>
+          </div>
+
+          <div class="membr-block">
+            <input ng-model="$ctrl.data.email.value" ng-value="$ctrl.data.email.value" type="text" id="email" name="email"
+                   ng-class="'ng-dirty' && inquiries.Email.$invalid ?  'error' :''" style="border: 0px" required>
+            <label for="email">EMAIL(MUST BE BUSINESS ADDRESS) <span class="red-text">*</span></label>
+          </div>
+
+          <div class="membr-block">
+            <input ng-model="$ctrl.data.company.value" ng-value="$ctrl.data.company.value"
+                   type="text" id="Company" name="Company"
+                   ng-class="'ng-dirty' && inquiries.institute.$invalid ?  'error' :''" style="border: 0px" required>
+            <label for="Company">COMPANY <span class="red-text">*</span></label>
+          </div>
+
+          <div class="membr-block">
+            <input ng-model="$ctrl.data.job_title.value" ng-value="$ctrl.data.job_title.value" type="text" id="job_title" name="job_title"
+                   ng-class="'ng-dirty' && inquiries.job_title.$invalid ?  'error' :''" style="border: 0px" required>
+            <label for="job_title">JOB TITLE <span class="red-text">*</span></label>
+          </div>
+
+          <div class="select-style select-mrg">
+            <ui-select
+              ng-model="$ctrl.data.job_function.value"
+              theme="selectize"
+              search-enabled="false"
+            >
+              <ui-select-match ng-bind-html="$select.selected.title"></ui-select-match>
+              <ui-select-choices class="without-border" repeat="job in $ctrl.jobs">
+                <span ng-bind-html="job.title"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+
+          <div class="select-style select-mrg">
+            <ui-select
+              ng-model="$ctrl.data.industry.value"
+              theme="selectize"
+              search-enabled="false"
+            >
+              <ui-select-match ng-bind-html="$select.selected.title"></ui-select-match>
+              <ui-select-choices class="without-border" repeat="ind in $ctrl.industries">
+                <span ng-bind-html="ind.title"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+
+          <div class="select-style select-mrg">
+            <ui-select
+              ng-model="$ctrl.data.country.value"
+              theme="selectize"
+              search-enabled="false"
+            >
+              <ui-select-match ng-bind-html="$select.selected.title"></ui-select-match>
+              <ui-select-choices class="without-border" repeat="cntry in $ctrl.countries">
+                <span ng-bind-html="cntry.title"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+
+          <div class="select-style select-mrg">
+            <ui-select
+              ng-model="$ctrl.data.company_size.value"
+              theme="selectize"
+              search-enabled="false"
+            >
+              <ui-select-match ng-bind-html="$select.selected.title"></ui-select-match>
+              <ui-select-choices class="without-border" repeat="companySize in $ctrl.companySizes">
+                <span ng-bind-html="companySize.title"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+
+          <!--<textarea ng-if="$ctrl.inquire2" ng-model="$ctrl.data.description.value" ng-value="$ctrl.data.description.value"-->
+                    <!--placeholder="TELL US ABOUT YOUR COLOR DATA NEEDS" style="border: 0px"></textarea>-->
+          <!--<textarea ng-if="$ctrl.inquire3" ng-model="$ctrl.data.description.value" ng-value="$ctrl.data.description.value"-->
+                    <!--placeholder="TELL US ABOUT YOUR COLOR EDUCATION INTERESTS" style="border: 0px"></textarea>-->
+
+          <!--<div class="button">-->
+            <!--<button ng-click="$ctrl.send('data')" class="btn pull-right">-->
+              <!--DOWNLOAD EXCERPT-->
+            <!--</button>-->
+          <!--</div>-->
+        </div>
+
+        <div class="col-lg-5 col-md-6 membership-form">
+          <h4>Join our Email list</h4>
+          <div>
+            <p style="float: none">
+              <input ng-model="$ctrl.data.relationship.daily" type="checkbox" id="dailyInsight"/>
+              <label for="dailyInsight">THE DAILY</label>
+            </p>
+            <p style="float: none">
+              <input ng-model="$ctrl.data.relationship.newReportNotification" type="checkbox" id="newReportNotification"/>
+              <label for="newReportNotification">HUEDATA NEW REPORT NOTIFICATION</label>
+            </p>
+            <p style="float: none">
+              <input ng-model="$ctrl.data.relationship.expert" type="checkbox" id="joinPanel"/>
+              <label for="joinPanel">EXPERT PANEL INVITE</label>
+            </p>
+            <p style="float: none">
+              <input ng-model="$ctrl.data.relationship.emotionIndexInsights"
+                     type="checkbox"
+                     id="emotionIndexInsights"/>
+              <label for="emotionIndexInsights">COLOR - EMOTION INDEX INSIGHTS</label>
+            </p>
+          </div>
+
+          <div class="button">
+            <p style="float: none">
+              <input ng-model="$ctrl.data.contact.becoming" type="checkbox" id="becoming"/>
+              <label for="becoming">PLEASE CONTACT ME ABOUT BECOMING A HUEDATA MEMBER</label>
+            </p>
+            <button ng-click="$ctrl.send()" class="btn">
+              DOWNLOAD EXCERPT
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

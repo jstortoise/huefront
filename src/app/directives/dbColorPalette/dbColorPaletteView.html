@@ -1,0 +1,29 @@
+<div class="db-color-palette">
+  <div class="palette-bar-container" ng-show="!isExpanded">
+    <div class="palette-bar" ng-repeat="item in data | limitTo:24"
+         ng-attr-title="{{item.percentage.toFixed(2) + '% ' + item.color.title + '/' + item.color.color.ncs}}"
+         ng-style="{'background-color': item.color.color.hex}" ng-click="goToColor($index)"></div>
+  </div>
+  <div class="palette-tables" ng-show="isExpanded">
+    <div class="table-container" ng-repeat="tableIndex in expandedViewTables">
+      <table>
+        <thead>
+        <tr>
+          <th class="header-index">#</th>
+          <th class="header-color">Color</th>
+          <th class="header-percentage">%</th>
+          <th>Color Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in data | limitTo:24:(tableIndex*24)">
+          <td>{{tableIndex * 24 + $index + 1}}</td>
+          <td ng-style="{'background-color': item.color.color.hex}"></td>
+          <td>{{item.percentage.toFixed(2)}}</td>
+          <td>{{item.color.title}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

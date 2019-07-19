@@ -1,0 +1,7 @@
+<div class="db-top-finishes">
+	<div class="finish-item" ng-repeat="item in data" ng-click="finishClick(item.id)">
+		<div class="finish-chart" hue-top-finishes-chart="{diameter: 100}" percentage="item.percentage" color="chartColor"></div>
+		<div class="finish-value">{{item.percentage.toFixed()}}<span class="value-unit">%</span></div>
+		<div class="finish-caption"><span ng-bind="item.title"></span></div>
+	</div>
+</div>

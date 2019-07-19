@@ -1,0 +1,54 @@
+<div class="db-expanded-view db-copyright-list-expanded">
+  <div class="button-close" ng-click="hideView()"></div>
+  <div class="view-title">Full color copyright details for {{pageTitle}}</div>
+
+  <div class="cols">
+    <div>
+      <ul>
+        <li>
+          <label>Color code</label>
+          <div>
+            <span>{{details.color.color.ncs}}</span>
+            <span ng-click="colorClick(details.color.id)" class="color"
+                  ng-style="{'background-color': details.color.color.hex}"></span>
+          </div>
+        </li>
+        <li><label>Serial #</label><span>{{details.serial_number}}</span></li>
+        <li><label>Entery #</label><span>{{details.registration_number}}</span></li>
+        <li><label>Transaction date</label><span>{{details.transaction_date}}</span></li>
+        <li><label>Three letter status code</label><span>{{details.status_code}}</span></li>
+        <li><label>Identification of trademark</label><span>{{details.owner}}</span></li>
+        <li><label>Filing date</label><span>{{details.filed_at}}</span></li>
+        <li><label>Registration date of TM</label><span>{{details.registered_at}}</span></li>
+        <li><label>US classification code</label><span>{{details.us_code}}</span></li>
+        <li><label>Int's classification code</label><span>{{details.int_code}}</span></li>
+        <li ng-if="otherColorsPages.length > 1">
+          <label></label>
+          <div class="pager">
+            <label ng-click="selectPage($index)" ng-class="{'active':isPageActive($index)}"
+                   ng-repeat="p in otherColorsPages">{{$index + 1}}</label>
+          </div>
+        </li>
+      </ul>
+      <div ng-if="otherColorCopyrights.length">
+        <div class="view-title">Other color copyrights for {{pageTitle}}</div>
+        <ul>
+          <li>
+            <label></label>
+            <div class="colors-copyrights">
+              <label ng-click="selectOtherColor(c)" ng-repeat="c in otherColorCopyrights"
+                     ng-style="{ 'background-color' : c.color.hex }"></label>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <ul>
+        <li>
+          <label>Drawing</label>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

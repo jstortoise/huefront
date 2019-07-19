@@ -1,0 +1,29 @@
+<div class="db-expanded-view db-top-colors-expanded">
+  <div class="button-close" ng-click="toggleView()"></div>
+  <div class="view-title">Top 4 Colors</div>
+  <div class="top-colors-container">
+    <div class="color-section" ng-repeat="item in data">
+      <div class="section-container" ng-class="{even: $even}">
+        <div class="color-bar" ng-style="{'background-color': item.color.hex}"></div>
+        <div class="details-line"></div>
+        <div class="color-details" ng-style="{'background-color': item.color.hex}">
+          <div class="details-top-container">
+            <div class="color-value">{{item.percentage}}<span class="value-unit">%</span></div>
+            <div class="color-title" ng-bind="item.title"></div>
+          </div>
+          <div class="details-bottom-container">
+            <div>RGB: {{item.color.rgb}}</div>
+            <!--<div>NCS: {{item.color.ncs}}</div>-->
+          </div>
+        </div>
+        <div class="color-shades">
+          <div class="color-shade" ng-repeat="shade in item.shades">
+            <div class="shade-title" ng-style="{'border-bottom-color': shade.color.hex}" ng-bind="shade.title"></div>
+            <div class="shade-details">RGB: {{shade.color.rgb}}</div>
+            <!--<div class="shade-details">NCS: {{shade.color.ncs}}</div>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

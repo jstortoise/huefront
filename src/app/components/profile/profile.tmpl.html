@@ -1,0 +1,211 @@
+<update-title title="My Profile"></update-title>
+<update-meta name="description" content="HUEDATA member profile"></update-meta>
+<update-meta name="keywords" content="HUEDATA member profile, profile, my profile"></update-meta>
+
+<section>
+  <div class="staffs-container container-fluid profile-page min-h" ng-init="$ctrl.init()">
+    <div class="row profile-page-rows">
+      <div class="col-lg-12 col-md-12 profile_header">
+        <h3 ng-show="!$ctrl.editFlag">My profile</h3>
+        <h3 ng-show="$ctrl.editFlag">Profile Update</h3>
+        <div class="line"></div>
+        <br>
+      </div>
+      <div class="col-md-offset-2 col-lg-5 col-md-5 col-sm-6 col-xs-6 text-center staff-item user-data" ng-show="!$ctrl.editFlag">
+        <div class="profile-data-text">
+          <p>FIRST NAME: <span>{{$ctrl.data.first_name.value}}</span>
+        </div>
+        <div class="profile-data-text">
+          <p>LAST NAME: <span>{{$ctrl.data.last_name.value}}</span>
+        </div>
+        <div class="profile-data-text">
+          <p>Email: <span>{{$ctrl.data.email.value}}</span></p>
+        </div>
+        <div class="profile-data-text">
+          <p>
+            COMPANY: <span>{{$ctrl.data.company.value}}</span>
+          </p>
+        </div>
+        <div class="profile-data-text">
+          <p>
+            JOB TITLE: <span>{{$ctrl.data.job_title.value}}</span>
+          </p>
+        </div>
+        <div class="profile-data-text">
+          <p>
+            JOB FUNCTION: <span>{{$ctrl.data.job_function.value.title || $ctrl.data.job_function.value}}</span>
+          </p>
+        </div>
+        <div class="profile-data-text">
+          <p>COMPANY SIZE: <span>{{$ctrl.data.company_size.value.title || $ctrl.data.company_size.value}}</span>
+          </p>
+        </div>
+        <div class="profile-data-text">
+          <p>INDUSTRY: <span>{{$ctrl.data.industry.value.title || $ctrl.data.industry.value}}</span>
+          </p>
+        </div>
+        <div class="profile-data-text">
+          <p>COUNTRY: <span>{{$ctrl.data.country.value.title || $ctrl.data.country.value}}</span>
+          </p>
+        </div>
+        <div class="profile-data-text">
+          <p>BIO: <span>{{$ctrl.data.bio.value}}</span>
+          </p>
+        </div>
+        <button ng-click="$ctrl.editProfile()" class="btn basket-btn update-btn"
+                style="display: inline-block">
+          UPDATE
+        </button>
+      </div>
+      <div class="col-md-offset-2 col-lg-5 col-md-5 col-sm-6 col-xs-6 text-center staff-item user-data" ng-show="$ctrl.editFlag">
+        <div class="profile-data-text">
+
+          <div class="membr-block">
+            <label for="first_name">FIRST NAME</label>
+            <input ng-model="$ctrl.data.first_name.value" ng-value="$ctrl.data.first_name.value" type="text"
+                   id="first_name" name="first_name"
+                   ng-class="'ng-dirty' && membership.first_name.$invalid ?  'error' :''">
+          </div>
+
+          <div class="membr-block">
+            <label for="last_name">LAST NAME</label>
+            <input ng-model="$ctrl.data.last_name.value" ng-value="$ctrl.data.last_name.value" type="text"
+                   id="last_name" name="last_name"
+                   ng-class="'ng-dirty' && membership.last_name.$invalid ?  'error' :''">
+          </div>
+
+          <div class="membr-block">
+            <label for="company">COMPANY</label>
+            <input ng-model="$ctrl.data.company.value" ng-value="$ctrl.data.company.value"
+                   type="text"
+                   id="company"
+                   name="company"
+                   ng-class="'ng-dirty' && membership.company.$invalid ?  'error' :''">
+          </div>
+
+          <div class="membr-block">
+            <label for="job_title">JOB TITLE</label>
+            <input ng-model="$ctrl.data.job_title.value" ng-value="$ctrl.data.job_title.value"
+                   type="text"
+                   id="job_title"
+                   name="job_title"
+                   ng-class="'ng-dirty' && membership.job_title.$invalid ?  'error' :''">
+          </div>
+
+          <div class="select-style select-mrg">
+            <label for="job_function">JOB FUNCTION</label>
+            <ui-select
+              ng-model="$ctrl.data.job_function.value"
+              theme="selectize"
+              search-enabled="false"
+              id="job_function"
+            >
+              <ui-select-match ng-bind-html="$select.selected.title"></ui-select-match>
+              <ui-select-choices repeat="job in $ctrl.job_function">
+                <span ng-bind-html="job.title"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+
+          <div class="select-style select-mrg">
+            <label for="company_size">COMPANY SIZE</label>
+            <ui-select
+              ng-model="$ctrl.data.company_size.value"
+              theme="selectize"
+              search-enabled="false"
+              id="company_size"
+            >
+              <ui-select-match ng-bind-html="$select.selected.title"></ui-select-match>
+              <ui-select-choices repeat="companySize in $ctrl.company_size">
+                <span ng-bind-html="companySize.title"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+
+          <div class="select-style select-mrg">
+            <label for="industry">INDUSTRY</label>
+            <ui-select
+              ng-model="$ctrl.data.industry.value"
+              theme="selectize"
+              search-enabled="false"
+              id="industry"
+            >
+              <ui-select-match ng-bind-html="$select.selected.title"></ui-select-match>
+              <ui-select-choices repeat="ind in $ctrl.industry">
+                <span ng-bind-html="ind.title"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+
+          <div class="select-style select-mrg">
+            <label for="country">COUNTRY</label>
+            <ui-select
+              ng-model="$ctrl.data.country.value"
+              theme="selectize"
+              search-enabled="false"
+              id="country"
+            >
+              <ui-select-match ng-bind-html="$select.selected.title"></ui-select-match>
+              <ui-select-choices repeat="cntry in $ctrl.country">
+                <span ng-bind-html="cntry.title"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+
+          <div class="membr-block">
+            <label class="for-textarea" for="bio">BIO</label>
+            <textarea ng-show="$ctrl.editFlag" id="bio" ng-model="$ctrl.data.bio.value" ng-value="$ctrl.data.bio.value">
+            </textarea>
+          </div>
+          <div class="profile-btn-group">
+            <button ng-click="$ctrl.cancel()" class="btn white-btn basket-btn"
+                    style="display: inline-block">
+              CANCEL
+            </button>
+            <button ng-click="$ctrl.save()" class="btn basket-btn save-btn"
+                    style="display: inline-block">
+              SAVE
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-5 col-sm-6 col-xs-6 text-center staff-item">
+        <div class="profile-photo">
+          <div class="img-responsive background-image"
+               style="background: {{'url(' + ($ctrl.userData.image_url || 'http://www.hue-data.com/assets/images/course.jpg') + ') top center'}};
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    height: 250px;
+                    width: 250px;
+                    border-radius: 50%;
+                    background-color: #000;
+                    margin: auto"
+          >
+            <div ng-show="$ctrl.editFlag" class="edit-photo">
+              <label class="file-upload">
+                <button type="file" ngf-select="uploadFiles($file, $invalidFiles)"
+                        accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+                  Select File</button>
+              </label>
+              <br>
+              <span ng-show="$ctrl.fileFlag">{{$ctrl.file.name}}</span>
+              <br>
+            </div>
+          </div>
+        </div>
+        <div class="speaking_item" style="padding-top: 15px">
+          <div class="speaking_item_header profile-name"><a>{{$ctrl.data.first_name.value}} {{$ctrl.data.last_name.value}}</a>
+          </div>
+          <div ng-click="$ctrl.goCart()" class="cart-button btn white-btn">
+            <i class="fa fa-shopping-cart fa-2x pointer" aria-hidden="true"></i>
+            <p>&emsp;MY CART</p>
+          </div>
+          <div ng-click="$ctrl.goPurchase()" class="purchase-btn btn white-btn">
+            <p>MY PURCHASES</p>
+          </div>
+          <a  ng-show="$ctrl.editFlag" ng-href="#!/recover">Change password</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

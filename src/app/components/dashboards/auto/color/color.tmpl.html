@@ -1,0 +1,60 @@
+<div ng-controller="colorAutoController">
+  <div class="dashboard-container" ng-if="showDashboard">
+    <hue-db-header header-title="title" header-subtitle="subtitle" header-icon="colorHex" icon-type="color"
+                   page-info="pageInfo"></hue-db-header>
+
+    <div class="dashboard-row row-220">
+      <div class="dashboard-cell cell-left">
+        <div class="module-title">Top 4 Shades For {{title}} <img src="assets/img/icons/expand.svg" class="icon-expand"
+                                                                  ng-click="toggleTopColorsExpandedMode()"/>
+          <hue-db-info-icon text-key="top_colors"></hue-db-info-icon>
+        </div>
+        <hue-db-top-colors data="topColorsData"></hue-db-top-colors>
+        <hue-db-top-colors-expanded data="topColorsData" toggle-view="toggleTopColorsExpandedMode()"
+                                    ng-if="topColorsExpanded"></hue-db-top-colors-expanded>
+      </div>
+      <div class="dashboard-cell cell-right">
+        <div class="module-title">Distribution By Finish For {{title}}
+          <hue-db-info-icon text-key="top_finishes"></hue-db-info-icon>
+        </div>
+        <hue-db-top-finishes data="topFinishesData" chart-color="topIndustriesColor"></hue-db-top-finishes>
+      </div>
+    </div>
+
+    <div class="dashboard-row dashboard-color-palette-row">
+      <div class="dashboard-cell cell-left">
+        <div class="module-title">Top 4 Brands Using {{title}}</div>
+        <hue-db-color-count-by-model data="topBrandsData"></hue-db-color-count-by-model>
+      </div>
+      <div class="dashboard-cell cell-right">
+        <div class="module-title">Top Shades Of {{title}}</div>
+        <hue-db-color-palette data="colorPaletteData" set-color="setColorAsMain" is-expanded="colorPaletteExpanded"></hue-db-color-palette>
+      </div>
+    </div>
+
+    <div class="dashboard-row">
+      <div class="dashboard-cell">
+        <div class="module-title">Top 10 Color Shades By Region For {{title}}</div>
+        <hue-db-color-comparison data="compareData"></hue-db-color-comparison>
+      </div>
+    </div>
+
+    <div class="dashboard-row">
+      <div class="dashboard-cell">
+        <div class="module-title">Number Of Colors By Color Family For {{title}} Over Time
+          <hue-db-colors-by-family-range-selector
+            selected-value="colorsByFamilyRange"></hue-db-colors-by-family-range-selector>
+        </div>
+        <hue-db-colors-by-family data="shadesData" year-range="colorsByFamilyRange"
+                                 default-color-id="colorId"></hue-db-colors-by-family>
+      </div>
+    </div>
+
+    <div class="dashboard-row">
+      <div class="dashboard-cell">
+        <div class="module-title">Image Gallery For {{title}} By Color</div>
+        <hue-db-image-gallery data="carColorsData"></hue-db-image-gallery>
+      </div>
+    </div>
+  </div>
+</div>

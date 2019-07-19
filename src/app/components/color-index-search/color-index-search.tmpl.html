@@ -1,0 +1,53 @@
+<update-title title="The Color Naming Index"></update-title>
+<!--<update-meta name="description" content="color index, color decision tools, color analysis tools"></update-meta>-->
+<!--<update-meta name="keywords" content="Color Emotion Connections index, color emotions, color emotion theory,-->
+<!--color and emotion research, color emotion associations, Color Celebrity index, Color Naming index, Color Names Index,-->
+<!--Color Preference Index, Global Colors index, Color in Soccer index, Color Twits Index, color dictionary, Color social media"></update-meta>-->
+
+<h4 class="text-left membership-product">HUEDATA MEMBERSHIP PRODUCT</h4>
+
+<section id="color-emotion-header">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6">
+        <h3 class="color-ind">Color Indices - AVAILABLE FALL 2018</h3>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-lg-12 col-md-12 col-sm-12 buttons-group title-color-index-block">
+        <div class="title-color-index">The Color Naming Index</div>
+        <div class="button membership">
+          <button class="btn white-btn" ui-sref="productInquiry">PRODUCT INQUIRY</button>
+        </div>
+        <div class="line"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="color-naming-info">
+  <div class="container-fluid ">
+    <div class="row">
+      <div class="col-md-12 col-lg-12 text-center">
+        <img class="color-search-pen-img" src="../assets/images/pen.png" alt="">
+        <h5 class="color-search-title">WHAT COLOR NAME DO YOU HAVE IN MIND?</h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-2 col-md-2"></div>
+      <div class="col-md-8 col-lg-8 center">
+        <form class="search-container">
+          <input ng-model="$ctrl.data.color" ng-value="$ctrl.data.color" type="text" id="search-bar" placeholder="TYPE HERE">
+          <button class="btn-color-search" ng-click="$ctrl.colorSearch()"></button>
+        </form>
+
+        <div ng-if="$ctrl.colorValidDataShort.length === 0" class="msg-inf" style="height: 0px!important;">
+          <p style="text-align: center"> Not found.</p>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2"></div>
+    </div>
+      <div class="row equal" style="margin-top: 100px"></div>
+  </div>
+</section>

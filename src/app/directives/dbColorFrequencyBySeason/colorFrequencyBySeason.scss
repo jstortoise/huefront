@@ -1,0 +1,69 @@
+.db-color-frequency-by-season {
+  width: 100%;
+  height: 230px;
+
+  .caroufredsel_wrapper {
+    margin: 0 auto !important;
+  }
+
+  .season-title {
+    width: 100px;
+    height: 35px;
+    margin-left: 50px;
+    margin-top: 65px;
+    position: absolute;
+    font-family: 'Gotham SSm A';
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 10;
+    cursor: pointer;
+    transition: all 200ms ease-out;
+    -webkit-transition: all 200ms ease-out;
+    -moz-transition: all 200ms ease-out;
+    -o-transition: all 200ms ease-out;
+    -ms-transition: all 200ms ease-out;
+
+    span {
+      vertical-align: middle;
+      line-height: normal;
+      display: inline-block;
+    }
+
+    &.ng-hide {
+      opacity: 0;
+    }
+  }
+}
+
+.db-color-freqeuncy-by-season-expanded {
+  .chart-container {
+    margin: 50px auto;
+    width: 90%;
+
+    .chart-cell {
+      width: 45%;
+      margin-right: 5%;
+      height: 290px;
+      display: inline-block;
+      position: relative;
+
+      .chart-title {
+        font-size: 24px;
+        font-weight: bold;
+        height: 40px;
+      }
+
+      .chart {
+        width: 100%;
+        height: 250px;
+
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
