@@ -1,0 +1,580 @@
+/*SMALL DEVICE*/
+@media (max-width: 400px) {
+
+}
+
+@media (max-width: 544px) {
+    #stay-connected {
+        width: 100%;
+    }
+
+    .submit {
+        width: 100%
+    }
+
+    input:not([type="checkbox"]):not([type="radio"]), textarea, select {
+        width: 100%;
+    }
+
+    .membership {
+        float: none;
+        text-align: center;
+        margin-top: 0px;
+    }
+
+    .category_form {
+        text-align: center;
+        float: none;
+        margin-top: 20px;
+    }
+
+    .slider {
+        margin-top: 20px;
+    }
+
+    .membership-product {
+        text-align: center;
+        position: relative;
+        margin-bottom: 10px;
+    }
+
+    #education-top img {
+        margin-bottom: 20px;
+    }
+
+    #education p {
+        margin-bottom: 20px;
+    }
+
+    footer {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    .analytic-item {
+        width: 20%;
+    }
+}
+
+@media (max-width: 1200px) {
+
+    html body {
+        padding-bottom: 200px;
+    }
+
+    .push {
+        height: 200px;
+    }
+
+    .box {
+        margin-top: 50px;
+    }
+
+    .prefooter {
+        padding-top: 0px;
+    }
+
+    footer #logo {
+        float: none;
+        margin-bottom: 10px;
+        min-width: 230px;
+    }
+
+    footer ul li {
+        float: none;
+    }
+
+    footer #copyrights {
+        float: none;
+        text-align: center;
+    }
+
+    .offer {
+        min-height: 450px;
+    }
+
+    footer ul {
+        padding-left: 0px;
+    }
+
+    .buttons-group .membership {
+
+        display: inline-block;
+        float: none;
+
+        margin-bottom: 30px;
+        margin-top: 0px;
+        margin-right: 10px;
+        margin-left: 0px;
+
+    }
+
+    .buttons-group {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .membership-product {
+        text-align: center;
+        position: relative;
+        margin-bottom: 0px;
+
+    }
+
+    #color-emotion-header h3 {
+        text-align: center;
+        margin-top: 10px;
+        padding-top: 10px;
+    }
+
+    #education-top img {
+        margin-bottom: 20px;
+    }
+
+    #education p {
+        margin-bottom: 0px;
+    }
+
+    #education h5 {
+        margin-top: 0px;
+    }
+
+    h3 {
+        margin-top: 0px;
+    }
+
+    .line {
+        margin-bottom: 20px;
+    }
+
+    .title .btn {
+        margin-top: 10px;
+
+    }
+
+    /*.title .white {*/
+    /*margin-bottom: 20px;*/
+    /*}*/
+    #education img {
+        margin-bottom: 40px;
+    }
+
+}
+
+@media (max-width: 1600px) and (min-width: 1221px) {
+    .offer {
+        min-height: 650px;
+    }
+
+    .box {
+        min-height: 290px;
+    }
+
+    /*.white .btn {*/
+    /*margin-bottom: 10px;*/
+    /*}*/
+}
+
+@media (max-width: 1920px) and (min-width: 1221px) {
+
+    .customized-infographics-top-container .col-lg-3 {
+        padding-left: 0;
+    }
+
+    footer ul li {
+        font-size: 12px;
+
+    }
+
+    footer #copyrights {
+        font-size: 12px;
+    }
+
+    .slider {
+        padding-left: 0px !important;
+
+    }
+
+}
+
+@media (max-width: 992px) {
+
+    .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .dailyinsights {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+    .offer {
+        min-height: 0px;
+    }
+
+    .img50 {
+        margin-bottom: 60px;
+    }
+
+    footer ul li {
+        text-align: center;
+        float: none;
+    }
+
+    section {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .category_form {
+        width: 100%;
+    }
+
+    .membership {
+        text-align: center;
+        margin-top: 0px;
+        margin-bottom: 20px;
+        margin-top: 10px;
+
+    }
+
+    .members-list {
+        text-align: center;
+    }
+
+    /*.white .btn {*/
+    /*margin-right: 10px;*/
+    /*}*/
+    .schedule h3 {
+        margin-top: 60px;
+    }
+
+    .benefits {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .group .item {
+        width: 21% !important;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .group .item {
+        width: 46% !important;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .group {
+        justify-content: center !important;
+    }
+
+    .group .item {
+        width: 60% !important;
+    }
+}
+
+@media (max-width: 1101px) {
+    .navbar-header {
+        float: none;
+    }
+
+    .navbar-left, .navbar-right {
+        float: none !important;
+    }
+
+    .navbar-toggle {
+        display: block;
+        margin-top: 15px;
+    }
+
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-fixed-top {
+        top: 0;
+        border-width: 0 0 1px;
+    }
+
+    .navbar-collapse.collapse {
+        display: none !important;
+    }
+
+    .navbar-nav {
+        display: none!important;
+        float: none !important;
+        /*margin-top: 7.5px;*/
+    }
+
+    .navbar-nav > li {
+        float: none;
+    }
+
+    .navbar-nav > li > a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .collapse.in {
+        display: block !important;
+    }
+}
+
+/*-----------------------------------------------------------------------------------*/
+
+@media (max-width: 1300px) and (min-width: 1200px) {
+
+    p {
+        font-size: 9pt;
+        line-height: 14pt;
+    }
+
+    .offer {
+        min-height: 500px;
+    }
+
+    [type="checkbox"]:not(:checked) + label, [type="checkbox"]:checked + label {
+        font-size: 6.6pt;
+
+    }
+
+    .btn {
+        font-size: 7pt;
+        padding: 10px;
+    }
+
+    .box {
+        min-height: 230px;
+        padding: 21px;
+        padding-bottom: 0px;
+    }
+
+    .submit {
+        margin-bottom: 22px;
+    }
+
+    #top-menu {
+        height: 25px;
+    }
+
+    #top-menu ul li a {
+        font-size: 8pt;
+    }
+
+    #top-menu ul li {
+        margin-top: 2px;
+    }
+
+    .navbar {
+        min-height: 60px;
+    }
+
+    .navbar-nav {
+        font-size: 11pt;
+    }
+
+    #logo {
+        max-width: 220px;
+        /*padding-top: 2px;*/
+        padding-right: 10px;
+    }
+
+    .select-style select {
+        font-size: 9pt;
+        margin-bottom: 10px;
+        height: 41px;
+    }
+
+    h3 {
+        font-size: 22pt;
+        margin-top: 5px;
+    }
+
+    h5 {
+        font-size: 12pt;
+    }
+
+    h4 {
+        font-size: 12pt;
+    }
+
+    h1 {
+        font-size: 30pt;
+        padding-top: 30px;
+    }
+
+    .header {
+        min-height: 280px;
+        margin-bottom: 30px;
+    }
+
+    .bar span {
+        font-size: 8pt;
+        top: 15px
+    }
+
+    .bar {
+        min-height: 15px;
+        margin-bottom: 13px;
+    }
+
+    .bar img {
+        max-height: 45px;
+    }
+
+    .first-bar {
+        margin-top: 66px;
+    }
+
+    .membership-form input, select {
+        font-size: 9pt;
+    }
+
+    .title .btn {
+        margin-top: 0px;
+    }
+
+    .membership-form input[type="text"] {
+        font-size: 9pt
+    }
+
+    .membership-form [type="checkbox"]:not(:checked) + label, .membership-form [type="checkbox"]:checked + label {
+        font-size: 9pt;
+    }
+
+    /*.membership-form input:not([type="checkbox"]):not([type="radio"]), textarea, select {*/
+    /*margin-bottom: 10px;*/
+    /*height: 41px;*/
+    /*}*/
+    .dropdown-menu {
+        font-size: 10pt;
+    }
+
+    .category > p {
+        padding-top: 5px;
+    }
+
+    input:not([type="checkbox"]):not([type="radio"]), textarea, select {
+        font-size: 9pt;
+    }
+
+    .viewmore {
+        margin-top: 20px;
+    }
+
+    .slider-images {
+        margin-top: 40px;
+    }
+
+    .vertical-coverage {
+        padding-bottom: 40px;
+    }
+
+    .gray {
+        padding-top: 20px;
+        margin-bottom: 20px
+    }
+
+    .slider h5 {
+        font-size: 12pt;
+    }
+
+    #education {
+        padding-top: 40px;
+        padding-bottom: 20px;
+    }
+
+    #education h5 {
+        margin-top: 10px;
+        text-transform: uppercase;
+    }
+
+    #education-top {
+        padding-bottom: 40px;
+        padding-top: 40px;
+    }
+
+    #education p {
+        margin-bottom: 30px;
+    }
+
+    #daily-insight h1 {
+        padding-top: 0px;
+    }
+
+    .course {
+        margin-bottom: 0px
+    }
+
+    .course .item {
+        margin-bottom: 10px
+    }
+
+    .offer {
+        margin-top: 30px;
+    }
+
+    .become-member {
+        margin-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .become-member h3 {
+        padding-top: 20px;
+    }
+
+    .prefooter {
+        margin-top: 30px;
+    }
+
+    .line {
+        margin-bottom: 30px
+    }
+
+    .item {
+        margin-bottom: 20px;
+    }
+
+    .member {
+        margin-top: 0px;
+    }
+
+    .partner {
+        margin-bottom: 30px;
+
+    }
+
+    .speaking_engagements {
+        margin-bottom: 30px;
+    }
+
+    .benefits {
+        padding-top: 0px;
+        padding-bottom: 0px;
+        min-height: 182px;
+    }
+
+    form p {
+        margin-right: 10px;
+    }
+
+    footer #copyrights {
+        margin-top: 19px;
+    }
+
+    .padding-right-clear {
+        padding-right: 0px;
+    }
+
+}
+

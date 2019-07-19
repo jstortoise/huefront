@@ -1,0 +1,943 @@
+
+body > .chart {
+  margin-bottom: 18px;
+}
+
+svg g.group-titles {
+  font-size: 1.25em;
+  transform: translate(0, 5px);
+  text-transform: uppercase;
+}
+
+.f-charts svg > g > g {
+  ztransform: translate(0, 15px);
+}
+
+svg text,
+svg p {
+  font-family: 'Oswald', sans-serif;
+}
+
+svg .legend-header {
+  text-transform: uppercase;
+  font-size: 1.15em;
+}
+
+svg .axis-titles text {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+svg .legend-title {
+  text-transform: uppercase;
+}
+
+svg .bar-title {
+  text-transform: uppercase;
+}
+
+svg .titles-group .title {
+  font-size: .95em;
+  zfont-weight: bold;
+}
+
+.view-types a {
+  color: #7eb1f1;
+  cursor: pointer;
+}
+
+.view-types a:hover {
+  text-decoration: underline;
+}
+
+.view-types a.active {
+  color: #2f79d5;
+  font-weight: bold;
+}
+
+.chart {
+  position: relative;
+  /* width: 1150px;
+  height: 525px; */
+  width: 100%;
+  height: 100%;
+  min-width: 500px;
+  min-height: 300px;
+  margin: auto;
+}
+
+.chart > div {
+  position: absolute;
+  /* width: 1150px;
+  height: 525px; */
+  width: 100%;
+  height: 100%;
+  min-width: 500px;
+  min-height: 300px;
+}
+
+.chart {
+  /* margin-bottom: 18px; */
+}
+
+.c-chart-region > div:first-child {
+  width: 55%;
+}
+
+.c-chart-region > div:last-child {
+  left: 55%;
+  width: 45%;
+}
+
+.chart-by-region > div {
+  float: left;
+  position: relative;
+  width: 24%;
+}
+
+.chart-by-region > span {
+  float: left;
+  position: relative;
+  width: 2px;
+  height: 525px;
+  background: #e8e8e8;
+}
+
+.chart-by-region > div > h3 {
+  margin-bottom: 10px;
+}
+
+.chart-by-region > div > div {
+  height: 280px;
+}
+
+.chart-by-region > div > div .no-data {
+  line-height: 260px;
+  text-align: center;
+  font-family: 'Open Sans';
+  font-size: 1.15em;
+  font-weight: bold;
+  cursor: default;
+}
+
+.chart-by-region > div > div:last-child {
+  height: 200px;
+  zmargin-top: 20px;
+}
+
+.chart-by-region > div > div:last-child {
+  overflow: hidden;
+  ztransform: translate(-23px, 0);
+}
+
+.chart-by-region > div > div:last-child > *:first-child {
+  zwidth: 632px;
+  width: 75%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  height: 525px;
+  ztransform: scale(.35, .35) translate(-600px, -500px);
+}
+
+svg .chart-titles text {
+  text-transform: uppercase;
+  font-size: .85em;
+}
+
+/*.c-bubbled-lines .value-title,
+     .c-nails-lines .value-title,
+     .c-nails-lines-3 .value-title*/
+svg .value-title {
+  font-size: 1.35em;
+}
+
+.c-bubbled-lines .value-title2 {
+  font-size: .95em;
+}
+
+.c-nails-lines .vertical-bar,
+.c-nails-lines-3 .vertical-bar,
+.c-bubbled-lines .vertical-bar {
+  display: none;
+  width: 2px;
+  background: #e2e2e2;
+  left: 858px;
+  top: 0;
+  height: 100%;
+}
+
+.c-nails-lines .vertical-bar {
+  left: 884px;
+}
+
+.c-nails-lines-3 .vertical-bar {
+  left: 864px;
+}
+
+.c-nails-lines .bottom-legend,
+.c-nails-lines-3 .bottom-legend,
+.c-bubbled-lines .bottom-legend {
+  display: none;
+  width: 100%;
+  height: 50px;
+  bottom: 0;
+}
+
+.c-nails-lines .bottom-legend > div,
+.c-nails-lines-3 .bottom-legend > div,
+.c-bubbled-lines .bottom-legend > div {
+  float: left;
+}
+
+.c-bubbled-lines .bottom-legend > div:first-child {
+  width: 78%;
+}
+
+.c-bubbled-lines .bottom-legend > div:last-child {
+  width: 22%;
+}
+
+.c-nails-lines .bottom-legend > div:first-child,
+.c-nails-lines-3 .bottom-legend > div:first-child {
+  width: 80%;
+  position: relative;
+  top: 20px;
+}
+
+.c-nails-lines .bottom-legend > div:last-child,
+.c-nails-lines-3 .bottom-legend > div:last-child {
+  width: 20%;
+  position: relative;
+  top: 20px;
+}
+
+/**/
+.c-chart-linear-h .bar-title,
+.c-nails-lines-3 .chart-titles text {
+  text-transform: uppercase;
+}
+
+/**/
+.c-for-designer > * {
+  height: 100%;
+  position: relative !important;
+}
+
+.c-for-designer h3 {
+  transform: translateY(20px);
+}
+
+.c-for-designer > :first-child {
+  float: left;
+  width: 49%;
+}
+
+.c-for-designer > .sep {
+  float: left;
+  width: 2px;
+  background: #aaa;
+}
+
+.c-for-designer > :last-child {
+  float: left;
+  width: 49%;
+}
+
+.c-for-designer .c-for-designer-bagel {
+  margin: auto;
+  width: 400px;
+  height: 200px;
+  margin-bottom: 50px;
+}
+
+.c-for-designer > :first-child .c-for-designer-bagel {
+  width: 455px;
+}
+
+.c-for-designer .c-for-designer-bagel {
+  width: 385px;
+  margin-top: 45px;
+}
+
+.c-for-designer .c-for-designer-v {
+  height: 200px;
+  /*margin-left: 10px;*/
+}
+
+.c-for-designer .colors label {
+  font-family: 'Open Sans', sans-serif;
+  margin: 10px 0;
+  margin-left: 20px;
+  font-size: 24px;
+  text-transform: uppercase;
+  display: block;
+  text-align: center;
+}
+
+.c-for-designer .colors .color-brick span {
+  height: 16px;
+  border-radius: 10px;
+  width: 50px;
+  margin-top: 0;
+}
+
+.c-for-designer .colors {
+  width: 70%;
+  margin: 0 auto 30px;
+  zpadding-right: 20px;
+  zborder-right: 2px solid #f5f5f5;
+  box-sizing: border-box;
+}
+
+.c-for-designer .colors > div {
+  height: 16px;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.c-for-designer .colors > div:last-child {
+  border-bottom: none;
+}
+
+.c-for-designer .colors > div > div {
+  float: left;
+  width: 20%;
+  height: 30px;
+}
+
+.c-for-designer .colors > div > div {
+  float: left;
+  width: 20%;
+  height: 16px;
+}
+
+/* city */
+.c-for-designer-city > :first-child {
+  float: left;
+  width: 46%;
+  margin-left: 3%;
+  margin-right: 3%;
+  position: relative !important;
+}
+
+.c-for-designer-city > :first-child svg text.title {
+  zfont-size: 1.5em;
+}
+
+.c-for-designer-city > .bagel > *:first-child {
+  margin-top: 70px;
+  height: 300px;
+  width: 100%;
+}
+
+.c-for-designer-city > .bagel:first-child > *:last-child {
+  margin: auto;
+  margin-top: 10px;
+  width: 200px;
+  height: 100px;
+}
+
+.c-for-designer-city > :last-child {
+  float: left;
+  width: 48%;
+  position: relative !important;
+}
+
+.c-for-designer-city > :last-child > * {
+  height: 525px;
+  width: 100%;
+}
+
+.c-for-designer-city > :last-child > * > * {
+  height: 525px;
+  width: 100%;
+}
+
+.c-for-designer-city .colors label {
+  font-family: 'Open Sans', sans-serif;
+  margin: 30px 0;
+  margin-left: 20px;
+  font-size: 24px;
+  text-transform: uppercase;
+  display: block;
+}
+
+.c-for-designer-city .colors .color-brick span {
+  height: 20px;
+  border-radius: 10px;
+  width: 60px;
+}
+
+.c-for-designer-city .colors {
+  width: 49%;
+  margin-right: 0;
+  padding-right: 20px;
+  border-right: 2px solid #f5f5f5;
+  box-sizing: border-box;
+}
+
+.c-for-designer-city .colors > div {
+  height: 40px;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.c-for-designer-city .colors > div:last-child {
+  border-bottom: none;
+}
+
+.c-for-designer-city .colors > div > div {
+  float: left;
+  width: 20%;
+  height: 40px;
+}
+
+.c-for-designer-city .colors > div > div {
+  float: left;
+  width: 20%;
+  height: 40px;
+}
+
+/**/
+.c-listed-lines {
+  width: 1190px;
+  height: 525px;
+  padding-left: 10px;
+}
+
+.c-listed-lines > div {
+  float: left;
+  width: 32.33%;
+  position: relative;
+  border-right: 2px solid #eee;
+  box-sizing: border-box;
+  padding: 6px;
+  height: auto;
+}
+
+.c-listed-lines div.title {
+  line-height: 54px;
+  font-size: 28px;
+  text-transform: capitalize;
+  border-top-color: transparent;
+  border-bottom-color: transparent !important;
+}
+
+.c-listed-lines > div > div + div {
+  border-top: 2px solid #eee;
+}
+
+.c-listed-lines > div > div:last-child {
+  border-bottom: 2px solid #eee;
+}
+
+.c-listed-lines > div > div.title + div {
+  border-top-color: transparent;
+}
+
+.c-listed-lines > div:last-child {
+  float: left;
+  width: 32.33%;
+  position: relative;
+  border-right: none;
+  box-sizing: border-box;
+  padding: 6px;
+  height: auto;
+}
+
+.c-listed-lines > div:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.c-listed-lines > div > * {
+  clear: both;
+  padding: 2.25px 0;
+  zborder-bottom: 2px solid transparent;
+}
+
+.c-listed-lines > div > *:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.c-listed-lines > div > * > * {
+  float: left;
+}
+
+.c-listed-lines label:first-child {
+  width: 33.33%;
+  box-sizing: border-box;
+  padding-left: 6px;
+  font-family: 'Oswald';
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.c-listed-lines .title label:first-child {
+  width: 10%;
+}
+
+.c-listed-lines .title label:last-child {
+  width: 90%;
+  border-top: 2px solid #eee;
+  margin-top: 27px;
+}
+
+.c-listed-lines > div > * > div {
+  width: 16%;
+  box-sizing: border-box;
+  padding: 4px 4px;
+  zperspective: 20px;
+}
+
+.c-listed-lines > div > * > div span {
+  width: 100%;
+  height: 12px;
+  display: block;
+  border-radius: 4px;
+  transform: rotateX(90deg);
+  transition: .35s cubic-bezier(0, .25, 0.25, 1);
+  opacity: .15;
+}
+
+.c-listed-lines > div > * > div span.show {
+  transform: rotateX(0);
+  opacity: 1;
+}
+
+/**/
+.c-by-season > div {
+  float: left;
+  position: relative;
+}
+
+.c-by-season > div:first-child {
+  width: 50%;
+}
+
+.c-by-season > div:first-child > div {
+  height: 525px;
+}
+
+.c-by-season > div:first-child > div > div:first-child {
+  height: 400px;
+  margin-bottom: 25px;
+  width: 425px;
+  margin: auto;
+
+}
+
+.c-by-season > div:first-child > div > h3 {
+  float: left;
+  margin-left: 25%;
+  margin-top: 27px;
+}
+
+.c-by-season > div:first-child > div > div:last-child {
+  width: 160px;
+  height: 80px;
+  float: left;
+  margin-top: 8px;
+  margin-left: 10px;
+}
+
+.c-by-season > div:last-child {
+  width: 50%;
+}
+
+.c-by-season > div:last-child > div {
+  width: 50%;
+  float: left;
+  height: 275px;
+}
+
+.c-by-season > div:last-child > div > div {
+  width: 175px;
+  height: 180px;
+  margin: auto;
+}
+
+.c-by-season > div:last-child > div > h3 {
+  float: left;
+  margin-left: 0;
+  margin-top: 22px;
+}
+
+.c-by-season > div:last-child > div > div:last-child {
+  width: 160px;
+  height: 80px;
+  float: left;
+  margin-left: 10px;
+}
+
+.c-by-season-colors > :first-child {
+  width: 40%;
+  position: relative;
+  float: left;
+}
+
+.c-by-season-colors .main-season > :first-child {
+  height: 380px;
+  width: 105%;
+}
+
+.c-by-season-colors .main-season > :last-child {
+  height: 80px;
+}
+
+.c-by-season-colors > :last-child {
+  width: 57%;
+  position: relative;
+  float: left;
+  padding-left: 30px;
+  border-left: 2px solid #eee;
+}
+
+.c-by-season-colors .main-season label {
+  line-height: 50px;
+  width: 110px;
+  color: #000000;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  display: block;
+}
+
+.c-by-season-colors .main-season .colors > div {
+  float: left;
+  width: 15.66%;
+  border-right: 1px solid #eee;
+}
+
+.c-by-season-colors .main-season .colors > div:last-child {
+  border: none;
+}
+
+.c-by-season-colors .main-season .color-brick span {
+  width: 18px;
+  height: 60px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.c-by-season-colors .season:first-child {
+  margin-top: 40px;
+}
+
+.c-by-season-colors .season:last-child {
+  border: none;
+}
+
+.c-by-season-colors .season {
+  clear: both;
+  padding: 10px 0;
+  border-bottom: 2px solid #f5f5f5;
+  height: 85px;
+}
+
+.c-by-season-colors .season > * {
+  float: left;
+  height: 90px;
+}
+
+.c-by-season-colors .season label {
+  line-height: 90px;
+  width: 110px;
+  color: #000000;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+}
+
+.c-by-season-colors .season > div {
+  width: 540px;
+}
+
+.c-by-season-colors .season > div > div {
+  width: 20px;
+  float: left;
+}
+
+.c-by-season-colors .season .color-brick:last-child {
+  border-right: none;
+}
+
+.c-by-season-colors .season .color-brick {
+  padding: 13px 2px;
+  border-right: 1px solid #f5f5f5;
+}
+
+.c-by-season-colors .season .color-brick span {
+  width: 8px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+/**/
+.c-color-for {
+}
+
+.c-color-for > div {
+  float: left;
+  position: relative;
+}
+
+.c-color-for > div:first-child {
+  width: 55%;
+  box-sizing: border-box;
+}
+
+.c-color-for > div:last-child {
+  width: 45%;
+}
+
+.c-color-for > div:first-child > div:first-child {
+  height: 425px;
+  width: 425px;
+  margin: auto;
+}
+
+.c-color-for > div:first-child > h3 {
+  float: left;
+  margin-left: 190px;
+  margin-top: 27px;
+}
+
+.c-color-for > div:first-child > div:last-child {
+  width: 160px;
+  height: 80px;
+  float: left;
+  margin-top: 8px;
+  margin-left: 10px;
+}
+
+.c-color-for > div:last-child > div {
+  height: 525px;
+}
+
+/**/
+.c-charts-by-city > div {
+  float: left;
+  position: relative;
+  width: 50%;
+  box-sizing: border-box;
+  padding: 0 10px;
+  height: auto;
+}
+
+.c-charts-by-city > div > div {
+  height: 149px;
+}
+
+.c-charts-by-city > div > div.chart-dots {
+  height: 80px;
+  width: 100%;
+  margin: 10px auto 0;
+}
+
+/**/
+.c-colors-of-year > * {
+  position: relative !important;
+}
+
+.c-colors-of-year > div:first-child {
+  height: 330px;
+  margin-bottom: 10px;
+}
+
+.c-colors-of-year > div:last-child {
+  height: 200px;
+  margin-top: 40px;
+}
+
+/**/
+/**/
+/*body {*/
+/*margin-left: 0;*/
+/*padding-left: 80px;*/
+/*}*/
+
+/**/
+/*.c-by-season > div {*/
+  /*float: left;*/
+  /*position: relative;*/
+/*}*/
+
+/*.c-by-season > div:first-child {*/
+  /*width: 40%;*/
+/*}*/
+
+/*.c-by-season > div:first-child > div {*/
+  /*height: 525px;*/
+/*}*/
+
+/*.c-by-season > div:first-child > div > div:first-child {*/
+  /*height: 400px;*/
+  /*margin-bottom: 25px;*/
+/*}*/
+
+/*.c-by-season > div:first-child > div > h3 {*/
+  /*float: left;*/
+  /*margin-left: 75px;*/
+  /*margin-top: 27px;*/
+/*}*/
+
+/*.c-by-season > div:first-child > div > div:last-child {*/
+  /*width: 160px;*/
+  /*height: 80px;*/
+  /*float: left;*/
+  /*margin-top: 8px;*/
+  /*margin-left: 10px;*/
+/*}*/
+
+/*.c-by-season > div:last-child {*/
+  /*width: 50%;*/
+/*}*/
+
+/*.c-by-season > div:last-child > div {*/
+  /*width: 50%;*/
+  /*float: left;*/
+  /*height: 275px;*/
+/*}*/
+
+/*.c-by-season > div:last-child > div > div {*/
+  /*width: 175px;*/
+  /*height: 180px;*/
+  /*margin: auto;*/
+/*}*/
+
+/*.c-by-season > div:last-child > div > h3 {*/
+  /*float: left;*/
+  /*margin-left: 20px;*/
+  /*margin-top: 22px;*/
+/*}*/
+
+/*.c-by-season > div:last-child > div > div:last-child {*/
+  /*width: 160px;*/
+  /*height: 80px;*/
+  /*float: left;*/
+  /*margin-left: 10px;*/
+/*}*/
+
+/**/
+
+.c-bubbled-lines .value-title2 {
+  font-size: .95em;
+}
+
+.c-nails-lines .vertical-bar,
+.c-nails-lines-3 .vertical-bar,
+.c-bubbled-lines .vertical-bar {
+  display: none;
+  width: 2px;
+  background: #e2e2e2;
+  left: 858px;
+  top: 0;
+  height: 100%;
+}
+
+.c-nails-lines .vertical-bar {
+  left: 884px;
+}
+
+.c-nails-lines-3 .vertical-bar {
+  left: 864px;
+}
+
+.c-nails-lines .bottom-legend,
+.c-nails-lines-3 .bottom-legend,
+.c-bubbled-lines .bottom-legend {
+  display: none;
+  width: 100%;
+  height: 50px;
+  bottom: 0;
+}
+
+.c-nails-lines .bottom-legend > div,
+.c-nails-lines-3 .bottom-legend > div,
+.c-bubbled-lines .bottom-legend > div {
+  float: left;
+}
+
+.c-bubbled-lines .bottom-legend > div:first-child {
+  width: 78%;
+}
+
+.c-bubbled-lines .bottom-legend > div:last-child {
+  width: 22%;
+}
+
+.c-nails-lines .bottom-legend > div:first-child,
+.c-nails-lines-3 .bottom-legend > div:first-child {
+  width: 80%;
+  position: relative;
+  top: 20px;
+}
+
+.c-nails-lines .bottom-legend > div:last-child,
+.c-nails-lines-3 .bottom-legend > div:last-child {
+  width: 20%;
+  position: relative;
+  top: 20px;
+}
+
+/**/
+.c-chart-linear-h .bar-title,
+.c-nails-lines-3 .chart-titles text {
+  text-transform: uppercase;
+}
+
+/* colors */
+
+
+.c-chart-by-city-period-colors > div > div:first-child {
+  height: 425px;
+  padding: 0 15px;
+}
+
+.c-chart-by-city-period-colors > div > div:last-child {
+  height: 100px;
+}
+
+.c-chart-by-city-period-colors > div > div:last-child .titles-group {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.c-chart-by-city-period-colors > div > div:last-child .titles-group .title {
+  transform: translate(37px, 75px);
+}
+
+.c-chart-by-city-period-colors .colors > div {
+  float: left;
+  width: 7.14%;
+  height: 425px;
+  text-align: center;
+}
+
+.c-chart-by-city-period-colors label {
+  font-family: 'Oswald', sans-serif;
+
+}
+
+.color-brick span {
+  display: block;
+  margin: 8px auto;
+  width: 55px;
+  border-radius: 7px;
+  height: 15px;
+  border: 1px solid transparent;
+}
+
+.color-brick.empty span {
+  border: 1px solid #f9f9f9;
+}
