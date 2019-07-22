@@ -415,6 +415,7 @@ angular.module('app').controller('brandingController', [
 		};
 
 		scope.setback = function(){
+			scope.mainParam = '';
 			scope.isLoadingControls = true;
 		}
 	}
