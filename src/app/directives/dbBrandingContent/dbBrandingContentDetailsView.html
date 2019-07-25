@@ -1,120 +1,63 @@
 <div class="db-branding-content-details">
-	<div class="image-details-dialog">
+	<div class="dialog">
 
 		<i class="glyphicon glyphicon-chevron-left" ng-click="LeftButtonHandler()"></i>
 		<i class="glyphicon glyphicon-chevron-right" ng-click="RightButtonHandler()"></i>
 
-		<div class="row">
-			<div class="col cols-6">
-				<div class="row logo_c">LOGO COLORS</div>
-				<div class="row r_entry">
-					<div class="canvass">
-						<canvas id="doughnut" class="chart_i chart-doughnut"
-						  chart-data="data" chart-labels="labels" chart-colors="color" chart-options="option">
-						</canvas>
-					</div>
-					<div style="position: fixed">
-						<div class="color_chart" ng-repeat="item in realdata">
-							<div class="color_hex" style="background-color: {{item.color.hex}};"></div>
-							<div class="percent">{{item.percentage}}%</div>
-						</div>			
-					</div>
-				</div>
-				<div class="row" style="margin-top: 240px">
-					<div class="col-md-3" ng-repeat="item in realdata">
-						<div class="color_hexs" style="background-color: {{item.color.hex}};"></div>
-						<div class="color_name">{{item.title}}</div>
-						<div class="color_value">{{item.color.rgb}}</div>
-						<div class="color_value">{{item.color.hex}}</div>
-					</div>
-				</div>
+		<div class="dialog__header">
+			<div class="button-close">
+				<i class="fa fa-close" ng-click="closeClickHandler()" style="font-size: 15px"></i>
 			</div>
-			<div class="col cols-6">
-				<div class="image-details-header">
-					<div class="button-close"><i class="fa fa-close" ng-click="closeClickHandler()" style="font-size: 15px"></i></div>
-				</div>
-				<div class="image-details">
-					<div class="desc_color">INDUSTRY : {{logodata.bio.industry_title}}</div>
-					<div class="desc_color">CITY : CITY</div>
-					<div class="desc_color">COUNTRY : {{logodata.bio.country}}</div>
-					<div class="desc_color">URL : WWW.URL.com</div>
-		
-					<button type="button" class="btn btn-outline-secondary">
-						<i class="glyphicon glyphicon-plus"></i> &nbsp;&nbsp;&nbsp;
-						ADD TO MOODBOARD
-					</button>
-					<div class="social-icon-groups" style="margin-top: 30px">
-						<span class="fs-4 font-weight-medium">SHARE</span>
-						<i class="fa fa-facebook" ng-click="shareFacebook(data.image_src)"></i>
-						<i class="fab fa-twitter" ng-click="shareTwitter(data.image_src)"></i>
-						<i class="fa fa-pinterest" ng-click="sharePinterest(data.image_src)"></i>
-						<i class="fab fa-google-plus-g" ng-click="shareGooglePlus(data.image_src)"></i>
+		</div>
+		<div class="dialog__body">
+			<div class="row">
+				<div class="col cols-6">
+					<div class="row logo_title">LOGO COLORS</div>
+					<div class="row">
+						<div class="color_chart">
+							<div>
+								<canvas id="doughnut" class="chart_i chart-doughnut" chart-data="data" chart-labels="labels" chart-colors="color" chart-options="option">
+								</canvas>
+							</div>
+							<div>
+								<div class="color_percent" ng-repeat="item in realdata">
+									<div class="color_percent__bar" style="background-color: {{item.color.hex}};"></div>
+									<div>{{item.percentage}}%</div>
+								</div>			
+							</div>
+						</div>
+					</div>
+					<div class="row" style="margin-top: 30px">
+						<div class="col cols-3 color_info" ng-repeat="item in realdata">
+							<div class="color_bar" style="background-color: {{item.color.hex}};"></div>
+							<div class="color_name">{{item.title}}</div>
+							<div class="color_value">{{item.color.rgb}}</div>
+							<div class="color_value">{{item.color.hex}}</div>
+						</div>
 					</div>
 				</div>
-				<div class="dialog-footer"></div>
+				<div class="col cols-6">
+					<div class="logo_details">
+						<div class="sub_title"><strong>INDUSTRY</strong>: {{logodata.bio.industry_title}}</div>
+						<div class="sub_title"><strong>CITY</strong>: CITY</div>
+						<div class="sub_title"><strong>COUNTRY</strong>: {{logodata.bio.country}}</div>
+						<div class="sub_title"><strong>URL</strong>: WWW.URL.com</div>
+			
+						<button type="button" class="btn btn-outline-secondary">
+							<i class="glyphicon glyphicon-plus"></i> &nbsp;&nbsp;&nbsp;
+							ADD TO MOODBOARD
+						</button>
+						<div class="social-icon-groups" style="margin-top: 30px">
+							<span class="fs-4 font-weight-medium">SHARE</span>
+							<i class="fa fa-facebook" ng-click="shareFacebook(data.image_src)"></i>
+							<i class="fab fa-twitter" ng-click="shareTwitter(data.image_src)"></i>
+							<i class="fa fa-pinterest" ng-click="sharePinterest(data.image_src)"></i>
+							<i class="fab fa-google-plus-g" ng-click="shareGooglePlus(data.image_src)"></i>
+						</div>
+					</div>
+					<div class="dialog__footer"></div>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
-<style type="text/css">
-	.desc_color {
-		font-size: 17px;
-		font-family: "Myriad Pro";
-	}
-
-	.color_value {
-		font-size: 9.6px;
-		font-family: "Myriad Pro";
-	}
-
-	i {
-		cursor: pointer;
-	}
-	.color_chart {
-		padding-top: 23px;
-		margin-left: 270px;
-		margin-top: -10px;
-	}
-	.desc {
-		font-size: 18px;
-	}
-	.logo_c {
-		margin-top: 60px;
-		margin-left: -200px !important;
-		font-size: 13px;
-		font-weight: bold;
-	}
-	.canvass {
-		width: 50%;
-		position: absolute;
-		margin-left: -30px;
-	}
-	.color_hex {
-		width: 100%;
-		height: 3px; 
-	}
-	.color_hexs {
-		width: 190%;
-		height: 3px; 
-	}
-	.color_name {
-		font-size: 10px;
-	}
-	.r_entry {
-		margin-top: 30px;
-	}
-	.percent {
-		font-size: 15px;
-	}
-
-	.image-details .btn
-	{
-		font-size:14px;
-	}
-
-	.image-details .social-icon-groups
-	{
-		font-size:14px;
-	}
-</style>
