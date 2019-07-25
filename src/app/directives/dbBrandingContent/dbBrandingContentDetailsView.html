@@ -11,13 +11,13 @@
 				<div class="row r_entry" style="">
 					<div class="canvass">
 						<canvas id="doughnut" class="chart_i chart-doughnut"
-						  chart-data="data" chart-labels="labels" chart-colors="color">
+						  chart-data="data" chart-labels="labels" chart-colors="color" chart-options="option">
 						</canvas>
 					</div>
 					<div style="position: fixed">
 						<div class="color_chart" ng-repeat="item in realdata">
 							<div class="color_hex" style="background-color: {{item.color.hex}};"></div>
-							<div>{{item.percentage}}%</div>
+							<div class="percent">{{item.percentage}}%</div>
 						</div>			
 					</div>
 				</div>
@@ -25,8 +25,8 @@
 					<div class="col-md-3" ng-repeat="item in realdata">
 						<div class="color_hexs" style="background-color: {{item.color.hex}};"></div>
 						<div class="color_name">{{item.title}}</div>
-						<div style="">{{item.color.rgb}}</div>
-						<div style="">{{item.color.hex}}</div>
+						<div class="color_value" style="">{{item.color.rgb}}</div>
+						<div class="color_value" style="">{{item.color.hex}}</div>
 					</div>
 				</div>
 			</div>
@@ -35,10 +35,10 @@
 					<div class="button-close"><i class="fa fa-close" ng-click="closeClickHandler()" style="font-size: 15px"></i></div>
 				</div>
 				<div class="image-details">
-					<div class="desc">INDUSTRY : {{logodata.bio.industry_title}}</div>
-					<div class="desc">CITY : CITY</div>
-					<div class="desc">COUNTRY : {{logodata.bio.country}}</div>
-					<div class="desc">URL : WWW.URL.com</div>
+					<div class="desc_color">INDUSTRY : {{logodata.bio.industry_title}}</div>
+					<div class="desc_color">CITY : CITY</div>
+					<div class="desc_color">COUNTRY : {{logodata.bio.country}}</div>
+					<div class="desc_color">URL : WWW.URL.com</div>
 		
 					<button type="button" class="btn btn-outline-secondary">
 						<i class="glyphicon glyphicon-plus"></i> &nbsp;&nbsp;&nbsp;
@@ -59,6 +59,18 @@
 </div>
 
 <style type="text/css">
+	.desc_color
+	{
+		font-size:22px;
+		font-family: "Myriad Pro";
+	}
+
+	.color_value
+	{
+		font-size:9.6px;
+		font-family: "Myriad Pro";
+	}
+
 	i{
 		cursor: pointer;
 	}
@@ -70,7 +82,10 @@
 	}
 	.logo_c{
 		margin-top: 60px; margin-left: -200px !important;
+		font-size:16.5px;
+		font-weight: bold;
 	}
+
 	.canvass{
 		width: 50%;position: absolute;margin-left:-30px;
 	}
@@ -81,9 +96,14 @@
 		width: 190%;height: 3px; 
 	}
 	.color_name{
-		font-size: 20px;
+		font-size: 13px;
 	}
 	.r_entry{
 		margin-top: 30px;
+	}
+
+	.percent
+	{
+		font-size:20px;
 	}
 </style>
