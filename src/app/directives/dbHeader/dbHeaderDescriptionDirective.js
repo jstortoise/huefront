@@ -49,7 +49,7 @@ angular.module('app').directive('hueDbHeaderDescription', ['$timeout', function 
 
   return {
     restrict: 'E',
-    template: '<div class="description-container" ng-class="{\'three-lines\': textOverflow}"><div class="description-text" ng-bind="text"></div></div><div class="show-button" ng-show="isShowMoreVisible()" ng-click="showMoreClick()">Show More</div><div class="show-button" ng-show="isShowLessVisible()" ng-click="showLessClick()">Show Less</div>',
+    template: '<div class="description-container" ng-class="{\'three-lines\': textOverflow}"><div class="description-text" ng-bind="text"></div></div><div class="show-button" ng-show="isShowMoreVisible()" ng-click="showMoreClick()">More</div><div class="show-button" ng-show="isShowLessVisible()" ng-click="showLessClick()">Less</div>',
     link: link,
     scope: {
       text: '=',
