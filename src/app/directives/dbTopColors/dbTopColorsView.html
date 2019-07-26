@@ -1,9 +1,9 @@
 <div class="db-top-colors row">
-  <div class="bar-section col-sm-8" style="position: absolute; width: 97%; margin-left: -50px;float: left;">
+  <div class="bar-section col-sm-8">
     <canvas id="doughnut" class="chart_i chart-doughnut" chart-data="chartdata" chart-labels="labels" chart-colors="color" chart-options="option">
     </canvas>
   </div>
-  <div class="color-info-container col-sm-4" ng-class="{'color-selected': isColorSelected()}" style="width: 12%; float: right">
+  <div class="color-info-container col-sm-4" ng-class="{'color-selected': isColorSelected()}">
     <div class="color-info" ng-repeat="item in data" ng-click="toggleColor($index)"
          ng-class="{active: isColorSelected($index)}">      
       <div class="color-title" ng-style="{'border-color': item.color.hex}" style="width: 17%;">
@@ -20,6 +20,39 @@
   </div>
 </div>
 <style type="text/css">
-  .bar-section{
+  .db-top-colors .bar-section{
+    position: absolute;
+    width: 97%; 
+    margin-left: -50px;
+    float: left;
+  }
+  .db-top-colors .color-info-container{
+    width: 12%; float: right;
+  }
+  @media (max-width: 1768px) and (min-width: 1395px){    
+    .db-top-colors .bar-section{
+      position: absolute;
+      width: 73%; 
+      margin-left: -24px;
+      float: left;
+    }    
+  .db-top-colors .color-info-container{
+    margin-left: 100px;
+      float: right;
+    }
+  @media (max-width: 1168px) and (min-width: 768px){    
+    .db-top-colors .bar-section{
+      position: absolute;
+      width: 100%; 
+      margin-left: -24px;
+      float: left;
+    }
+  @media (max-width: 767px) and (max-width: 367px) {    
+    .db-top-colors .bar-section{
+      position: absolute;
+      width: 135%; 
+      margin-left: -7px;
+      float: left;
+    }
   }
 </style>
