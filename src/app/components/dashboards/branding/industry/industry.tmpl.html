@@ -3,38 +3,36 @@
   <div class="dashboard-container dashboard-branding-industry">
     <hue-db-header header-title="title" header-icon="iconUrl" icon-type="svg" page-info="pageInfo"></hue-db-header>
 
-    <div class="dashboard-row row-220">
+    <div class="dashboard-row row-220"  ng-if="topColorsData.length > 0">
       <div class="dashboard-cell cell-left">
-        <div class="module-title">Indusry Top 4 Colors
-          <img src="assets/img/icons/expand.svg" class="icon-expand"
-               ng-click="toggleTopColorsExpandedMode()"/>
-          <hue-db-info-icon text-key="top_colors"></hue-db-info-icon>
+        <div>            
+          <div class="module-title">Top four Colors
+            <img src="assets/img/icons/expand.svg" class="icon-expand"
+                 ng-click="toggleTopColorsExpandedMode()"/>
+                 <hue-db-info-icon text-key="color_freq"></hue-db-info-icon>
+                 <p>asssociated with {{title}}</p>
+          </div>
+          <hue-db-top-colors data="topColorsData"></hue-db-top-colors>
         </div>
-        <hue-db-top-colors data="topColorsData"></hue-db-top-colors>
       </div>
       <div class="dashboard-cell cell-right">
-        <div class="module-title">Color Family Frequency For {{title}}
+        <div class="module-title">Color Frequency
           <img src="assets/img/icons/expand.svg"
                class="icon-expand"
                ng-click="toggleColorFrequencyExpandedMode()"/>
-          <hue-db-info-icon text-key="color_freq"></hue-db-info-icon>
+               <hue-db-info-icon text-key="color_freq"></hue-db-info-icon>
+               <p>For the {{title}}</p>          
         </div>
         <hue-db-color-frequency data="colorFrequencyData"></hue-db-color-frequency>
-        <hue-db-color-frequency-expanded data="colorFrequencyData"
-                                         toggle-view="toggleColorFrequencyExpandedMode()"
-                                         ng-if="colorFrequencyExpanded">
-        </hue-db-color-frequency-expanded>
       </div>
     </div>
     <div class="dashboard-row">
       <div class="dashboard-cell">
         <div class="module-title">COLOR ATTRIBUTE ASSOCIATIONS FOR THE DEFENCE INDUSTRY <img
-          src="assets/img/icons/expand.svg" class="icon-expand" ng-click="toggleMapExpandedMode()"/></div>
-        <hue-db-map data="mapsData"></hue-db-map>
-        <hue-db-map-expanded data="mapsData" toggle-view="toggleMapExpandedMode()"
-                             ev-title="Industry Top 4 Colors &amp; Attributes Associated Globally"
-                             ng-if="mapExpanded">
-        </hue-db-map-expanded>
+          src="assets/img/icons/expand.svg" class="icon-expand" ng-click="toggleMapExpandedMode()"/>
+          <hue-db-info-icon text-key="color_freq"></hue-db-info-icon>
+        </div>
+        <hue-db-map data="mapsData"></hue-db-map>       
       </div>
     </div>
   </div>

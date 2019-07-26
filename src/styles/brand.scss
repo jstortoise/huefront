@@ -35,7 +35,76 @@
 		}
 	}
 }
+.dashboard-header .header-page-info .info-cell.cell-2{
+	width:75%;
+}
+.db-map .map-container .map-attributes li{
+	border-right:0px solid #808080 !important;
+	color: #80808063 !important;
+	font-family:"Open Sans" !important;
+	font-size:9.8pt !important;
+}
+.db-map .map-container .color-line{
+	border-bottom:0px solid #ccc !important;
+}
+.dashboard-header .cell-title{
+	font-size:18pt !important;
+	font-family:"Open Sans" !important;
+}
 
+.dashboard-header .cell-content .cell-subtitle{
+	font-size:11pt !important;
+	font-family:"Open Sans" !important;
+}
+.dashboard-header .cell-content .cell-title{
+	font-size:18pt !important;
+	font-weight:bold !important;
+}
+.dashboard-header{
+	height:130px !important;
+}
+.db-map .map-container .map-attributes li.active{
+	color: rgb(0,0,0) !important;
+}
+.dashboard-cell p{
+	font-size:9.8pt !important;
+	font-family:"Open Sans" !important;
+}
+.dashboard-header .header-page-info .info-cell.cell-description .description-container.three-lines{
+	bottom:36px !important;
+}
+.db-map .map-container{
+	width: 23% !important;
+	margin:0 1%;
+	margin-left:-30px;
+	font-family:"Open Sans" !important;
+}
+.show-button{
+	font-family:"Open Sans" !important;
+}
+.dashboard-row .dashboard-cell.cell-left{
+	width:28% !important;
+}
+.db-map{
+	width:100% !important;
+}
+.dashboard-row.row-220{
+	height:290px !important;
+}
+.dashboard-header .header-page-info .info-cell.cell-description .show-button{
+	margin:0px;
+
+}
+.db-color-frequency{
+	height: 55% !important;
+}
+.dashboard-header .header-page-info .info-cell.cell-description .description-container{
+	top:41px !important;
+}
+.show-button{
+	font-size:11.25pt !important;
+	color:rgb(187,0,118) !important;
+}
 .colss-8 {
   width: 12.5%;
 }
