@@ -1,6 +1,6 @@
 <div class="db-map">
 	<div class="map-container" ng-repeat="map in maps">
-		<div class="color-line" style="background-color: {{map.color}}; height: 20px" ></div>
+		<div class="color-line" style="background-color: {{map.color}}; height: 17px" ></div>
 		<ul class="map-attributes">
 			<li ng-repeat="item in map.attributes | limitTo:15" ng-class="{active: $first}" ng-bind="item.title"></li>
 		</ul>
