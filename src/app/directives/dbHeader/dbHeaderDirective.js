@@ -53,7 +53,12 @@ angular.module('app').directive('hueDbHeader', ['$compile', '$timeout', 'searchM
 
       if (newValue) {
         pageInfoScopes = [];
+
         _.each(newValue, function (item) {
+          if(item.tooltip == "#colors")
+          {
+            return;
+          }
           var childScope = scope.$new();
           var compiledDirective;
 
@@ -62,10 +67,13 @@ angular.module('app').directive('hueDbHeader', ['$compile', '$timeout', 'searchM
               compiledDirective = compile(generateCellTag(item) + '<div class="cell-subcontainer"><div class="cell-content"><span class="cell-title" ng-bind="data.title"></span><br /><span class="cell-subtitle" ng-bind="data.subtitle"></span></div></div></div>');
               break;
             case 'countTo':
-              compiledDirective = compile(generateCellTag(item) + '<div class="cell-subcontainer"><div class="cell-content"><span class="cell-title" count-to="{{data.count}}" duration="1"></span><br /><span class="cell-subtitle" ng-bind="data.subtitle"></span></div></div></div>');
-              childScope.openSearchMenuTab = function (tabName) {
-                searchMenuService.openTab(tabName);
-              };
+              if(item.tooltip == "#brands")
+              {
+                compiledDirective = compile(generateCellTag(item) + '<div class="cell-subcontainer"><div class="cell-content"><span class="cell-title" count-to="{{data.count}}" duration="1"></span><br /><span class="cell-subtitle">COMPANIES<br>IN THIS INDUSTRY</span></div></div></div>');
+                childScope.openSearchMenuTab = function (tabName) {
+                  searchMenuService.openTab(tabName);
+                };  
+              }
               break;
             case 'desc':
               compiledDirective = compile(generateCellTag(item) + '<hue-db-header-description text="data.text" header-height="$parent.headerHeight"></hue-db-header-description></div>');
