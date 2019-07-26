@@ -316,7 +316,7 @@ angular.module('app').controller('brandingController', [
 				if (control == "company") {
 					control = "brand";
 				}
-				// $state.go(control + "Branding");
+				 $state.go(control + "Branding");
 			});
 			scope.title1 = choice.title;
 			switch (scope.mainParam) {
@@ -365,7 +365,6 @@ angular.module('app').controller('brandingController', [
 					scope.header_title = 'ATTRIBUTE: ' + choice.title;
 					break;
 				default:
-					//$state.go('branding');
 					scope.disabledControls = {
 						brand: false,
 						industry: false,

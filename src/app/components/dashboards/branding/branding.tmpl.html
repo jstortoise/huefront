@@ -54,7 +54,7 @@ logo color palette, logo color trends 2018"></update-meta>
 			<label style="float: left; font-size: 20px;margin-left: 18px">{{header_title}}</label>
 			<label style="float: right; font-size: 20px;margin-right: 18px; cursor: pointer;" ng-click="setback()"><i class="fa fa-reply"> Back to search </i></label>
 		</div>
-		<div ng-controller="brandingController">
+		<div>
 			<div class="dashboard-container">
 				<label class="title" ng-show="!isSet(3)">{{logo_title}}</label>
 				<label class="title" ng-show="isSet(3)">&nbsp;</label>
@@ -79,8 +79,7 @@ logo color palette, logo color trends 2018"></update-meta>
 					</div>
 					<!-- COLOR DATA -->
 					<div class="tab-pane fade in active" ng-show="isSet(2)">
-						<brandingcolordata>
-						</brandingcolordata>
+						<div class="dashboard-content" ui-view></div>
 					</div>
 				</div>
 			</div>

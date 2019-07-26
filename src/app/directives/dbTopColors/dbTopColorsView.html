@@ -1,13 +1,25 @@
-<div class="db-top-colors">
-  <div class="color-bar" ng-class="{expanded: isColorSelected()}">
-    <div class="bar-section" ng-repeat="item in data"
-         ng-style="{height: getBarHeight($index), 'background-color': item.color.hex}"></div>
+<div class="db-top-colors row">
+  <div class="bar-section col-sm-8" style="position: absolute; width: 97%; margin-left: -50px;float: left;">
+    <canvas id="doughnut" class="chart_i chart-doughnut" chart-data="chartdata" chart-labels="labels" chart-colors="color" chart-options="option">
+    </canvas>
   </div>
-  <div class="color-info-container" ng-class="{'color-selected': isColorSelected()}">
+  <div class="color-info-container col-sm-4" ng-class="{'color-selected': isColorSelected()}" style="width: 12%; float: right">
     <div class="color-info" ng-repeat="item in data" ng-click="toggleColor($index)"
-         ng-class="{active: isColorSelected($index)}">
-      <div class="color-value">{{item.percentage.toFixed()}}<span class="color-value-unit">%</span></div>
-      <div class="color-title" ng-style="{'border-color': item.color.hex}">{{item.title}}</div>
+         ng-class="{active: isColorSelected($index)}">      
+      <div class="color-title" ng-style="{'border-color': item.color.hex}" style="width: 17%;">
+        <div class="color-value" style="padding-top: 5px">{{item.percentage.toFixed()}}<span class="color-value-unit">%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="color_chart">
+    <div>
+      <canvas id="doughnut" class="chart_i chart-doughnut" chart-data="data" chart-labels="labels" chart-colors="color" chart-options="option">
+      </canvas>
     </div>
   </div>
 </div>
+<style type="text/css">
+  .bar-section{
+  }
+</style>
