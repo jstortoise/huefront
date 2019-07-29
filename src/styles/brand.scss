@@ -94,7 +94,12 @@
 }
 .dashboard-header .header-page-info .info-cell.cell-description .show-button{
 	margin:0px;
-
+}
+.dashboard-row .dashboard-cell.cell-right{
+	width:72% !important;
+}
+.db-color-frequency .bar-group.group-not-used{
+	width:9% !important;
 }
 .db-color-frequency{
 	height: 55% !important;
