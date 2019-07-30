@@ -13,8 +13,11 @@
 		<div class="row">
 			<div class="pagination">
 				<ul>
-					<li ng-class="" class="disabled"><a href="javascript:void(0)" ng-click=""><i class="glyphicon glyphicon-arrow-left"></i>BACK</a></li>
-					<li ng-if="page_num1 > 1 && page_num1 == page_count1 - 1">
+					<li ng-class="paginate.current_page == 1?'disabled':''" ng-click="back()"><a href="javascript:void(0)"><i class="glyphicon glyphicon-arrow-left"></i>BACK</a></li>
+					<li ng-repeat="item in range(1,paginate.total_pages)" ng-class="item == paginate.current_page?'active':''" ng-click="selectpage(item)">
+						<a href="javascript:void(0)">{{item}}</a>
+					<li>
+					<!-- <li ng-if="page_num1 > 1 && page_num1 == page_count1 - 1">
 						<a href="javascript:void(0)" ng-click="setPage1(page_num1 - 2)">{{page_num1 - 1}}</a>
 					</li>
 					<li ng-if="page_num1 > 0">
@@ -28,8 +31,8 @@
 					</li>	
 					<li ng-if="page_num1 ==0 && page_num1 < page_count1 - 2">
 						<a href="javascript:void(0)" ng-click="setPage1(page_num1 + 2)">{{page_num1 + 3}}</a>
-					</li>
-					<li ng-class="" class="disabled"><a href="javascript:void(0)" ng-click="">NEXT<i class="glyphicon glyphicon-arrow-right"></i></a></li>
+					</li> -->
+					<li ng-class="paginate.current_page == paginate.total_pages?'disabled':''" ng-click="next()"><a href="javascript:void(0)">NEXT<i class="glyphicon glyphicon-arrow-right"></i></a></li>
 				</ul>
 			</div>
 		</div>
