@@ -2,7 +2,6 @@ angular.module('app').directive('brandingcontentdetail', function ($timeout, sea
   function link(scope, element, attrs,rootScope) {
     scope.allData = scope.data;
     //scope.data = scope.allData.data[scope.allData.index];
-
     scope.labels = [];
     scope.data = [];
     scope.color = [];
@@ -42,25 +41,26 @@ angular.module('app').directive('brandingcontentdetail', function ($timeout, sea
       window.open('https://plus.google.com/share?url=' + url);
     }
     //social_link_end
-    // scope.LeftButtonHandler = function () {
-    //   let index = scope.allData.index;
-    //   if (index > 0) {
-    //     index--;
-    //   }
-    //   scope.allData.index = index;
-    //   scope.data = scope.allData.data[index];
-    // };
+    scope.LeftButtonHandler = function () {
+      let index = scope.logodata.index;
 
-    // scope.RightButtonHandler = function () {
-    //   try {
-    //     let index = scope.allData.index;
-    //     if (index < scope.allData.data.length - 1) {
-    //       index++;
-    //     }
-    //     scope.allData.index = index;
-    //     scope.data = scope.allData.data[index];
-    //   } catch (e) {}
-    // }
+      if (index > 0) {
+        index--;
+      }
+      scope.logodata = scope.totaldata[index];
+      scope.logodata.index = index;
+    };
+
+    scope.RightButtonHandler = function () {
+      try {
+        let index = scope.logodata.index;
+        if (index < scope.totaldata.length - 1) {
+          index++;
+        }
+        scope.logodata = scope.totaldata[index];
+        scope.logodata.index = index;
+      } catch (e) {}
+    }
   }
 
   return {
@@ -72,7 +72,8 @@ angular.module('app').directive('brandingcontentdetail', function ($timeout, sea
       onClose: '&',
       closefunction:"=",
       chartdetail:"=",
-      titledetail:"="
+      titledetail:"=",
+      totaldata:"="
     }
   };
 });

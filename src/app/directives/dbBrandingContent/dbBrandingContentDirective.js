@@ -19,12 +19,13 @@ angular.module('app').directive('brandingcontent', [
 					data: []
 				};
 				imagedata.image_src = "http://huestorage.s3.amazonaws.com/" + imagedata.logo_url;
+				imagedata.index = index;
 				// calc by page num
 				data.index = scope.page_num * scope.page_limit + index;
 				scope.imageDetailsData = imagedata;
 				scope.toggleImageDetails();
 			};
-
+			
 		}
 
 		return {
@@ -35,7 +36,8 @@ angular.module('app').directive('brandingcontent', [
 				originalData: '=data',
 				companies:"=",
 				chart:"=",
-				title:"="
+				title:"=",
+				pagecount:"="
 			}
 		};
 	}
