@@ -312,6 +312,9 @@ angular.module('app').controller('brandingController', [
 			scope.isLoadingControls = false;
 			searchMenuRepository.getControlsDataBrandingBind(control, choice.id, { page: 1, per_page: 15 }).then(function(data) {
 				scope.logo = data.logo_colors;
+				scope.paginate = data.paginate;
+				scope.control = control;
+				scope.industryid = choice.id;
 				scope.isLoadingControls = false;
 				if (control == "company") {
 					control = "brand";
