@@ -14,7 +14,7 @@
 			<div class="pagination">
 				<ul>
 					<li ng-class="paginate.current_page == 1?'disabled':''" ng-click="back()"><a href="javascript:void(0)"><i class="glyphicon glyphicon-arrow-left"></i>BACK</a></li>
-					<li ng-repeat="item in range(1,paginate.total_pages)" ng-class="item == paginate.current_page?'active':''" ng-click="selectpage(item)">
+					<li ng-repeat="item in range(1,paginate.total_pages)" ng-class="item == paginate.current_page?'active':''" ng-click="selectpage(item)" ng-if="item >paginate.current_page - 3 &&  item < paginate.current_page + 3">
 						<a href="javascript:void(0)">{{item}}</a>
 					<li>
 					<!-- <li ng-if="page_num1 > 1 && page_num1 == page_count1 - 1">
