@@ -2,7 +2,7 @@ angular.module('app').directive('hueTopIndustriesChart', ['$timeout', '$location
 	function link(scope, element, attrs) {
 		var config = scope.config;
 
-		var donutWidth = scope.config.donutWidth ? scope.config.donutWidth : 20;
+		var donutWidth = 7;
 		var diameter = scope.config.diameter;
 		var outerRadius = diameter / 2;
 		var innerSectionRadius = outerRadius - donutWidth;

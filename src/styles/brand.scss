@@ -113,9 +113,45 @@
 	bottom:33px !important;
 	top:40px !important;
 }
-
+.dashboard-row .dashboard-cell.cell-right .module-title-attr{
+	width:22%;
+	float:left;
+	font-family:"Open Sans" !important;
+	font-weight:700 !important;
+	font-size:14px !important;
+	text-transform:uppercase;
+	margin-top:30px;
+	padding:18px 0;
+}
+.db-top-industries .industry-item .industry-value{
+	font-size:25px !important;
+	font-family:"Open Sans" !important;
+	line-height:85px !important;
+	width:90px !important;
+}
+.db-top-industries .industry-item .industry-value .value-unit{
+	font-size:25px !important;
+	font-family:"Open Sans" !important;
+}
+.db-top-industries .industry-item .industry-caption{
+	font-family:"Open Sans" !important;
+	width:100px !important;
+	line-height: 75px !important;
+}
+.db-top-industries .industry-item .industry-caption{
+}
+.dashboard-branding-attribute .dashboard-row.dashboard-attribute{
+	height:300px !important;
+}
+.db-top-industries .industry-item{
+	margin-right:0px !important;
+}
 .dashboard-row .module-title{
 	font-family:"Open Sans" !important;	
+}
+hue-db-top-industries .db-top-industries{
+	width:78%;
+	float:right;
 }
 .show-button{
 	font-size:11.25pt !important;

@@ -2,14 +2,14 @@
 	<div class="dialog">
 		<div class="dialog__header">
 			<div class="button-close">
-				<i class="fa fa-times" ng-click="closeClickHandler()" style="font-size: 25px"></i>
+				<i class="fa fa-times" ng-click="closeClickHandler()"></i>
 			</div>
 		</div>
 		<i class="fa fa-angle-left" ng-click="LeftButtonHandler()" style="font-size: 30px;position: absolute;margin-top: 200px;margin-left: 7px"></i>
 		<div class="dialog__body">
 			<div class="row">
 				<div class="col cols-6">
-					<label class="title" style="font-size: 25px !important">{{comtitle}}</label>
+					<label class="title" style="font-size: 23px !important">{{comtitle}}</label>
 					<div class="row logo_title">LOGO COLORS</div>
 					<div class="row">
 						<div class="color_chart">
@@ -20,7 +20,7 @@
 							<div style="margin-left: -55px">
 								<div class="color_percent" ng-repeat="item in realdata">
 									<div class="color_percent__bar" style="background-color: {{item.color.hex}};"></div>
-									<div>{{item.percentage}}%</div>
+									<div class="per">{{item.percentage.toFixed()}}%</div>
 								</div>			
 							</div>
 						</div>
@@ -59,7 +59,7 @@
 				</div>
 			</div>
 		</div>
-		<i class="fa fa-angle-right" ng-click="RightButtonHandler()" style="float: right;margin-top: -200px; font-size: 30px;width: 17px"></i>
+		<i class="fa fa-angle-right" ng-click="RightButtonHandler()" style="float: right;margin-top: -210px; font-size: 30px;width: 17px"></i>
 	</div>
 </div>
 <style type="text/css">
@@ -74,6 +74,7 @@
 	}
 	.logo_title{
 		margin-top: 35px;
+		font-size: 13px !important;
 	}
 	.logo_details{
 		line-height: 17px !important;
@@ -102,5 +103,9 @@
 	}
 	.social-icon-groups{
 		font-size: 18px !important;
+	}
+	.per{
+		font-size: 13px !important;
+		font-weight: bold;
 	}
 </style>
