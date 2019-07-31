@@ -1,25 +1,23 @@
 <div class="db-branding-content-details">
 	<div class="dialog">
-
-		<i class="glyphicon glyphicon-chevron-left" ng-click="LeftButtonHandler()"></i>
-		<i class="glyphicon glyphicon-chevron-right" ng-click="RightButtonHandler()"></i>
-
 		<div class="dialog__header">
 			<div class="button-close">
-				<i class="fa fa-close" ng-click="closeClickHandler()" style="font-size: 15px"></i>
+				<i class="fa fa-times" ng-click="closeClickHandler()" style="font-size: 25px"></i>
 			</div>
 		</div>
+		<i class="fa fa-angle-left" ng-click="LeftButtonHandler()" style="font-size: 30px;position: absolute;margin-top: 200px;margin-left: 7px"></i>
 		<div class="dialog__body">
 			<div class="row">
 				<div class="col cols-6">
+					<span class="title">{{comtitle}}</span>
 					<div class="row logo_title">LOGO COLORS</div>
 					<div class="row">
 						<div class="color_chart">
-							<div>
+							<div style="">
 								<canvas id="doughnut" class="chart_i chart-doughnut" chart-data="data" chart-labels="labels" chart-colors="color" chart-options="option">
 								</canvas>
 							</div>
-							<div>
+							<div style="margin-left: -55px">
 								<div class="color_percent" ng-repeat="item in realdata">
 									<div class="color_percent__bar" style="background-color: {{item.color.hex}};"></div>
 									<div>{{item.percentage}}%</div>
@@ -27,7 +25,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="row" style="margin-top: 30px">
+					<div class="row" style="margin-top: 35px">
 						<div class="col cols-3 color_info" ng-repeat="item in realdata">
 							<div class="color_bar" style="background-color: {{item.color.hex}};"></div>
 							<div class="color_name">{{item.title}}</div>
@@ -36,7 +34,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col cols-6">
+				<div class="col cols-6 contents">
 					<div class="logo_details">
 						<div class="sub_title"><strong>INDUSTRY</strong>: {{logodata.bio.industry_title}}</div>
 						<div class="sub_title"><strong>CITY</strong>: CITY</div>
@@ -45,7 +43,7 @@
 			
 						<button type="button" class="btn btn-outline-secondary">
 							<i class="glyphicon glyphicon-plus"></i> &nbsp;&nbsp;&nbsp;
-							ADD TO MOODBOARD
+							<span>ADD TO MOODBOARD</span>
 						</button>
 						<div class="social-icon-groups" style="margin-top: 30px">
 							<span class="fs-4 font-weight-medium">SHARE</span>
@@ -55,9 +53,43 @@
 							<i class="fab fa-google-plus-g" ng-click="shareGooglePlus(data.image_src)"></i>
 						</div>
 					</div>
-					<div class="dialog__footer"></div>
+					<div>
+						<img class="logo_footer" src="../assets/images/logo-black.png" id="logo" alt="logo">
+					</div>
 				</div>
 			</div>
 		</div>
+		<i class="fa fa-angle-right" ng-click="RightButtonHandler()" style="float: right;margin-top: -200px; font-size: 30px;width: 17px"></i>
 	</div>
 </div>
+<style type="text/css">
+	.sub_title, .color_info, .color_percent, .logo_title, span{
+		font-family:"Open Sans" !important;
+	}
+	.dialog__body .cols-6 .title{
+		margin-left:70px;
+		font-size:25px;
+		font-weight:bold;
+	}
+	.logo_title{
+		margin-top: 35px;
+	}
+	.logo_details{
+		line-height: 17px !important;
+		margin-top: 50px;
+	}
+	.color_chart{
+		margin-left: -23px;
+	}
+	.contents{
+		margin-top: -50px;
+		border-left: 1px solid #ebebeb;
+		height: 500px;
+		margin-bottom: -120px;
+	}
+	.logo_footer{
+		width: 40% !important;
+		margin-top: 90px;
+		float: right;
+	}
+</style>

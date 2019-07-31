@@ -2,6 +2,7 @@ angular.module('app').directive('brandingcontentdetail', function ($timeout, sea
   function link(scope, element, attrs,rootScope) {
     scope.allData = scope.data;
     //scope.data = scope.allData.data[scope.allData.index];
+    console.log(scope.comtitle);
     scope.labels = [];
     scope.data = [];
     scope.color = [];
@@ -73,7 +74,8 @@ angular.module('app').directive('brandingcontentdetail', function ($timeout, sea
       closefunction:"=",
       chartdetail:"=",
       titledetail:"=",
-      totaldata:"="
+      totaldata:"=",
+      comtitle:"="
     }
   };
 });

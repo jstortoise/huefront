@@ -8,7 +8,6 @@ angular.module('app').directive('brandingcontent', [
 			scope.imageDetailsData = null;
 			window.scr = scope
 			scope.collectionDataList = [];
-
 			scope.toggleImageDetails = function () {
 				scope.showImageDetails = scope.showImageDetails ? false : true;
 			};
@@ -25,6 +24,9 @@ angular.module('app').directive('brandingcontent', [
 				data.index = scope.page_num * scope.page_limit + index;
 				scope.imageDetailsData = imagedata;
 				scope.toggleImageDetails();
+
+				scope.companytitle = scope.companies[index].company_title;
+				console.log(scope.companytitle);
 			};
 			
 			scope.range = function(index,value)
